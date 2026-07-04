@@ -39,8 +39,8 @@ class BaselineClassifier:
         self.model_version = model_version
         self.is_trained    = False
 
-        # ---- BUILD THE PIPELINE ----
-        # A Pipeline chains steps so they run in sequence.
+       
+        
         # Step 1: TF-IDF converts text to number vectors
         # Step 2: Logistic Regression classifies those vectors
         self.pipeline = Pipeline([
@@ -48,7 +48,6 @@ class BaselineClassifier:
                 "tfidf",
                 TfidfVectorizer(
                     # Use single words AND two-word pairs
-                    # "not working" as a pair is more informative than separately
                     ngram_range=(1, 2),
 
                     # Ignore words in more than 90% of tickets — too common to be useful
@@ -68,7 +67,6 @@ class BaselineClassifier:
             (
                 "classifier",
                 LogisticRegression(
-                    # C controls regularization strength
                     # Higher C = fits training data more closely
                     # Lower C = more conservative, better generalization
                     C=5.0,

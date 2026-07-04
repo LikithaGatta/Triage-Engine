@@ -1,0 +1,15 @@
+artifact_uri: /Users/likithagatta/Developer/Personal Projects/Triage-Engine/triage-engine/mlruns/541749605180489852/9c9622acdb2d461dab8cd73c7e86a975/artifacts
+end_time: 1783194147343
+entry_point_name: ''
+experiment_id: '541749605180489852'
+lifecycle_stage: active
+run_id: 9c9622acdb2d461dab8cd73c7e86a975
+run_name: distilbert_v2.0.0
+run_uuid: 9c9622acdb2d461dab8cd73c7e86a975
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1783194147329
+status: 3
+tags: []
+user_id: likithagatta

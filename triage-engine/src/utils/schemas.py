@@ -5,9 +5,6 @@ from typing import Optional
 from pydantic import BaseModel, Field, field_validator
 
 
-# ----------------------------------------------------------------
-# ENUMS — predefined sets of allowed values
-# ----------------------------------------------------------------
 
 class Category(str, Enum):
     """The 6 categories our classifier predicts."""
@@ -31,7 +28,7 @@ class UrgencyLevel(str, Enum):
 # ----------------------------------------------------------------
 
 class RawTicket(BaseModel):
-    """A ticket exactly as it arrives — raw, uncleaned."""
+    """A ticket exactly as it arrives """
     ticket_id: str
     subject:   str = ""
     body:      str
@@ -46,7 +43,7 @@ class RawTicket(BaseModel):
 
 
 class ProcessedTicket(BaseModel):
-    """A ticket after preprocessing — cleaned and ready for ML."""
+    """A ticket after preprocessing"""
     ticket_id:      str
     raw_subject:    str
     raw_body:       str

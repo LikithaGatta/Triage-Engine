@@ -1,0 +1,56 @@
+ticket_id,subject,body,category,urgency,source
+REAL-00000,,I cannot get into my account to check my invoice,account_access,normal,manual_real
+REAL-00001,,Locked out and my subscription renews tomorrow,account_access,normal,manual_real
+REAL-00002,,Cannot login to download my receipt,account_access,normal,manual_real
+REAL-00003,,My payment went through but I still cannot access premium features,account_access,normal,manual_real
+REAL-00004,,The upgrade button is broken — clicking it does nothing,billing,normal,manual_real
+REAL-00005,,Your payment page crashes before I can complete checkout,billing,normal,manual_real
+REAL-00006,,I keep getting an error when trying to update my card,billing,normal,manual_real
+REAL-00007,,The invoice download link is not working,billing,normal,manual_real
+REAL-00008,,The export never finishes — just spins forever,bug_report,normal,manual_real
+REAL-00009,,Search results take so long they just timeout,bug_report,normal,manual_real
+REAL-00010,,Page loads but then goes blank after a few seconds,bug_report,normal,manual_real
+REAL-00011,,The dashboard shows a loading spinner that never goes away,bug_report,normal,manual_real
+REAL-00012,,Is there a way to get notified when reports are ready?,feature_request,normal,manual_real
+REAL-00013,,How can I export all my data at once?,feature_request,normal,manual_real
+REAL-00014,,Can I set up automatic billing reports?,feature_request,normal,manual_real
+REAL-00015,,Is there an option to see all team activity in one place?,feature_request,normal,manual_real
+REAL-00016,,What exactly does the Business plan include?,general,normal,manual_real
+REAL-00017,,How is my usage calculated for billing purposes?,general,normal,manual_real
+REAL-00018,,When does my billing cycle reset?,general,normal,manual_real
+REAL-00019,,What happens to my data if I downgrade?,general,normal,manual_real
+REAL-00020,,"Everything is really slow today, not sure if it's a bug",performance,normal,manual_real
+REAL-00021,,"Some features load fine, others take forever or fail",performance,normal,manual_real
+REAL-00022,,It was fast yesterday but today nothing loads properly,performance,normal,manual_real
+REAL-00023,,"Half the buttons work instantly, the other half just hang",performance,normal,manual_real
+REAL-00024,,I was charged twice this month and need a refund immediately,billing,normal,manual_real
+REAL-00025,,My invoice has the wrong company name on it,billing,normal,manual_real
+REAL-00026,,I cancelled before the renewal date but was still charged,billing,normal,manual_real
+REAL-00027,,Please send me a receipt for my last payment,billing,normal,manual_real
+REAL-00028,,I need to update my credit card before it expires,billing,normal,manual_real
+REAL-00029,,The annual plan discount was not applied to my invoice,billing,normal,manual_real
+REAL-00030,,The app crashes immediately when I open it on iPhone,bug_report,normal,manual_real
+REAL-00031,,Getting a 500 error on every page since the update,bug_report,normal,manual_real
+REAL-00032,,My data was deleted and I did not delete it,bug_report,normal,manual_real
+REAL-00033,,Password reset sends an email but the link does not work,bug_report,normal,manual_real
+REAL-00034,,Two factor auth code is accepted but then login fails anyway,bug_report,normal,manual_real
+REAL-00035,,The bulk import always fails at exactly 1000 rows,bug_report,normal,manual_real
+REAL-00036,,Please add the ability to schedule automated reports,feature_request,normal,manual_real
+REAL-00037,,Would love a Zapier integration for our workflows,feature_request,normal,manual_real
+REAL-00038,,Can you add keyboard shortcuts for common actions?,feature_request,normal,manual_real
+REAL-00039,,Please allow us to customize the dashboard layout,feature_request,normal,manual_real
+REAL-00040,,We need role-based access controls for our enterprise team,feature_request,normal,manual_real
+REAL-00041,,My account was locked after too many login attempts,account_access,normal,manual_real
+REAL-00042,,I need to transfer ownership of the account to a colleague,account_access,normal,manual_real
+REAL-00043,,Two factor authentication is blocking me and I lost my phone,account_access,normal,manual_real
+REAL-00044,,Can you add another admin to our team account?,account_access,normal,manual_real
+REAL-00045,,My SSO provider changed and now I cannot log in,account_access,normal,manual_real
+REAL-00046,,Reports that used to take 2 seconds now take 2 minutes,performance,normal,manual_real
+REAL-00047,,The search function has gotten noticeably slower this week,performance,normal,manual_real
+REAL-00048,,Large file uploads time out before completing,performance,normal,manual_real
+REAL-00049,,The mobile app is much slower than the web version,performance,normal,manual_real
+REAL-00050,,What is the difference between the Pro and Business plans?,general,normal,manual_real
+REAL-00051,,Do you offer a discount for nonprofits?,general,normal,manual_real
+REAL-00052,,Is your platform GDPR compliant?,general,normal,manual_real
+REAL-00053,,How do I contact support for urgent issues?,general,normal,manual_real
+REAL-00054,,What is your uptime SLA for enterprise customers?,general,normal,manual_real

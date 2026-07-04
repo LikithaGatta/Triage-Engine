@@ -35,221 +35,263 @@ class SyntheticTicketGenerator:
         # --- BILLING TICKETS ---
         # Tickets related to charges, refunds, invoices, and payment issues, etc.
         Category.BILLING: [
-            ("double_charge",
-             "I was charged twice for my {plan} subscription this month. "
-             "I see two charges of ${amount} on my statement. "
-             "Please issue a refund for one of them."),
- 
-            ("refund_request",
-             "I cancelled my subscription on {date} but was still charged ${amount}. "
-             "I need a full refund processed immediately."),
- 
-            ("wrong_amount",
-             "My invoice shows ${wrong_amount} but I should only be on the {plan} plan "
-             "at ${correct_amount} per month. Please correct this and refund the difference."),
- 
-            ("update_payment",
-             "I need to update my credit card on file. "
-             "The old card ending in {last4} expired. "
-             "How do I update my payment method?"),
- 
-            ("invoice_question",
-             "Can you send me an invoice for my last payment? "
-             "I need it for expense reporting with company name: {company}."),
-        ],
+        ("double_charge",
+         "I was charged twice for my {plan} subscription. "
+         "Two identical charges of ${amount} appeared on my statement. Please refund one."),
+        
+        ("refund_request",
+         "I cancelled {days} days ago but got billed again. This is the {complaint}. "
+         "I need my ${amount} back immediately."),
+        
+        ("wrong_amount",
+         "My invoice shows ${wrong_amount} but my plan is ${correct_amount} per month. "
+         "Please fix this and refund the difference."),
+        
+        ("update_payment",
+         "My card ending in {last4} expired. How do I update payment before the next cycle?"),
+       
+        ("invoice_question",
+         "Can you send a PDF invoice for my last payment? "
+         "My company needs it for expense reporting. Name on invoice: {company}."),
+        
+        ("unexpected_charge",
+         "I have no idea what this ${amount} charge is for. "
+         "I do not remember signing up for anything new. Can you explain this?"),
+        
+        ("downgrade_billing",
+         "I downgraded my plan {time_ref} but I am still being charged the {plan} rate. "
+         "This needs to be corrected and backdated."),
+    ],
 
         # --- Bug REPORT TICKETS ---
         # Tickets related to software bugs, crashes, errors, and other technical issues that users are experiencing with the product.
         Category.BUG_REPORT: [
-            ("crash",
-             "The app crashes every time I try to {action}. "
-             "I am on {platform} version {version}. "
-             "This started after the last update. Error message: {error}"),
- 
-            ("feature_broken",
-             "The {feature} feature is completely broken. "
-             "When I click it nothing happens. "
-             "I have tried clearing cache and logging out. Same issue on Chrome and Firefox."),
- 
-            ("data_not_saving",
-             "My {data_type} are not being saved. "
-             "I fill out the form, click save, get a success message, "
-             "but when I refresh the page nothing is there."),
- 
-            ("login_broken",
-             "Cannot log in at all. "
-             "I enter my password, it says incorrect, but I know it is right. "
-             "Password reset email never arrives. Tried four times now."),
- 
-            ("api_error",
-             "Getting 500 internal server error on all API calls to the endpoint. "
-             "This is blocking our entire integration. "
-             "Started happening at approximately {time} UTC today."),
-        ],
+        ("crash",
+         "The app crashes {time_ref} when I try to {action}. "
+         "I am on {platform}. Error message: {error}"),
+        
+        ("feature_broken",
+         "The {feature} stopped working completely. "
+         "Clicking it does nothing. Tried different browsers — same issue."),
+        
+        ("data_not_saving",
+         "My {data_type} disappear after saving. I get the green success message "
+         "but everything is gone when I refresh. This is {complaint}."),
+        
+        ("login_broken",
+         "Cannot get into my account at all. Password is correct, "
+         "reset email never arrives. Tried {days} times now."),
+        
+        ("api_error",
+         "All API calls to your service are returning 500 errors {time_ref}. "
+         "This is blocking our entire production deployment. Error: {error}"),
+        
+        ("display_bug",
+         "The numbers on the {page} dashboard are wrong. "
+         "They do not match our actual data at all. Looks like a calculation error."),
+        
+        ("intermittent_bug",
+         "Sometimes the {feature} works fine, sometimes it just fails silently. "
+         "No error message. Cannot reproduce consistently but it happens daily."),
+    ],
+
  
         # --- FEATURE REQUEST TICKETS ---
         # Tickets related to users requesting new features, improvements, or enhancements to the product.
         Category.FEATURE_REQUEST: [
-            ("dark_mode",
-             "Would love a dark mode option for the dashboard. "
-             "Spending 8 hours a day in the tool and the bright white background strains my eyes."),
- 
-            ("export",
-             "Please add the ability to export {data_type} to {format}. "
-             "Currently I have to manually copy everything which takes hours each month."),
- 
-            ("bulk_action",
-             "It would save so much time if I could {action} multiple {items} at once "
-             "instead of one by one. Our team manages over 500 {items}."),
- 
-            ("integration",
-             "Do you have an integration with {tool}? "
-             "We use it heavily and switching between apps is a major workflow problem."),
- 
-            ("notification",
-             "Please add email notifications when {event}. "
-             "I keep missing important updates because I have to manually check."),
-        ],
+        ("dark_mode",
+         "Any plans for a dark mode? Spending all day in the tool and the bright "
+         "white interface is really straining my eyes."),
+        
+        ("export",
+         "We desperately need the ability to export {data_type} to {format}. "
+         "Currently copying everything manually which takes hours."),
+        
+        ("bulk_action",
+         "Please add bulk {action} for {items}. Doing it one at a time for 500+ records "
+         "is {complaint}."),
+        
+        ("integration",
+         "Does {tool} integration exist? If not, any plans to add it? "
+         "It would completely change our workflow."),
+        
+        ("notification",
+         "Would love email or Slack notifications when {event}. "
+         "I miss things because I cannot monitor the dashboard all day."),
+        
+        ("mobile_app",
+         "Is there a mobile app or is one planned? "
+         "I need to check on things when I am away from my desk."),
+        
+        ("api_access",
+         "We would love API access to {data_type} so we can build our own integrations. "
+         "Is this on the roadmap at all?"),
+    ],
  
         # --- ACCOUNT ACCESS TICKETS ---
         # Tickets related to users having trouble accessing their accounts, managing team members, or other account-related issues.
         Category.ACCOUNT_ACCESS: [
-            ("locked_out",
-             "I am locked out of my account. "
-             "I have not logged in for {days} days and now it will not accept my password. "
-             "The reset email never comes through."),
- 
-            ("transfer",
-             "I need to transfer my account to a new email address. "
-             "My old email is no longer accessible. "
-             "Can you help me update it?"),
- 
-            ("team_access",
-             "I need to add a new team member with {role} permissions. "
-             "We are on the {plan} plan. How do I do this?"),
- 
-            ("two_fa_issue",
-             "I lost access to my authenticator app and cannot get past two factor authentication. "
-             "I have my backup codes but the field will not accept them. Please help urgently."),
- 
-            ("account_merge",
-             "I have two accounts with different emails and want to merge them into one. "
-             "Is this possible? I would like to keep all data from both accounts."),
-        ],
+        ("locked_out",
+         "Completely locked out. Have not been able to log in for {days} days. "
+         "Reset emails are not coming through."),
+        
+        ("transfer",
+         "Need to move my account to a different email address. "
+         "Old email is no longer accessible. What is the process?"),
+        
+        ("team_access",
+         "How do I add a new team member with {role} access? "
+         "We are on the {plan} plan and cannot figure out the settings."),
+        
+        ("two_fa_issue",
+         "Lost my authenticator app. Cannot get past 2FA. "
+         "Have backup codes but they are not being accepted. This is urgent."),
+        
+        ("account_merge",
+         "I accidentally created two accounts. Can they be merged? "
+         "I want to keep all the data from both if possible."),
+        
+        ("sso_issue",
+         "Our SSO login is broken {time_ref}. "
+         "The whole team cannot access the platform. This is completely blocking us."),
+    ],
  
         # --- PERFORMANCE TICKETS ---
         # Tickets related to the product being slow, timing out, using too much memory, or other performance-related issues that impact the user experience.
-        Category.PERFORMANCE: [
-            ("slow_loading",
-             "The {page} page is taking {seconds} seconds to load. "
-             "It was instant before. This is severely impacting our whole team's productivity."),
- 
-            ("timeout",
-             "Exports are timing out. Every time I try to export {data_type} "
-             "with more than {count} records it spins for a few minutes then fails."),
- 
-            ("slow_search",
-             "Search is extremely slow. "
-             "Typing in the search box takes {seconds} seconds to show results. "
-             "Makes the product nearly unusable for our daily workflow."),
- 
-            ("memory_leak",
-             "The browser tab for your app uses several gigabytes of RAM "
-             "after being open for a few hours. It slows our entire machine down."),
-        ],
+         Category.PERFORMANCE: [
+        ("slow_loading",
+         "The {page} page takes {seconds} seconds to load {time_ref}. "
+         "It was instant before. Our whole team is affected."),
+        
+        ("timeout",
+         "Exports keep timing out. Any {data_type} report with more than {count} rows fails. "
+         "I need this data urgently."),
+        
+        ("slow_search",
+         "Search results take {seconds} seconds to appear after typing. "
+         "Makes the product nearly impossible to use efficiently."),
+        
+        ("memory_leak",
+         "The browser tab uses more and more memory over time and eventually crashes. "
+         "Have to refresh every hour or so."),
+        
+        ("slow_load_charts",
+         "Charts and graphs on the analytics page take forever to render. "
+         "Sometimes they never load at all."),
+    ],
  
         # --- GENERAL TICKETS ---
         # Tickets related to general questions, onboarding, compatibility, how-to's, and other non-urgent inquiries that users have about the product.
-        Category.GENERAL: [
-            ("general_question",
-             "I have a question about {topic}. "
-             "Can you point me to the right resource or connect me with someone who can help?"),
- 
-            ("onboarding",
-             "We just signed up for the {plan} plan and are getting started. "
-             "Do you have onboarding resources or can we schedule a call with your team?"),
- 
-            ("compatibility",
-             "Does your product work with {tool}? "
-             "We are evaluating vendors and this is an important requirement for us."),
- 
-            ("how_to",
-             "How do I {task}? "
-             "I have looked in the documentation but cannot find a clear answer."),
-        ],
-    }
+       Category.GENERAL: [
+        ("general_question",
+         "Quick question about {topic} — could not find a clear answer in the docs. "
+         "Can someone point me in the right direction?"),
+        
+        ("onboarding",
+         "Just signed up for {plan} and getting started. "
+         "Is there an onboarding guide or someone we can talk to?"),
+        
+        ("compatibility",
+         "Does your platform work with {tool}? "
+         "Evaluating options right now and this is a key requirement."),
+       
+        ("how_to",
+         "How do I {task}? The documentation is not very clear on this step."),
+        
+        ("pricing_question",
+         "What is included in the {plan} plan exactly? "
+         "Trying to figure out if we need to upgrade before committing to annual."),
+        
+        ("cancellation",
+         "How do I cancel my subscription? "
+         "I cannot find the option anywhere in the settings."),
+    ],
+}
 
     # Urgency rules based on category and issue type to determine how quickly the support team needs to respond to each ticket.
     URGENCY_RULES = {
-        Category.BILLING: {
-            "double_charge":     UrgencyLevel.HIGH,     
-            "refund_request":    UrgencyLevel.HIGH,     
-            "wrong_amount":      UrgencyLevel.NORMAL,   
-            "update_payment":    UrgencyLevel.NORMAL,   
-            "invoice_question":  UrgencyLevel.NORMAL,   
-        },
-        Category.BUG_REPORT: {
-            "crash":             UrgencyLevel.CRITICAL,  
-            "feature_broken":    UrgencyLevel.HIGH,      
-            "data_not_saving":   UrgencyLevel.HIGH,      
-            "login_broken":      UrgencyLevel.CRITICAL, 
-            "api_error":         UrgencyLevel.CRITICAL,  
-        },
-        Category.FEATURE_REQUEST: {
-            "dark_mode":         UrgencyLevel.NORMAL,   
-            "export":            UrgencyLevel.NORMAL,   
-            "bulk_action":       UrgencyLevel.NORMAL,   
-            "integration":       UrgencyLevel.NORMAL,   
-            "notification":      UrgencyLevel.NORMAL,  
-        },
-        Category.ACCOUNT_ACCESS: {
-            "locked_out":        UrgencyLevel.HIGH,      
-            "transfer":          UrgencyLevel.NORMAL,   
-            "team_access":       UrgencyLevel.NORMAL,    
-            "two_fa_issue":      UrgencyLevel.CRITICAL,  
-            "account_merge":     UrgencyLevel.NORMAL,    
-        },
-        Category.PERFORMANCE: {
-            "slow_loading":      UrgencyLevel.HIGH,      
-            "timeout":           UrgencyLevel.HIGH,      
-            "slow_search":       UrgencyLevel.HIGH,      
-            "memory_leak":       UrgencyLevel.HIGH,      
-        },
-        Category.GENERAL: {
-            "general_question":  UrgencyLevel.NORMAL,
-            "onboarding":        UrgencyLevel.NORMAL,
-            "compatibility":     UrgencyLevel.NORMAL,
-            "how_to":            UrgencyLevel.NORMAL,
-        },
-    }
+    Category.BILLING: {
+        "double_charge":      UrgencyLevel.HIGH,
+        "refund_request":     UrgencyLevel.HIGH,
+        "wrong_amount":       UrgencyLevel.NORMAL,
+        "update_payment":     UrgencyLevel.NORMAL,
+        "invoice_question":   UrgencyLevel.NORMAL,
+        "unexpected_charge":  UrgencyLevel.HIGH,
+        "downgrade_billing":  UrgencyLevel.NORMAL,
+    },
+    Category.BUG_REPORT: {
+        "crash":              UrgencyLevel.CRITICAL,
+        "feature_broken":     UrgencyLevel.HIGH,
+        "data_not_saving":    UrgencyLevel.HIGH,
+        "login_broken":       UrgencyLevel.CRITICAL,
+        "api_error":          UrgencyLevel.CRITICAL,
+        "display_bug":        UrgencyLevel.HIGH,
+        "intermittent_bug":   UrgencyLevel.HIGH,
+    },
+    Category.FEATURE_REQUEST: {
+        "dark_mode":          UrgencyLevel.NORMAL,
+        "export":             UrgencyLevel.NORMAL,
+        "bulk_action":        UrgencyLevel.NORMAL,
+        "integration":        UrgencyLevel.NORMAL,
+        "notification":       UrgencyLevel.NORMAL,
+        "mobile_app":         UrgencyLevel.NORMAL,
+        "api_access":         UrgencyLevel.NORMAL,
+    },
+    Category.ACCOUNT_ACCESS: {
+        "locked_out":         UrgencyLevel.HIGH,
+        "transfer":           UrgencyLevel.NORMAL,
+        "team_access":        UrgencyLevel.NORMAL,
+        "two_fa_issue":       UrgencyLevel.CRITICAL,
+        "account_merge":      UrgencyLevel.NORMAL,
+        "sso_issue":          UrgencyLevel.CRITICAL,
+    },
+    Category.PERFORMANCE: {
+        "slow_loading":       UrgencyLevel.HIGH,
+        "timeout":            UrgencyLevel.HIGH,
+        "slow_search":        UrgencyLevel.HIGH,
+        "memory_leak":        UrgencyLevel.HIGH,
+        "slow_load_charts":   UrgencyLevel.NORMAL,
+    },
+    Category.GENERAL: {
+        "general_question":   UrgencyLevel.NORMAL,
+        "onboarding":         UrgencyLevel.NORMAL,
+        "compatibility":      UrgencyLevel.NORMAL,
+        "how_to":             UrgencyLevel.NORMAL,
+        "pricing_question":   UrgencyLevel.NORMAL,
+        "cancellation":       UrgencyLevel.NORMAL,
+    },
+}
     # Random values to replace the placeholders in the templates.
     FILL_VALUES = {
-        "plan":          ["Pro", "Business", "Enterprise", "Starter", "Team"],
-        "amount":        ["49", "99", "149", "299", "19", "29"],
-        "date":          ["January 15", "February 3", "last week", "two weeks ago"],
-        "platform":      ["macOS", "Windows 11", "iOS 17", "Android", "Ubuntu"],
-        "version":       ["2.4.1", "3.0.0", "1.9.5", "latest"],
-        "action":        ["upload a file", "export data", "save changes", "run a report"],
-        "feature":       ["bulk edit", "export", "search", "notifications", "dashboard"],
-        "data_type":     ["contacts", "reports", "projects", "invoices", "files"],
-        "format":        ["CSV", "Excel", "PDF", "JSON"],
-        "items":         ["contacts", "records", "tasks", "projects"],
-        "tool":          ["Slack", "HubSpot", "Salesforce", "Zapier", "Notion", "Jira"],
-        "event":         ["a payment fails", "a new comment is added", "a task is assigned"],
-        "days":          ["30", "60", "90", "14"],
-        "role":          ["admin", "editor", "viewer", "billing manager"],
-        "page":          ["dashboard", "reports", "analytics", "settings", "contacts"],
-        "seconds":       ["10", "15", "30", "45", "60"],
-        "count":         ["1000", "5000", "10000", "500"],
-        "topic":         ["pricing", "data export", "user permissions", "security", "the API"],
-        "task":          ["bulk delete records", "set up SSO", "configure webhooks"],
-        "error":         ["500 Internal Server Error", "Connection refused", "Timeout"],
-        "last4":         ["4242", "1234", "5678", "9012"],
-        "wrong_amount":  ["199", "299", "149"],
-        "correct_amount":["49", "99", "79"],
-        "company":       ["Acme Corp", "Tech Solutions Inc", "Global Ventures LLC"],
-        "time":          ["14:30", "09:15", "18:45"],
-    }
+    "plan":          ["Pro", "Business", "Enterprise", "Starter", "Team", "Basic"],
+    "amount":        ["49", "99", "149", "299", "19", "29", "79"],
+    "date":          ["January 15", "February 3", "last week", "two weeks ago", "last month"],
+    "platform":      ["macOS Ventura", "Windows 11", "iOS 17", "Android 14", "Ubuntu 22"],
+    "action":        ["upload a file", "export a report", "save my changes", "run an analysis"],
+    "feature":       ["bulk edit", "export", "search", "notifications", "the dashboard", "filters"],
+    "data_type":     ["contacts", "reports", "transactions", "projects", "invoices", "records"],
+    "format":        ["CSV", "Excel", "PDF", "JSON", "Google Sheets"],
+    "items":         ["contacts", "records", "tasks", "transactions", "invoices"],
+    "tool":          ["Slack", "HubSpot", "Salesforce", "Zapier", "Notion", "Jira", "QuickBooks"],
+    "event":         ["a payment fails", "a report finishes", "a task gets assigned to me"],
+    "days":          ["3", "5", "7", "14", "30"],
+    "role":          ["admin", "editor", "read-only", "billing manager"],
+    "page":          ["dashboard", "analytics", "reports", "settings", "billing"],
+    "seconds":       ["10", "15", "20", "30", "45"],
+    "count":         ["500", "1000", "5000", "10000"],
+    "topic":         ["user permissions", "data export limits", "API rate limits", "billing cycles"],
+    "task":          ["export historical data", "set up SSO", "bulk delete old records"],
+    "error":         ["500 Internal Server Error", "Request timeout", "Authentication failed"],
+    "last4":         ["4242", "1234", "5678", "9012"],
+    "wrong_amount":  ["199", "299", "149", "99"],
+    "correct_amount":["49", "79", "99", "29"],
+    "company":       ["Acme Corp", "Tech Solutions Inc", "Bright Ventures LLC", "NovaCo"],
+    "time":          ["14:30", "09:15", "18:45", "23:00"],
+    "complaint":     ["absolutely unacceptable", "very frustrating", "the third time this month",
+                      "causing us serious problems", "a major issue for our team"],
+    "time_ref":      ["since the last update", "starting yesterday", "for the past week",
+                      "after we upgraded plans", "randomly throughout the day"],
+}
 
 
     def _fill_template(self, template: str) -> str:
@@ -363,27 +405,43 @@ class DatasetLoader:
  
     def load_or_generate(self, n_synthetic_per_category: int = 150) -> pd.DataFrame:
         """
-        Load existing processed data if available, otherwise generate.
- 
-        Args:
-            n_synthetic_per_category: Synthetic tickets per category
-        Returns:
-            Full dataset DataFrame
+        Load dataset from disk if it exists, otherwise generate it.
+        If real ticket data exists in data/raw/, mix it with synthetic data.
         """
         processed_path = PROCESSED_DIR / "full_dataset.csv"
- 
+        real_data_path = RAW_DIR / "real_tickets.csv"
+
         if processed_path.exists():
             logger.info(f"Loading existing dataset from {processed_path}")
             df = pd.read_csv(processed_path)
             logger.info(f"Loaded {len(df):,} tickets")
             return df
- 
-        logger.info("No existing dataset found. Generating synthetic data...")
-        df = self.generator.generate(n_per_category=n_synthetic_per_category)
+
+        logger.info("Generating synthetic data...")
+        df_synthetic = self.generator.generate(
+            n_per_category=n_synthetic_per_category
+        )
+
+        # Mix in real data if available
+        if real_data_path.exists():
+            logger.info(f"Mixing in real ticket data from {real_data_path}")
+            df_real = pd.read_csv(real_data_path)
+
+            # Only keep categories we support
+            valid_cats = {c.value for c in Category}
+            df_real = df_real[df_real["category"].isin(valid_cats)]
+
+            df = pd.concat([df_synthetic, df_real], ignore_index=True)
+            logger.info(f"Combined: {len(df_synthetic)} synthetic + {len(df_real)} real = {len(df)} total")
+        else:
+            df = df_synthetic
+            logger.info("No real data found — using synthetic only")
+            logger.info("Run scripts/download_real_data.py to add real tickets")
+
         df.to_csv(processed_path, index=False)
         logger.info(f"Saved dataset to {processed_path}")
         return df
- 
+
     def load_kaggle_twitter_data(self, filepath: str) -> Optional[pd.DataFrame]:
         """
         Load and map the Kaggle 'Customer Support on Twitter' dataset.

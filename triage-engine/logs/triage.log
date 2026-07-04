@@ -356,3 +356,926 @@ DEMO: Predicting a single example ticket
 2026-06-17 02:49:44 | INFO     |        git commit -m "Week 1: baseline classifier complete"
 2026-06-17 02:49:44 | INFO     |        git push
 2026-06-17 02:49:44 | INFO     | ============================================================
+2026-06-30 12:22:06 | INFO     | ============================================================
+2026-06-30 12:22:06 | INFO     | WEEK 2: DISTILBERT FINE-TUNING
+2026-06-30 12:22:06 | INFO     | Epochs: 3 | Batch: 16 | LR: 2e-05
+2026-06-30 12:22:06 | INFO     | ============================================================
+2026-06-30 12:22:06 | INFO     | 
+[Step 1 of 4] Loading data...
+2026-06-30 12:22:06 | INFO     | Loaded existing splits: 720 train, 180 test
+2026-06-30 12:22:06 | INFO     | Train: 720 tickets | Test: 180 tickets
+2026-06-30 12:22:06 | INFO     | 
+[Step 2 of 4] Loading Week 1 baseline for comparison...
+2026-06-30 12:22:06 | INFO     | Model loaded from models/baseline_v1.0.0.joblib
+2026-06-30 12:22:06 | INFO     | Evaluating on 180 test tickets...
+2026-06-30 12:22:06 | INFO     | 
+==================================================
+CLASSIFICATION REPORT
+==================================================
+                 precision    recall  f1-score   support
+
+ account_access       1.00      1.00      1.00        30
+        billing       1.00      1.00      1.00        30
+     bug_report       1.00      1.00      1.00        30
+feature_request       1.00      1.00      1.00        30
+        general       1.00      1.00      1.00        30
+    performance       1.00      1.00      1.00        30
+
+       accuracy                           1.00       180
+      macro avg       1.00      1.00      1.00       180
+   weighted avg       1.00      1.00      1.00       180
+
+2026-06-30 12:22:06 | INFO     | Overall accuracy: 100.0%
+2026-06-30 12:22:06 | INFO     | Macro F1 score:   100.0%
+2026-06-30 12:22:06 | INFO     | Avg confidence:   96.2%
+2026-06-30 12:22:06 | INFO     | Auto-route rate:  100.0% of tickets have confidence >= 75%
+2026-06-30 12:22:06 | INFO     | Classification report saved to models/classification_report.txt
+2026-06-30 12:22:06 | INFO     | Week 1 baseline accuracy: 100.0%
+2026-06-30 12:22:06 | INFO     | 
+[Step 3 of 4] Fine-tuning DistilBERT...
+2026-06-30 12:22:06 | INFO     | First run will download DistilBERT (~250MB). Please wait...
+2026-06-30 12:22:06 | INFO     | Using Apple Silicon GPU (MPS) for training
+2026-06-30 12:22:06 | INFO     | Loading tokenizer from HuggingFace: distilbert-base-uncased
+2026-06-30 12:22:07 | INFO     | Loading model from HuggingFace: distilbert-base-uncased
+2026-06-30 12:22:35 | INFO     | Model loaded successfully
+2026-06-30 12:22:35 | INFO     | Model parameters: 66,958,086
+2026-06-30 12:22:35 | INFO     | Fine-tuning DistilBERT on 720 training tickets
+2026-06-30 12:22:35 | INFO     | Epochs: 3 | Batch size: 16 | LR: 2e-05
+2026-06-30 12:22:35 | INFO     | Tokenizing training set...
+2026-06-30 12:22:35 | INFO     | Tokenizing test set...
+2026-06-30 12:22:36 | INFO     | Starting fine-tuning...
+2026-06-30 12:22:36 | INFO     | You will see progress bars for each epoch below:
+2026-06-30 12:25:48 | INFO     | Fine-tuning complete
+2026-06-30 12:25:48 | INFO     | Running final evaluation on test set...
+2026-06-30 12:25:50 | INFO     | Test accuracy: 100.0%
+2026-06-30 12:25:50 | INFO     | Macro F1:      100.0%
+2026-06-30 12:25:51 | INFO     | Fine-tuned model saved to models/distilbert_finetuned
+2026-06-30 12:25:51 | INFO     | 
+[Step 4 of 4] Results
+2026-06-30 12:25:51 | INFO     | 
+============================================================
+2026-06-30 12:25:51 | INFO     | WEEK 2 RESULTS SUMMARY
+2026-06-30 12:25:51 | INFO     | ============================================================
+2026-06-30 12:25:51 | INFO     |   Training tickets:        720
+2026-06-30 12:25:51 | INFO     |   Test tickets:            180
+2026-06-30 12:25:51 | INFO     | 
+2026-06-30 12:25:51 | INFO     |   DistilBERT accuracy:     100.0%
+2026-06-30 12:25:51 | INFO     |   DistilBERT Macro F1:     100.0%
+2026-06-30 12:25:51 | INFO     | 
+2026-06-30 12:25:51 | INFO     |   Week 1 baseline:         100.0%
+2026-06-30 12:25:51 | INFO     |   Week 2 DistilBERT:       100.0%
+2026-06-30 12:25:51 | INFO     |   Improvement:             +0.0% (0.0 percentage points)
+2026-06-30 12:25:51 | INFO     | 
+2026-06-30 12:25:51 | INFO     |   YOUR RESUME BULLET:
+2026-06-30 12:25:51 | INFO     |   Fine-tuned DistilBERT on 720 labeled support
+2026-06-30 12:25:51 | INFO     |   tickets, achieving 100% routing accuracy —
+2026-06-30 12:25:51 | INFO     |   a 0-point improvement over the TF-IDF baseline.
+2026-06-30 12:25:51 | INFO     | ============================================================
+2026-06-30 12:25:51 | INFO     | 
+DEMO: Live ticket predictions
+2026-06-30 12:25:51 | INFO     | ----------------------------------------
+2026-06-30 12:25:52 | INFO     |   Ticket:    'I was charged twice this month for my Pro subscription....'
+2026-06-30 12:25:52 | INFO     |   Predicted: billing              Confidence: 73.8%  [==============]
+2026-06-30 12:25:52 | INFO     |   Auto-routed: False
+2026-06-30 12:25:52 | INFO     | 
+2026-06-30 12:25:52 | INFO     |   Ticket:    'The app crashes every single time I try to upload a fil...'
+2026-06-30 12:25:52 | INFO     |   Predicted: bug_report           Confidence: 43.0%  [========]
+2026-06-30 12:25:52 | INFO     |   Auto-routed: False
+2026-06-30 12:25:52 | INFO     | 
+2026-06-30 12:25:52 | INFO     |   Ticket:    'Would love a dark mode option — my eyes hurt after 8 ho...'
+2026-06-30 12:25:52 | INFO     |   Predicted: feature_request      Confidence: 56.1%  [===========]
+2026-06-30 12:25:52 | INFO     |   Auto-routed: False
+2026-06-30 12:25:52 | INFO     | 
+2026-06-30 12:25:52 | INFO     |   Ticket:    'I am completely locked out of my account and the reset ...'
+2026-06-30 12:25:52 | INFO     |   Predicted: account_access       Confidence: 73.5%  [==============]
+2026-06-30 12:25:52 | INFO     |   Auto-routed: False
+2026-06-30 12:25:52 | INFO     | 
+2026-06-30 12:25:52 | INFO     |   Ticket:    'The dashboard takes 45 seconds to load. It was instant ...'
+2026-06-30 12:25:52 | INFO     |   Predicted: performance          Confidence: 64.5%  [============]
+2026-06-30 12:25:52 | INFO     |   Auto-routed: False
+2026-06-30 12:25:52 | INFO     | 
+2026-06-30 12:25:52 | INFO     | ============================================================
+2026-06-30 12:25:52 | INFO     | NEXT STEPS
+2026-06-30 12:25:52 | INFO     | ============================================================
+2026-06-30 12:25:52 | INFO     |   1. View both experiments in MLflow:
+2026-06-30 12:25:52 | INFO     |        mlflow ui  →  http://localhost:5000
+2026-06-30 12:25:52 | INFO     |        Compare triage_baseline vs triage_distilbert side by side
+2026-06-30 12:25:52 | INFO     | 
+2026-06-30 12:25:52 | INFO     |   2. Commit to GitHub:
+2026-06-30 12:25:52 | INFO     |        git add .
+2026-06-30 12:25:52 | INFO     |        git commit -m "Week 2: DistilBERT fine-tuned, XX% accuracy"
+2026-06-30 12:25:52 | INFO     |        git push
+2026-06-30 12:25:52 | INFO     | 
+2026-06-30 12:25:52 | INFO     |   3. Update your README with the new accuracy numbers
+2026-06-30 12:25:52 | INFO     | 
+2026-06-30 12:25:52 | INFO     |   4. When ready → Week 3: SHAP explainability layer
+2026-06-30 12:25:52 | INFO     | ============================================================
+2026-07-04 13:44:55 | INFO     | ============================================================
+2026-07-04 13:44:55 | INFO     | WEEK 1: BASELINE CLASSIFIER TRAINING
+2026-07-04 13:44:55 | INFO     | Settings: 150 tickets/category, 20% test set, model v1.0.0
+2026-07-04 13:44:55 | INFO     | ============================================================
+2026-07-04 13:44:55 | INFO     | 
+[Step 1 of 4] Loading data...
+2026-07-04 13:44:55 | INFO     | No existing dataset found. Generating synthetic data...
+2026-07-04 13:44:55 | INFO     | Generated 900 synthetic tickets
+2026-07-04 13:44:55 | INFO     | Category distribution:
+category
+billing            150
+bug_report         150
+feature_request    150
+account_access     150
+performance        150
+general            150
+2026-07-04 13:44:55 | INFO     | Saved dataset to data/processed/full_dataset.csv
+2026-07-04 13:44:55 | INFO     | Dataset loaded: 900 tickets, 6 columns
+2026-07-04 13:44:55 | INFO     | 
+Category counts:
+category
+billing            150
+bug_report         150
+feature_request    150
+account_access     150
+performance        150
+general            150
+2026-07-04 13:44:55 | INFO     | 
+Urgency counts:
+urgency
+normal      459
+high        312
+critical    129
+2026-07-04 13:44:55 | INFO     | 
+[Step 2 of 4] Preprocessing text...
+2026-07-04 13:44:55 | INFO     | TicketPreprocessor ready
+2026-07-04 13:44:55 | INFO     | Preprocessing 900 tickets...
+2026-07-04 13:44:56 | INFO     | Preprocessing complete
+2026-07-04 13:44:56 | INFO     | 
+PREPROCESSING EXAMPLE:
+2026-07-04 13:44:56 | INFO     |   Category:  billing
+2026-07-04 13:44:56 | INFO     |   Raw body:  I cancelled my subscription on two weeks ago but was still charged $29. I need a full refund process...
+2026-07-04 13:44:56 | INFO     |   Processed: none cancelled subscription two week ago still charged need full refund processed immediately...
+2026-07-04 13:44:56 | INFO     |   Words kept: 13
+2026-07-04 13:44:56 | INFO     | Tickets remaining: 900
+2026-07-04 13:44:56 | INFO     | 
+[Step 3 of 4] Splitting into train and test sets...
+2026-07-04 13:44:56 | INFO     | Train: 720 tickets | Test: 180 tickets
+2026-07-04 13:44:56 | INFO     | Test category distribution:
+category
+account_access     30
+bug_report         30
+feature_request    30
+general            30
+billing            30
+performance        30
+2026-07-04 13:44:56 | INFO     | Train: 720 tickets saved to data/processed/train.csv
+2026-07-04 13:44:56 | INFO     | Test:  180 tickets saved to data/processed/test.csv
+2026-07-04 13:44:56 | INFO     | 
+[Step 4 of 4] Training and evaluating...
+2026-07-04 13:44:56 | INFO     | Training model on training set...
+2026-07-04 13:44:56 | INFO     | Training on 720 tickets...
+2026-07-04 13:44:56 | INFO     | Fitting TF-IDF + Logistic Regression pipeline...
+2026-07-04 13:44:56 | INFO     | Train accuracy: 100.0% (not the real metric — see test accuracy)
+2026-07-04 13:44:56 | INFO     | Model saved to models/baseline_v1.0.0.joblib
+2026-07-04 13:44:56 | INFO     | Training accuracy: 100.0%
+2026-07-04 13:44:56 | INFO     | Evaluating on held-out test set...
+2026-07-04 13:44:56 | INFO     | Evaluating on 180 test tickets...
+2026-07-04 13:44:56 | INFO     | 
+==================================================
+CLASSIFICATION REPORT
+==================================================
+                 precision    recall  f1-score   support
+
+ account_access       1.00      1.00      1.00        30
+        billing       1.00      1.00      1.00        30
+     bug_report       1.00      1.00      1.00        30
+feature_request       1.00      1.00      1.00        30
+        general       1.00      1.00      1.00        30
+    performance       1.00      1.00      1.00        30
+
+       accuracy                           1.00       180
+      macro avg       1.00      1.00      1.00       180
+   weighted avg       1.00      1.00      1.00       180
+
+2026-07-04 13:44:56 | INFO     | Overall accuracy: 100.0%
+2026-07-04 13:44:56 | INFO     | Macro F1 score:   100.0%
+2026-07-04 13:44:56 | INFO     | Avg confidence:   96.2%
+2026-07-04 13:44:56 | INFO     | Auto-route rate:  100.0% of tickets have confidence >= 75%
+2026-07-04 13:44:56 | INFO     | Classification report saved to models/classification_report.txt
+2026-07-04 13:44:56 | INFO     | 
+============================================================
+2026-07-04 13:44:56 | INFO     | WEEK 1 RESULTS SUMMARY
+2026-07-04 13:44:56 | INFO     | ============================================================
+2026-07-04 13:44:56 | INFO     |   Total tickets:      900
+2026-07-04 13:44:56 | INFO     |   Training set:       720
+2026-07-04 13:44:56 | INFO     |   Test set:           180
+2026-07-04 13:44:56 | INFO     | 
+2026-07-04 13:44:56 | INFO     |   Test accuracy:      100.0%
+2026-07-04 13:44:56 | INFO     |   Macro F1 score:     100.0%
+2026-07-04 13:44:56 | INFO     |   Avg confidence:     96.2%
+2026-07-04 13:44:56 | INFO     |   Auto-route rate:    100.0%
+2026-07-04 13:44:56 | INFO     |   (tickets where model confidence >= 75%)
+2026-07-04 13:44:56 | INFO     | 
+2026-07-04 13:44:56 | INFO     |   Write down your test accuracy.
+2026-07-04 13:44:56 | INFO     |   Week 2 DistilBERT will beat it by ~25-30 points.
+2026-07-04 13:44:56 | INFO     |   That improvement is your resume headline metric.
+2026-07-04 13:44:56 | INFO     | ============================================================
+2026-07-04 13:44:56 | INFO     | 
+DEMO: Predicting a single example ticket
+2026-07-04 13:44:56 | INFO     | ----------------------------------------
+2026-07-04 13:44:56 | INFO     |   Ticket:    'I was charged twice this month for my Pro subscription. I see two char...'
+2026-07-04 13:44:56 | INFO     |   Predicted: billing
+2026-07-04 13:44:56 | INFO     |   Confidence:95.9%
+2026-07-04 13:44:56 | INFO     |   Auto-routed: True
+2026-07-04 13:44:56 | INFO     |   All category probabilities:
+2026-07-04 13:44:56 | INFO     |     billing                95.9%  [===================]
+2026-07-04 13:44:56 | INFO     |     feature_request        1.1%  []
+2026-07-04 13:44:56 | INFO     |     account_access         0.9%  []
+2026-07-04 13:44:56 | INFO     |     general                0.8%  []
+2026-07-04 13:44:56 | INFO     |     bug_report             0.7%  []
+2026-07-04 13:44:56 | INFO     |     performance            0.7%  []
+2026-07-04 13:44:56 | INFO     | 
+============================================================
+2026-07-04 13:44:56 | INFO     | NEXT STEPS
+2026-07-04 13:44:56 | INFO     | ============================================================
+2026-07-04 13:44:56 | INFO     |   1. View your MLflow experiment dashboard:
+2026-07-04 13:44:56 | INFO     |        mlflow ui
+2026-07-04 13:44:56 | INFO     |        Open: http://localhost:5000
+2026-07-04 13:44:56 | INFO     | 
+2026-07-04 13:44:56 | INFO     |   2. Open the Jupyter notebook:
+2026-07-04 13:44:56 | INFO     |        jupyter notebook notebooks/week1_eda.ipynb
+2026-07-04 13:44:56 | INFO     | 
+2026-07-04 13:44:56 | INFO     |   3. Run the test suite:
+2026-07-04 13:44:56 | INFO     |        pytest tests/ -v
+2026-07-04 13:44:56 | INFO     | 
+2026-07-04 13:44:56 | INFO     |   4. Commit your work to GitHub:
+2026-07-04 13:44:56 | INFO     |        git add .
+2026-07-04 13:44:56 | INFO     |        git commit -m "Week 1: baseline classifier complete"
+2026-07-04 13:44:56 | INFO     |        git push
+2026-07-04 13:44:56 | INFO     | ============================================================
+2026-07-04 13:45:07 | INFO     | ============================================================
+2026-07-04 13:45:07 | INFO     | WEEK 2: DISTILBERT FINE-TUNING
+2026-07-04 13:45:07 | INFO     | Epochs: 3 | Batch: 16 | LR: 2e-05
+2026-07-04 13:45:07 | INFO     | ============================================================
+2026-07-04 13:45:07 | INFO     | 
+[Step 1 of 4] Loading data...
+2026-07-04 13:45:07 | INFO     | Loaded existing splits: 720 train, 180 test
+2026-07-04 13:45:07 | INFO     | Train: 720 tickets | Test: 180 tickets
+2026-07-04 13:45:07 | INFO     | 
+[Step 2 of 4] Loading Week 1 baseline for comparison...
+2026-07-04 13:45:07 | INFO     | Model loaded from models/baseline_v1.0.0.joblib
+2026-07-04 13:45:07 | INFO     | Evaluating on 180 test tickets...
+2026-07-04 13:45:07 | INFO     | 
+==================================================
+CLASSIFICATION REPORT
+==================================================
+                 precision    recall  f1-score   support
+
+ account_access       1.00      1.00      1.00        30
+        billing       1.00      1.00      1.00        30
+     bug_report       1.00      1.00      1.00        30
+feature_request       1.00      1.00      1.00        30
+        general       1.00      1.00      1.00        30
+    performance       1.00      1.00      1.00        30
+
+       accuracy                           1.00       180
+      macro avg       1.00      1.00      1.00       180
+   weighted avg       1.00      1.00      1.00       180
+
+2026-07-04 13:45:07 | INFO     | Overall accuracy: 100.0%
+2026-07-04 13:45:07 | INFO     | Macro F1 score:   100.0%
+2026-07-04 13:45:07 | INFO     | Avg confidence:   96.2%
+2026-07-04 13:45:07 | INFO     | Auto-route rate:  100.0% of tickets have confidence >= 75%
+2026-07-04 13:45:07 | INFO     | Classification report saved to models/classification_report.txt
+2026-07-04 13:45:07 | INFO     | Week 1 baseline accuracy: 100.0%
+2026-07-04 13:45:07 | INFO     | 
+[Step 3 of 4] Fine-tuning DistilBERT...
+2026-07-04 13:45:07 | INFO     | First run will download DistilBERT (~250MB). Please wait...
+2026-07-04 13:45:07 | INFO     | Using Apple Silicon GPU (MPS) for training
+2026-07-04 13:45:07 | INFO     | Loading tokenizer from HuggingFace: distilbert-base-uncased
+2026-07-04 13:45:07 | INFO     | Loading model from HuggingFace: distilbert-base-uncased
+2026-07-04 13:45:08 | INFO     | Model loaded successfully
+2026-07-04 13:45:08 | INFO     | Model parameters: 66,958,086
+2026-07-04 13:45:08 | INFO     | Fine-tuning DistilBERT on 720 training tickets
+2026-07-04 13:45:08 | INFO     | Epochs: 3 | Batch size: 16 | LR: 2e-05
+2026-07-04 13:45:08 | INFO     | Tokenizing training set...
+2026-07-04 13:45:09 | INFO     | Tokenizing test set...
+2026-07-04 13:45:10 | INFO     | Starting fine-tuning...
+2026-07-04 13:45:10 | INFO     | You will see progress bars for each epoch below:
+2026-07-04 13:48:11 | INFO     | Fine-tuning complete
+2026-07-04 13:48:11 | INFO     | Running final evaluation on test set...
+2026-07-04 13:48:14 | INFO     | Test accuracy: 100.0%
+2026-07-04 13:48:14 | INFO     | Macro F1:      100.0%
+2026-07-04 13:48:14 | INFO     | Fine-tuned model saved to models/distilbert_finetuned
+2026-07-04 13:48:15 | INFO     | 
+[Step 4 of 4] Results
+2026-07-04 13:48:15 | INFO     | 
+============================================================
+2026-07-04 13:48:15 | INFO     | WEEK 2 RESULTS SUMMARY
+2026-07-04 13:48:15 | INFO     | ============================================================
+2026-07-04 13:48:15 | INFO     |   Training tickets:        720
+2026-07-04 13:48:15 | INFO     |   Test tickets:            180
+2026-07-04 13:48:15 | INFO     | 
+2026-07-04 13:48:15 | INFO     |   DistilBERT accuracy:     100.0%
+2026-07-04 13:48:15 | INFO     |   DistilBERT Macro F1:     100.0%
+2026-07-04 13:48:15 | INFO     | 
+2026-07-04 13:48:15 | INFO     |   Week 1 baseline:         100.0%
+2026-07-04 13:48:15 | INFO     |   Week 2 DistilBERT:       100.0%
+2026-07-04 13:48:15 | INFO     |   Improvement:             +0.0% (0.0 percentage points)
+2026-07-04 13:48:15 | INFO     | 
+2026-07-04 13:48:15 | INFO     |   YOUR RESUME BULLET:
+2026-07-04 13:48:15 | INFO     |   Fine-tuned DistilBERT on 720 labeled support
+2026-07-04 13:48:15 | INFO     |   tickets, achieving 100% routing accuracy —
+2026-07-04 13:48:15 | INFO     |   a 0-point improvement over the TF-IDF baseline.
+2026-07-04 13:48:15 | INFO     | ============================================================
+2026-07-04 13:48:15 | INFO     | 
+DEMO: Live ticket predictions
+2026-07-04 13:48:15 | INFO     | ----------------------------------------
+2026-07-04 13:48:15 | INFO     |   Ticket:    'I was charged twice this month for my Pro subscription....'
+2026-07-04 13:48:15 | INFO     |   Predicted: billing              Confidence: 44.3%  [========]
+2026-07-04 13:48:15 | INFO     |   Auto-routed: False
+2026-07-04 13:48:15 | INFO     | 
+2026-07-04 13:48:15 | INFO     |   Ticket:    'The app crashes every single time I try to upload a fil...'
+2026-07-04 13:48:15 | INFO     |   Predicted: bug_report           Confidence: 22.5%  [====]
+2026-07-04 13:48:15 | INFO     |   Auto-routed: False
+2026-07-04 13:48:15 | INFO     | 
+2026-07-04 13:48:15 | INFO     |   Ticket:    'Would love a dark mode option — my eyes hurt after 8 ho...'
+2026-07-04 13:48:15 | INFO     |   Predicted: feature_request      Confidence: 26.4%  [=====]
+2026-07-04 13:48:15 | INFO     |   Auto-routed: False
+2026-07-04 13:48:15 | INFO     | 
+2026-07-04 13:48:15 | INFO     |   Ticket:    'I am completely locked out of my account and the reset ...'
+2026-07-04 13:48:15 | INFO     |   Predicted: account_access       Confidence: 28.9%  [=====]
+2026-07-04 13:48:15 | INFO     |   Auto-routed: False
+2026-07-04 13:48:15 | INFO     | 
+2026-07-04 13:48:15 | INFO     |   Ticket:    'The dashboard takes 45 seconds to load. It was instant ...'
+2026-07-04 13:48:15 | INFO     |   Predicted: performance          Confidence: 32.9%  [======]
+2026-07-04 13:48:15 | INFO     |   Auto-routed: False
+2026-07-04 13:48:15 | INFO     | 
+2026-07-04 13:48:15 | INFO     | ============================================================
+2026-07-04 13:48:15 | INFO     | NEXT STEPS
+2026-07-04 13:48:15 | INFO     | ============================================================
+2026-07-04 13:48:15 | INFO     |   1. View both experiments in MLflow:
+2026-07-04 13:48:15 | INFO     |        mlflow ui  →  http://localhost:5000
+2026-07-04 13:48:15 | INFO     |        Compare triage_baseline vs triage_distilbert side by side
+2026-07-04 13:48:15 | INFO     | 
+2026-07-04 13:48:15 | INFO     |   2. Commit to GitHub:
+2026-07-04 13:48:15 | INFO     |        git add .
+2026-07-04 13:48:15 | INFO     |        git commit -m "Week 2: DistilBERT fine-tuned, XX% accuracy"
+2026-07-04 13:48:15 | INFO     |        git push
+2026-07-04 13:48:15 | INFO     | 
+2026-07-04 13:48:15 | INFO     |   3. Update your README with the new accuracy numbers
+2026-07-04 13:48:15 | INFO     | 
+2026-07-04 13:48:15 | INFO     |   4. When ready → Week 3: SHAP explainability layer
+2026-07-04 13:48:15 | INFO     | ============================================================
+2026-07-04 14:36:11 | INFO     | ============================================================
+2026-07-04 14:36:11 | INFO     | WEEK 1: BASELINE CLASSIFIER TRAINING
+2026-07-04 14:36:11 | INFO     | Settings: 150 tickets/category, 20% test set, model v1.0.0
+2026-07-04 14:36:11 | INFO     | ============================================================
+2026-07-04 14:36:11 | INFO     | 
+[Step 1 of 4] Loading data...
+2026-07-04 14:36:11 | INFO     | No existing dataset found. Generating synthetic data...
+2026-07-04 14:36:16 | INFO     | ============================================================
+2026-07-04 14:36:16 | INFO     | WEEK 2: DISTILBERT FINE-TUNING
+2026-07-04 14:36:16 | INFO     | Epochs: 3 | Batch: 16 | LR: 2e-05
+2026-07-04 14:36:16 | INFO     | ============================================================
+2026-07-04 14:36:16 | INFO     | 
+[Step 1 of 4] Loading data...
+2026-07-04 14:36:16 | INFO     | No existing splits found. Generating fresh data...
+2026-07-04 14:36:16 | INFO     | No existing dataset found. Generating synthetic data...
+2026-07-04 14:38:54 | INFO     | ============================================================
+2026-07-04 14:38:54 | INFO     | WEEK 1: BASELINE CLASSIFIER TRAINING
+2026-07-04 14:38:54 | INFO     | Settings: 150 tickets/category, 20% test set, model v1.0.0
+2026-07-04 14:38:54 | INFO     | ============================================================
+2026-07-04 14:38:54 | INFO     | 
+[Step 1 of 4] Loading data...
+2026-07-04 14:38:54 | INFO     | No existing dataset found. Generating synthetic data...
+2026-07-04 14:38:54 | INFO     | Generated 900 synthetic tickets
+2026-07-04 14:38:54 | INFO     | Category distribution:
+category
+billing            150
+bug_report         150
+feature_request    150
+account_access     150
+performance        150
+general            150
+2026-07-04 14:38:54 | INFO     | Saved dataset to data/processed/full_dataset.csv
+2026-07-04 14:38:54 | INFO     | Dataset loaded: 900 tickets, 6 columns
+2026-07-04 14:38:54 | INFO     | 
+Category counts:
+category
+billing            150
+bug_report         150
+feature_request    150
+account_access     150
+performance        150
+general            150
+2026-07-04 14:38:54 | INFO     | 
+Urgency counts:
+urgency
+normal      477
+high        303
+critical    120
+2026-07-04 14:38:54 | INFO     | 
+[Step 2 of 4] Preprocessing text...
+2026-07-04 14:38:54 | INFO     | TicketPreprocessor ready
+2026-07-04 14:38:54 | INFO     | Preprocessing 900 tickets...
+2026-07-04 14:38:55 | INFO     | Preprocessing complete
+2026-07-04 14:38:55 | INFO     | 
+PREPROCESSING EXAMPLE:
+2026-07-04 14:38:55 | INFO     |   Category:  billing
+2026-07-04 14:38:55 | INFO     |   Raw body:  I was charged twice for my Basic subscription. Two identical charges of $19 appeared on my statement...
+2026-07-04 14:38:55 | INFO     |   Processed: none charged twice basic subscription two identical charge appeared statement please refund one...
+2026-07-04 14:38:55 | INFO     |   Words kept: 13
+2026-07-04 14:38:55 | INFO     | Tickets remaining: 900
+2026-07-04 14:38:55 | INFO     | 
+[Step 3 of 4] Splitting into train and test sets...
+2026-07-04 14:38:55 | INFO     | Train: 720 tickets | Test: 180 tickets
+2026-07-04 14:38:55 | INFO     | Test category distribution:
+category
+account_access     30
+bug_report         30
+feature_request    30
+general            30
+billing            30
+performance        30
+2026-07-04 14:38:55 | INFO     | Train: 720 tickets saved to data/processed/train.csv
+2026-07-04 14:38:55 | INFO     | Test:  180 tickets saved to data/processed/test.csv
+2026-07-04 14:38:55 | INFO     | 
+[Step 4 of 4] Training and evaluating...
+2026-07-04 14:38:55 | INFO     | Training model on training set...
+2026-07-04 14:38:55 | INFO     | Training on 720 tickets...
+2026-07-04 14:38:55 | INFO     | Fitting TF-IDF + Logistic Regression pipeline...
+2026-07-04 14:38:55 | INFO     | Train accuracy: 100.0% (not the real metric — see test accuracy)
+2026-07-04 14:38:55 | INFO     | Model saved to models/baseline_v1.0.0.joblib
+2026-07-04 14:38:55 | INFO     | Training accuracy: 100.0%
+2026-07-04 14:38:55 | INFO     | Evaluating on held-out test set...
+2026-07-04 14:38:55 | INFO     | Evaluating on 180 test tickets...
+2026-07-04 14:38:55 | INFO     | 
+==================================================
+CLASSIFICATION REPORT
+==================================================
+                 precision    recall  f1-score   support
+
+ account_access       1.00      1.00      1.00        30
+        billing       1.00      1.00      1.00        30
+     bug_report       1.00      1.00      1.00        30
+feature_request       1.00      1.00      1.00        30
+        general       1.00      1.00      1.00        30
+    performance       1.00      1.00      1.00        30
+
+       accuracy                           1.00       180
+      macro avg       1.00      1.00      1.00       180
+   weighted avg       1.00      1.00      1.00       180
+
+2026-07-04 14:38:55 | INFO     | Overall accuracy: 100.0%
+2026-07-04 14:38:55 | INFO     | Macro F1 score:   100.0%
+2026-07-04 14:38:55 | INFO     | Avg confidence:   94.8%
+2026-07-04 14:38:55 | INFO     | Auto-route rate:  100.0% of tickets have confidence >= 75%
+2026-07-04 14:38:55 | INFO     | Classification report saved to models/classification_report.txt
+2026-07-04 14:38:55 | INFO     | 
+============================================================
+2026-07-04 14:38:55 | INFO     | WEEK 1 RESULTS SUMMARY
+2026-07-04 14:38:55 | INFO     | ============================================================
+2026-07-04 14:38:55 | INFO     |   Total tickets:      900
+2026-07-04 14:38:55 | INFO     |   Training set:       720
+2026-07-04 14:38:55 | INFO     |   Test set:           180
+2026-07-04 14:38:55 | INFO     | 
+2026-07-04 14:38:55 | INFO     |   Test accuracy:      100.0%
+2026-07-04 14:38:55 | INFO     |   Macro F1 score:     100.0%
+2026-07-04 14:38:55 | INFO     |   Avg confidence:     94.8%
+2026-07-04 14:38:55 | INFO     |   Auto-route rate:    100.0%
+2026-07-04 14:38:55 | INFO     |   (tickets where model confidence >= 75%)
+2026-07-04 14:38:55 | INFO     | 
+2026-07-04 14:38:55 | INFO     |   Write down your test accuracy.
+2026-07-04 14:38:55 | INFO     |   Week 2 DistilBERT will beat it by ~25-30 points.
+2026-07-04 14:38:55 | INFO     |   That improvement is your resume headline metric.
+2026-07-04 14:38:55 | INFO     | ============================================================
+2026-07-04 14:38:55 | INFO     | 
+DEMO: Predicting a single example ticket
+2026-07-04 14:38:55 | INFO     | ----------------------------------------
+2026-07-04 14:38:55 | INFO     |   Ticket:    'I was charged twice this month for my Pro subscription. I see two char...'
+2026-07-04 14:38:55 | INFO     |   Predicted: billing
+2026-07-04 14:38:55 | INFO     |   Confidence:91.7%
+2026-07-04 14:38:55 | INFO     |   Auto-routed: True
+2026-07-04 14:38:55 | INFO     |   All category probabilities:
+2026-07-04 14:38:55 | INFO     |     billing                91.7%  [==================]
+2026-07-04 14:38:55 | INFO     |     general                2.0%  []
+2026-07-04 14:38:55 | INFO     |     feature_request        1.9%  []
+2026-07-04 14:38:55 | INFO     |     bug_report             1.6%  []
+2026-07-04 14:38:55 | INFO     |     account_access         1.6%  []
+2026-07-04 14:38:55 | INFO     |     performance            1.2%  []
+2026-07-04 14:38:55 | INFO     | 
+============================================================
+2026-07-04 14:38:55 | INFO     | NEXT STEPS
+2026-07-04 14:38:55 | INFO     | ============================================================
+2026-07-04 14:38:55 | INFO     |   1. View your MLflow experiment dashboard:
+2026-07-04 14:38:55 | INFO     |        mlflow ui
+2026-07-04 14:38:55 | INFO     |        Open: http://localhost:5000
+2026-07-04 14:38:55 | INFO     | 
+2026-07-04 14:38:55 | INFO     |   2. Open the Jupyter notebook:
+2026-07-04 14:38:55 | INFO     |        jupyter notebook notebooks/week1_eda.ipynb
+2026-07-04 14:38:55 | INFO     | 
+2026-07-04 14:38:55 | INFO     |   3. Run the test suite:
+2026-07-04 14:38:55 | INFO     |        pytest tests/ -v
+2026-07-04 14:38:55 | INFO     | 
+2026-07-04 14:38:55 | INFO     |   4. Commit your work to GitHub:
+2026-07-04 14:38:55 | INFO     |        git add .
+2026-07-04 14:38:55 | INFO     |        git commit -m "Week 1: baseline classifier complete"
+2026-07-04 14:38:55 | INFO     |        git push
+2026-07-04 14:38:55 | INFO     | ============================================================
+2026-07-04 14:39:01 | INFO     | ============================================================
+2026-07-04 14:39:01 | INFO     | WEEK 2: DISTILBERT FINE-TUNING
+2026-07-04 14:39:01 | INFO     | Epochs: 3 | Batch: 16 | LR: 2e-05
+2026-07-04 14:39:01 | INFO     | ============================================================
+2026-07-04 14:39:01 | INFO     | 
+[Step 1 of 4] Loading data...
+2026-07-04 14:39:01 | INFO     | Loaded existing splits: 720 train, 180 test
+2026-07-04 14:39:01 | INFO     | Train: 720 tickets | Test: 180 tickets
+2026-07-04 14:39:01 | INFO     | 
+[Step 2 of 4] Loading Week 1 baseline for comparison...
+2026-07-04 14:39:01 | INFO     | Model loaded from models/baseline_v1.0.0.joblib
+2026-07-04 14:39:01 | INFO     | Evaluating on 180 test tickets...
+2026-07-04 14:39:01 | INFO     | 
+==================================================
+CLASSIFICATION REPORT
+==================================================
+                 precision    recall  f1-score   support
+
+ account_access       1.00      1.00      1.00        30
+        billing       1.00      1.00      1.00        30
+     bug_report       1.00      1.00      1.00        30
+feature_request       1.00      1.00      1.00        30
+        general       1.00      1.00      1.00        30
+    performance       1.00      1.00      1.00        30
+
+       accuracy                           1.00       180
+      macro avg       1.00      1.00      1.00       180
+   weighted avg       1.00      1.00      1.00       180
+
+2026-07-04 14:39:01 | INFO     | Overall accuracy: 100.0%
+2026-07-04 14:39:01 | INFO     | Macro F1 score:   100.0%
+2026-07-04 14:39:01 | INFO     | Avg confidence:   94.8%
+2026-07-04 14:39:01 | INFO     | Auto-route rate:  100.0% of tickets have confidence >= 75%
+2026-07-04 14:39:01 | INFO     | Classification report saved to models/classification_report.txt
+2026-07-04 14:39:01 | INFO     | Week 1 baseline accuracy: 100.0%
+2026-07-04 14:39:01 | INFO     | 
+[Step 3 of 4] Fine-tuning DistilBERT...
+2026-07-04 14:39:01 | INFO     | First run will download DistilBERT (~250MB). Please wait...
+2026-07-04 14:39:01 | INFO     | Using Apple Silicon GPU (MPS) for training
+2026-07-04 14:39:01 | INFO     | Loading tokenizer from HuggingFace: distilbert-base-uncased
+2026-07-04 14:39:01 | INFO     | Loading model from HuggingFace: distilbert-base-uncased
+2026-07-04 14:39:02 | INFO     | Model loaded successfully
+2026-07-04 14:39:02 | INFO     | Model parameters: 66,958,086
+2026-07-04 14:39:02 | INFO     | Fine-tuning DistilBERT on 720 training tickets
+2026-07-04 14:39:02 | INFO     | Epochs: 3 | Batch size: 16 | LR: 2e-05
+2026-07-04 14:39:02 | INFO     | Tokenizing training set...
+2026-07-04 14:39:03 | INFO     | Tokenizing test set...
+2026-07-04 14:39:03 | INFO     | Starting fine-tuning...
+2026-07-04 14:39:03 | INFO     | You will see progress bars for each epoch below:
+2026-07-04 14:42:23 | INFO     | Fine-tuning complete
+2026-07-04 14:42:23 | INFO     | Running final evaluation on test set...
+2026-07-04 14:42:25 | INFO     | Test accuracy: 100.0%
+2026-07-04 14:42:25 | INFO     | Macro F1:      100.0%
+2026-07-04 14:42:26 | INFO     | Fine-tuned model saved to models/distilbert_finetuned
+2026-07-04 14:42:27 | INFO     | 
+[Step 4 of 4] Results
+2026-07-04 14:42:27 | INFO     | 
+============================================================
+2026-07-04 14:42:27 | INFO     | WEEK 2 RESULTS SUMMARY
+2026-07-04 14:42:27 | INFO     | ============================================================
+2026-07-04 14:42:27 | INFO     |   Training tickets:        720
+2026-07-04 14:42:27 | INFO     |   Test tickets:            180
+2026-07-04 14:42:27 | INFO     | 
+2026-07-04 14:42:27 | INFO     |   DistilBERT accuracy:     100.0%
+2026-07-04 14:42:27 | INFO     |   DistilBERT Macro F1:     100.0%
+2026-07-04 14:42:27 | INFO     | 
+2026-07-04 14:42:27 | INFO     |   Week 1 baseline:         100.0%
+2026-07-04 14:42:27 | INFO     |   Week 2 DistilBERT:       100.0%
+2026-07-04 14:42:27 | INFO     |   Improvement:             +0.0% (0.0 percentage points)
+2026-07-04 14:42:27 | INFO     | 
+2026-07-04 14:42:27 | INFO     |   YOUR RESUME BULLET:
+2026-07-04 14:42:27 | INFO     |   Fine-tuned DistilBERT on 720 labeled support
+2026-07-04 14:42:27 | INFO     |   tickets, achieving 100% routing accuracy —
+2026-07-04 14:42:27 | INFO     |   a 0-point improvement over the TF-IDF baseline.
+2026-07-04 14:42:27 | INFO     | ============================================================
+2026-07-04 14:42:27 | INFO     | 
+DEMO: Live ticket predictions
+2026-07-04 14:42:27 | INFO     | ----------------------------------------
+2026-07-04 14:42:27 | INFO     |   Ticket:    'I was charged twice this month for my Pro subscription....'
+2026-07-04 14:42:27 | INFO     |   Predicted: billing              Confidence: 78.6%  [===============]
+2026-07-04 14:42:27 | INFO     |   Auto-routed: True
+2026-07-04 14:42:27 | INFO     | 
+2026-07-04 14:42:27 | INFO     |   Ticket:    'The app crashes every single time I try to upload a fil...'
+2026-07-04 14:42:27 | INFO     |   Predicted: bug_report           Confidence: 40.1%  [========]
+2026-07-04 14:42:27 | INFO     |   Auto-routed: False
+2026-07-04 14:42:27 | INFO     | 
+2026-07-04 14:42:27 | INFO     |   Ticket:    'Would love a dark mode option — my eyes hurt after 8 ho...'
+2026-07-04 14:42:27 | INFO     |   Predicted: feature_request      Confidence: 47.3%  [=========]
+2026-07-04 14:42:27 | INFO     |   Auto-routed: False
+2026-07-04 14:42:27 | INFO     | 
+2026-07-04 14:42:27 | INFO     |   Ticket:    'I am completely locked out of my account and the reset ...'
+2026-07-04 14:42:27 | INFO     |   Predicted: bug_report           Confidence: 43.0%  [========]
+2026-07-04 14:42:27 | INFO     |   Auto-routed: False
+2026-07-04 14:42:27 | INFO     | 
+2026-07-04 14:42:27 | INFO     |   Ticket:    'The dashboard takes 45 seconds to load. It was instant ...'
+2026-07-04 14:42:27 | INFO     |   Predicted: performance          Confidence: 72.7%  [==============]
+2026-07-04 14:42:27 | INFO     |   Auto-routed: False
+2026-07-04 14:42:27 | INFO     | 
+2026-07-04 14:42:27 | INFO     | ============================================================
+2026-07-04 14:42:27 | INFO     | NEXT STEPS
+2026-07-04 14:42:27 | INFO     | ============================================================
+2026-07-04 14:42:27 | INFO     |   1. View both experiments in MLflow:
+2026-07-04 14:42:27 | INFO     |        mlflow ui  →  http://localhost:5000
+2026-07-04 14:42:27 | INFO     |        Compare triage_baseline vs triage_distilbert side by side
+2026-07-04 14:42:27 | INFO     | 
+2026-07-04 14:42:27 | INFO     |   2. Commit to GitHub:
+2026-07-04 14:42:27 | INFO     |        git add .
+2026-07-04 14:42:27 | INFO     |        git commit -m "Week 2: DistilBERT fine-tuned, XX% accuracy"
+2026-07-04 14:42:27 | INFO     |        git push
+2026-07-04 14:42:27 | INFO     | 
+2026-07-04 14:42:27 | INFO     |   3. Update your README with the new accuracy numbers
+2026-07-04 14:42:27 | INFO     | 
+2026-07-04 14:42:27 | INFO     |   4. When ready → Week 3: SHAP explainability layer
+2026-07-04 14:42:27 | INFO     | ============================================================
+2026-07-04 15:22:58 | INFO     | Downloading Bitext customer support dataset from HuggingFace...
+2026-07-04 15:22:58 | INFO     | Fetching from HuggingFace... (this may take 30-60 seconds)
+2026-07-04 15:22:58 | ERROR    | Download failed: HTTP Error 404: Not Found
+2026-07-04 15:22:58 | INFO     | Falling back to manual dataset creation...
+2026-07-04 15:22:58 | INFO     | Creating manually crafted ambiguous dataset...
+2026-07-04 15:22:58 | INFO     | Created 55 manually crafted ambiguous tickets
+2026-07-04 15:22:58 | INFO     | Category distribution:
+category
+billing            10
+bug_report         10
+account_access      9
+feature_request     9
+general             9
+performance         8
+2026-07-04 15:22:58 | INFO     | Saved 55 real tickets to data/raw/real_tickets.csv
+2026-07-04 15:22:58 | INFO     | Final distribution:
+category
+billing            10
+bug_report         10
+account_access      9
+feature_request     9
+general             9
+performance         8
+2026-07-04 15:22:58 | INFO     | 
+Done! Now run:
+2026-07-04 15:22:58 | INFO     |   python scripts/train_baseline.py
+2026-07-04 15:22:58 | INFO     |   python scripts/train_distilbert.py
+2026-07-04 15:23:02 | INFO     | ============================================================
+2026-07-04 15:23:02 | INFO     | WEEK 1: BASELINE CLASSIFIER TRAINING
+2026-07-04 15:23:02 | INFO     | Settings: 150 tickets/category, 20% test set, model v1.0.0
+2026-07-04 15:23:02 | INFO     | ============================================================
+2026-07-04 15:23:02 | INFO     | 
+[Step 1 of 4] Loading data...
+2026-07-04 15:23:02 | INFO     | Generating synthetic data...
+2026-07-04 15:23:02 | INFO     | Generated 900 synthetic tickets
+2026-07-04 15:23:02 | INFO     | Category distribution:
+category
+billing            150
+bug_report         150
+feature_request    150
+account_access     150
+performance        150
+general            150
+2026-07-04 15:23:02 | INFO     | Mixing in real ticket data from data/raw/real_tickets.csv
+2026-07-04 15:23:02 | INFO     | Combined: 900 synthetic + 55 real = 955 total
+2026-07-04 15:23:02 | INFO     | Saved dataset to data/processed/full_dataset.csv
+2026-07-04 15:23:02 | INFO     | Dataset loaded: 955 tickets, 6 columns
+2026-07-04 15:23:02 | INFO     | 
+Category counts:
+category
+billing            160
+bug_report         160
+feature_request    159
+account_access     159
+general            159
+performance        158
+2026-07-04 15:23:02 | INFO     | 
+Urgency counts:
+urgency
+normal      532
+high        303
+critical    120
+2026-07-04 15:23:02 | INFO     | 
+[Step 2 of 4] Preprocessing text...
+2026-07-04 15:23:02 | INFO     | TicketPreprocessor ready
+2026-07-04 15:23:02 | INFO     | Preprocessing 955 tickets...
+2026-07-04 15:23:03 | INFO     | Preprocessing complete
+2026-07-04 15:23:03 | INFO     | 
+PREPROCESSING EXAMPLE:
+2026-07-04 15:23:03 | INFO     |   Category:  account_access
+2026-07-04 15:23:03 | INFO     |   Raw body:  Lost my authenticator app. Cannot get past 2FA. Have backup codes but they are not being accepted. T...
+2026-07-04 15:23:03 | INFO     |   Processed: none lost authenticator app not get past 2fa backup code not accepted urgent...
+2026-07-04 15:23:03 | INFO     |   Words kept: 13
+2026-07-04 15:23:03 | INFO     | Tickets remaining: 955
+2026-07-04 15:23:03 | INFO     | 
+[Step 3 of 4] Splitting into train and test sets...
+2026-07-04 15:23:03 | INFO     | Train: 764 tickets | Test: 191 tickets
+2026-07-04 15:23:03 | INFO     | Test category distribution:
+category
+feature_request    32
+general            32
+billing            32
+bug_report         32
+account_access     32
+performance        31
+2026-07-04 15:23:03 | INFO     | Train: 764 tickets saved to data/processed/train.csv
+2026-07-04 15:23:03 | INFO     | Test:  191 tickets saved to data/processed/test.csv
+2026-07-04 15:23:03 | INFO     | 
+[Step 4 of 4] Training and evaluating...
+2026-07-04 15:23:03 | INFO     | Training model on training set...
+2026-07-04 15:23:03 | INFO     | Training on 764 tickets...
+2026-07-04 15:23:03 | INFO     | Fitting TF-IDF + Logistic Regression pipeline...
+2026-07-04 15:23:03 | INFO     | Train accuracy: 100.0% (not the real metric — see test accuracy)
+2026-07-04 15:23:03 | INFO     | Model saved to models/baseline_v1.0.0.joblib
+2026-07-04 15:23:03 | INFO     | Training accuracy: 100.0%
+2026-07-04 15:23:03 | INFO     | Evaluating on held-out test set...
+2026-07-04 15:23:03 | INFO     | Evaluating on 191 test tickets...
+2026-07-04 15:23:03 | INFO     | 
+==================================================
+CLASSIFICATION REPORT
+==================================================
+                 precision    recall  f1-score   support
+
+ account_access       0.97      0.94      0.95        32
+        billing       0.97      1.00      0.98        32
+     bug_report       0.97      0.97      0.97        32
+feature_request       0.97      0.97      0.97        32
+        general       0.97      1.00      0.98        32
+    performance       1.00      0.97      0.98        31
+
+       accuracy                           0.97       191
+      macro avg       0.97      0.97      0.97       191
+   weighted avg       0.97      0.97      0.97       191
+
+2026-07-04 15:23:03 | INFO     | Overall accuracy: 97.4%
+2026-07-04 15:23:03 | INFO     | Macro F1 score:   97.4%
+2026-07-04 15:23:03 | INFO     | Avg confidence:   92.2%
+2026-07-04 15:23:03 | INFO     | Auto-route rate:  94.8% of tickets have confidence >= 75%
+2026-07-04 15:23:03 | INFO     | Classification report saved to models/classification_report.txt
+2026-07-04 15:23:03 | INFO     | 
+============================================================
+2026-07-04 15:23:03 | INFO     | WEEK 1 RESULTS SUMMARY
+2026-07-04 15:23:03 | INFO     | ============================================================
+2026-07-04 15:23:03 | INFO     |   Total tickets:      955
+2026-07-04 15:23:03 | INFO     |   Training set:       764
+2026-07-04 15:23:03 | INFO     |   Test set:           191
+2026-07-04 15:23:03 | INFO     | 
+2026-07-04 15:23:03 | INFO     |   Test accuracy:      97.4%
+2026-07-04 15:23:03 | INFO     |   Macro F1 score:     97.4%
+2026-07-04 15:23:03 | INFO     |   Avg confidence:     92.2%
+2026-07-04 15:23:03 | INFO     |   Auto-route rate:    94.8%
+2026-07-04 15:23:03 | INFO     |   (tickets where model confidence >= 75%)
+2026-07-04 15:23:03 | INFO     | 
+2026-07-04 15:23:03 | INFO     |   Write down your test accuracy.
+2026-07-04 15:23:03 | INFO     |   Week 2 DistilBERT will beat it by ~25-30 points.
+2026-07-04 15:23:03 | INFO     |   That improvement is your resume headline metric.
+2026-07-04 15:23:03 | INFO     | ============================================================
+2026-07-04 15:23:03 | INFO     | 
+DEMO: Predicting a single example ticket
+2026-07-04 15:23:03 | INFO     | ----------------------------------------
+2026-07-04 15:23:03 | INFO     |   Ticket:    'I was charged twice this month for my Pro subscription. I see two char...'
+2026-07-04 15:23:03 | INFO     |   Predicted: billing
+2026-07-04 15:23:03 | INFO     |   Confidence:94.1%
+2026-07-04 15:23:03 | INFO     |   Auto-routed: True
+2026-07-04 15:23:03 | INFO     |   All category probabilities:
+2026-07-04 15:23:03 | INFO     |     billing                94.1%  [==================]
+2026-07-04 15:23:03 | INFO     |     bug_report             1.4%  []
+2026-07-04 15:23:03 | INFO     |     general                1.4%  []
+2026-07-04 15:23:03 | INFO     |     feature_request        1.2%  []
+2026-07-04 15:23:03 | INFO     |     account_access         1.2%  []
+2026-07-04 15:23:03 | INFO     |     performance            0.7%  []
+2026-07-04 15:23:03 | INFO     | 
+============================================================
+2026-07-04 15:23:03 | INFO     | NEXT STEPS
+2026-07-04 15:23:03 | INFO     | ============================================================
+2026-07-04 15:23:03 | INFO     |   1. View your MLflow experiment dashboard:
+2026-07-04 15:23:03 | INFO     |        mlflow ui
+2026-07-04 15:23:03 | INFO     |        Open: http://localhost:5000
+2026-07-04 15:23:03 | INFO     | 
+2026-07-04 15:23:03 | INFO     |   2. Open the Jupyter notebook:
+2026-07-04 15:23:03 | INFO     |        jupyter notebook notebooks/week1_eda.ipynb
+2026-07-04 15:23:03 | INFO     | 
+2026-07-04 15:23:03 | INFO     |   3. Run the test suite:
+2026-07-04 15:23:03 | INFO     |        pytest tests/ -v
+2026-07-04 15:23:03 | INFO     | 
+2026-07-04 15:23:03 | INFO     |   4. Commit your work to GitHub:
+2026-07-04 15:23:03 | INFO     |        git add .
+2026-07-04 15:23:03 | INFO     |        git commit -m "Week 1: baseline classifier complete"
+2026-07-04 15:23:03 | INFO     |        git push
+2026-07-04 15:23:03 | INFO     | ============================================================
+2026-07-04 15:23:12 | INFO     | ============================================================
+2026-07-04 15:23:12 | INFO     | WEEK 2: DISTILBERT FINE-TUNING
+2026-07-04 15:23:12 | INFO     | Epochs: 3 | Batch: 16 | LR: 2e-05
+2026-07-04 15:23:12 | INFO     | ============================================================
+2026-07-04 15:23:12 | INFO     | 
+[Step 1 of 4] Loading data...
+2026-07-04 15:23:12 | INFO     | Loaded existing splits: 764 train, 191 test
+2026-07-04 15:23:12 | INFO     | Train: 764 tickets | Test: 191 tickets
+2026-07-04 15:23:12 | INFO     | 
+[Step 2 of 4] Loading Week 1 baseline for comparison...
+2026-07-04 15:23:12 | INFO     | Model loaded from models/baseline_v1.0.0.joblib
+2026-07-04 15:23:12 | INFO     | Evaluating on 191 test tickets...
+2026-07-04 15:23:12 | INFO     | 
+==================================================
+CLASSIFICATION REPORT
+==================================================
+                 precision    recall  f1-score   support
+
+ account_access       0.97      0.94      0.95        32
+        billing       0.97      1.00      0.98        32
+     bug_report       0.97      0.97      0.97        32
+feature_request       0.97      0.97      0.97        32
+        general       0.97      1.00      0.98        32
+    performance       1.00      0.97      0.98        31
+
+       accuracy                           0.97       191
+      macro avg       0.97      0.97      0.97       191
+   weighted avg       0.97      0.97      0.97       191
+
+2026-07-04 15:23:12 | INFO     | Overall accuracy: 97.4%
+2026-07-04 15:23:12 | INFO     | Macro F1 score:   97.4%
+2026-07-04 15:23:12 | INFO     | Avg confidence:   92.2%
+2026-07-04 15:23:12 | INFO     | Auto-route rate:  94.8% of tickets have confidence >= 75%
+2026-07-04 15:23:12 | INFO     | Classification report saved to models/classification_report.txt
+2026-07-04 15:23:12 | INFO     | Week 1 baseline accuracy: 97.4%
+2026-07-04 15:23:12 | INFO     | 
+[Step 3 of 4] Fine-tuning DistilBERT...
+2026-07-04 15:23:12 | INFO     | First run will download DistilBERT (~250MB). Please wait...
+2026-07-04 15:23:13 | INFO     | Using Apple Silicon GPU (MPS) for training
+2026-07-04 15:23:13 | INFO     | Loading tokenizer from HuggingFace: distilbert-base-uncased
+2026-07-04 15:23:13 | INFO     | Loading model from HuggingFace: distilbert-base-uncased
+2026-07-04 15:23:14 | INFO     | Model loaded successfully
+2026-07-04 15:23:14 | INFO     | Model parameters: 66,958,086
+2026-07-04 15:23:14 | INFO     | Fine-tuning DistilBERT on 764 training tickets
+2026-07-04 15:23:14 | INFO     | Epochs: 3 | Batch size: 16 | LR: 2e-05
+2026-07-04 15:23:14 | INFO     | Tokenizing training set...
+2026-07-04 15:23:15 | INFO     | Tokenizing test set...
+2026-07-04 15:23:16 | INFO     | Starting fine-tuning...
+2026-07-04 15:23:16 | INFO     | You will see progress bars for each epoch below:
+2026-07-04 15:29:13 | INFO     | Fine-tuning complete
+2026-07-04 15:29:13 | INFO     | Running final evaluation on test set...
+2026-07-04 15:29:20 | INFO     | Test accuracy: 97.9%
+2026-07-04 15:29:20 | INFO     | Macro F1:      97.9%
+2026-07-04 15:29:21 | INFO     | Fine-tuned model saved to models/distilbert_finetuned
+2026-07-04 15:29:21 | INFO     | 
+[Step 4 of 4] Results
+2026-07-04 15:29:21 | INFO     | 
+============================================================
+2026-07-04 15:29:21 | INFO     | WEEK 2 RESULTS SUMMARY
+2026-07-04 15:29:21 | INFO     | ============================================================
+2026-07-04 15:29:21 | INFO     |   Training tickets:        764
+2026-07-04 15:29:21 | INFO     |   Test tickets:            191
+2026-07-04 15:29:21 | INFO     | 
+2026-07-04 15:29:21 | INFO     |   DistilBERT accuracy:     97.9%
+2026-07-04 15:29:21 | INFO     |   DistilBERT Macro F1:     97.9%
+2026-07-04 15:29:21 | INFO     | 
+2026-07-04 15:29:21 | INFO     |   Week 1 baseline:         97.4%
+2026-07-04 15:29:21 | INFO     |   Week 2 DistilBERT:       97.9%
+2026-07-04 15:29:21 | INFO     |   Improvement:             +0.5% (0.5 percentage points)
+2026-07-04 15:29:21 | INFO     | 
+2026-07-04 15:29:21 | INFO     |   YOUR RESUME BULLET:
+2026-07-04 15:29:21 | INFO     |   Fine-tuned DistilBERT on 764 labeled support
+2026-07-04 15:29:21 | INFO     |   tickets, achieving 98% routing accuracy —
+2026-07-04 15:29:21 | INFO     |   a 1-point improvement over the TF-IDF baseline.
+2026-07-04 15:29:21 | INFO     | ============================================================
+2026-07-04 15:29:21 | INFO     | 
+DEMO: Live ticket predictions
+2026-07-04 15:29:21 | INFO     | ----------------------------------------
+2026-07-04 15:29:21 | INFO     |   Ticket:    'I was charged twice this month for my Pro subscription....'
+2026-07-04 15:29:21 | INFO     |   Predicted: billing              Confidence: 81.7%  [================]
+2026-07-04 15:29:21 | INFO     |   Auto-routed: True
+2026-07-04 15:29:21 | INFO     | 
+2026-07-04 15:29:21 | INFO     |   Ticket:    'The app crashes every single time I try to upload a fil...'
+2026-07-04 15:29:21 | INFO     |   Predicted: bug_report           Confidence: 43.6%  [========]
+2026-07-04 15:29:21 | INFO     |   Auto-routed: False
+2026-07-04 15:29:21 | INFO     | 
+2026-07-04 15:29:21 | INFO     |   Ticket:    'Would love a dark mode option — my eyes hurt after 8 ho...'
+2026-07-04 15:29:21 | INFO     |   Predicted: feature_request      Confidence: 60.7%  [============]
+2026-07-04 15:29:21 | INFO     |   Auto-routed: False
+2026-07-04 15:29:21 | INFO     | 
+2026-07-04 15:29:21 | INFO     |   Ticket:    'I am completely locked out of my account and the reset ...'
+2026-07-04 15:29:21 | INFO     |   Predicted: account_access       Confidence: 43.2%  [========]
+2026-07-04 15:29:21 | INFO     |   Auto-routed: False
+2026-07-04 15:29:21 | INFO     | 
+2026-07-04 15:29:21 | INFO     |   Ticket:    'The dashboard takes 45 seconds to load. It was instant ...'
+2026-07-04 15:29:21 | INFO     |   Predicted: performance          Confidence: 67.1%  [=============]
+2026-07-04 15:29:21 | INFO     |   Auto-routed: False
+2026-07-04 15:29:21 | INFO     | 
+2026-07-04 15:29:21 | INFO     | ============================================================
+2026-07-04 15:29:21 | INFO     | NEXT STEPS
+2026-07-04 15:29:21 | INFO     | ============================================================
+2026-07-04 15:29:21 | INFO     |   1. View both experiments in MLflow:
+2026-07-04 15:29:21 | INFO     |        mlflow ui  →  http://localhost:5000
+2026-07-04 15:29:21 | INFO     |        Compare triage_baseline vs triage_distilbert side by side
+2026-07-04 15:29:21 | INFO     | 
+2026-07-04 15:29:21 | INFO     |   2. Commit to GitHub:
+2026-07-04 15:29:21 | INFO     |        git add .
+2026-07-04 15:29:21 | INFO     |        git commit -m "Week 2: DistilBERT fine-tuned, XX% accuracy"
+2026-07-04 15:29:21 | INFO     |        git push
+2026-07-04 15:29:21 | INFO     | 
+2026-07-04 15:29:21 | INFO     |   3. Update your README with the new accuracy numbers
+2026-07-04 15:29:21 | INFO     | 
+2026-07-04 15:29:21 | INFO     |   4. When ready → Week 3: SHAP explainability layer
+2026-07-04 15:29:21 | INFO     | ============================================================

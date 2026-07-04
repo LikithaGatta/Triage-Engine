@@ -148,7 +148,7 @@ class TicketPreprocessor:
 
         if subject:
             # Subject appears twice to give it more weight
-            return f"{subject} {subject} {body}"
+            return f"{subject} {body}"
         return body
 
     def process_ticket(self, ticket: RawTicket) -> ProcessedTicket:

@@ -1279,3 +1279,234 @@ DEMO: Live ticket predictions
 2026-07-04 15:29:21 | INFO     | 
 2026-07-04 15:29:21 | INFO     |   4. When ready → Week 3: SHAP explainability layer
 2026-07-04 15:29:21 | INFO     | ============================================================
+2026-08-04 00:28:06 | INFO     | ============================================================
+2026-08-04 00:28:06 | INFO     | WEEK 3: SHAP EXPLAINABILITY LAYER
+2026-08-04 00:28:06 | INFO     | ============================================================
+2026-08-04 00:28:06 | INFO     | 
+[Step 1 of 4] Loading trained model and data...
+2026-08-04 00:28:06 | INFO     | Loaded model from models/baseline_v1.0.0.joblib
+2026-08-04 00:28:06 | INFO     | Loaded 764 train, 191 test tickets
+2026-08-04 00:28:06 | INFO     | Categories: ['account_access', 'billing', 'bug_report', 'feature_request', 'general', 'performance']
+2026-08-04 00:28:06 | INFO     | 
+[Step 2 of 4] Fitting SHAP explainer...
+2026-08-04 00:28:06 | INFO     | TicketExplainer initialized
+2026-08-04 00:28:06 | INFO     | Vocabulary size: 962 tokens
+2026-08-04 00:28:06 | INFO     | Categories: ['account_access', 'billing', 'bug_report', 'feature_request', 'general', 'performance']
+2026-08-04 00:28:06 | INFO     | Fitting SHAP explainer on 100 background samples...
+2026-08-04 00:28:06 | INFO     | SHAP explainer fitted successfully
+2026-08-04 00:28:06 | INFO     | Base values per category: {'account_access': 0.221, 'billing': 0.162, 'bug_report': 0.131, 'feature_request': 0.135, 'general': 0.162, 'performance': 0.189}
+2026-08-04 00:28:06 | INFO     | Explainer saved to models/shap_explainer.joblib
+2026-08-04 00:28:06 | INFO     | 
+[Step 3 of 4] Global feature importance per category...
+2026-08-04 00:28:06 | INFO     | These are the words most associated with each category:
+2026-08-04 00:28:06 | INFO     | (From Logistic Regression coefficients — not SHAP values)
+2026-08-04 00:28:06 | INFO     | --------------------------------------------------
+2026-08-04 00:28:06 | INFO     | 
+  ACCOUNT ACCESS
+2026-08-04 00:28:06 | INFO     |     Toward:  "account" (+3.36), "locked" (+2.59), "not" (+1.77), "access" (+1.66), "nan not" (+1.57)
+2026-08-04 00:28:06 | INFO     | 
+  BILLING
+2026-08-04 00:28:06 | INFO     |     Toward:  "invoice" (+2.70), "payment" (+2.59), "charged" (+2.06), "card" (+1.66), "charge" (+1.55)
+2026-08-04 00:28:06 | INFO     | 
+  BUG REPORT
+2026-08-04 00:28:06 | INFO     |     Toward:  "error" (+3.13), "go" (+2.11), "message" (+2.06), "app crash" (+1.80), "tried" (+1.66)
+2026-08-04 00:28:06 | INFO     | 
+  FEATURE REQUEST
+2026-08-04 00:28:06 | INFO     |     Toward:  "one" (+2.46), "would" (+2.22), "add" (+2.12), "report" (+1.96), "integration" (+1.79)
+2026-08-04 00:28:06 | INFO     | 
+  GENERAL
+2026-08-04 00:28:06 | INFO     |     Toward:  "clear" (+2.03), "platform" (+1.96), "enterprise" (+1.66), "clear step" (+1.65), "not clear" (+1.65)
+2026-08-04 00:28:06 | INFO     | 
+  PERFORMANCE
+2026-08-04 00:28:06 | INFO     |     Toward:  "load" (+2.47), "take" (+2.36), "slower" (+2.26), "take second" (+2.05), "page take" (+1.78)
+2026-08-04 00:28:06 | INFO     | 
+[Step 4 of 4] Explaining test set predictions...
+2026-08-04 00:28:06 | INFO     | Explained 191 test tickets
+2026-08-04 00:28:06 | INFO     | Strong explanations (>=2 clear signals): 190 (99%)
+2026-08-04 00:28:06 | INFO     | 
+============================================================
+2026-08-04 00:28:06 | INFO     | DEMO: Detailed explanations on real-sounding tickets
+2026-08-04 00:28:06 | INFO     | ============================================================
+2026-08-04 00:28:06 | INFO     | TicketPreprocessor ready
+2026-08-04 00:28:07 | INFO     | 
+───────────────────────────────────────────────────────
+2026-08-04 00:28:07 | INFO     | Ticket DEMO-001: Clear billing — expect high confidence and strong signals
+2026-08-04 00:28:07 | INFO     | Text: 'I was charged twice this month for my Pro subscription. Please refund ...'
+2026-08-04 00:28:07 | INFO     | 
+2026-08-04 00:28:07 | INFO     |   Predicted:  billing
+2026-08-04 00:28:07 | INFO     |   Confidence: 91.3%
+2026-08-04 00:28:07 | INFO     |   Base rate:  16.2% (avg across all tickets)
+2026-08-04 00:28:07 | INFO     | 
+2026-08-04 00:28:07 | INFO     |   DROVE prediction toward billing:
+2026-08-04 00:28:07 | INFO     |     'charged             ' +++++++++++++++++++++++++ +0.5122
+2026-08-04 00:28:07 | INFO     |     'refund              ' ++++++++++++++++++++ +0.4048
+2026-08-04 00:28:07 | INFO     |     'charge              ' ++++++++++++++++++ +0.3747
+2026-08-04 00:28:07 | INFO     |     'charged twice       ' +++++++++++++++ +0.3005
+2026-08-04 00:28:07 | INFO     |     'twice               ' +++++++++++++++ +0.3005
+2026-08-04 00:28:07 | INFO     |   PULLED AWAY from billing:
+2026-08-04 00:28:07 | INFO     |     'pro                 ' - -0.0009
+2026-08-04 00:28:07 | INFO     | 
+2026-08-04 00:28:07 | INFO     |   Summary: Classified as billing (91% confidence). Key signals: "charged", "refund", "charge". Competing signals toward other categories: "pro".
+2026-08-04 00:28:07 | INFO     | 
+───────────────────────────────────────────────────────
+2026-08-04 00:28:07 | INFO     | Ticket DEMO-002: AMBIGUOUS — billing + account_access signals mixed
+2026-08-04 00:28:07 | INFO     | Text: 'I cannot login and my subscription renews tomorrow. I really need acce...'
+2026-08-04 00:28:07 | INFO     | 
+2026-08-04 00:28:07 | INFO     |   Predicted:  account_access
+2026-08-04 00:28:07 | INFO     |   Confidence: 55.4%
+2026-08-04 00:28:07 | INFO     |   Base rate:  22.1% (avg across all tickets)
+2026-08-04 00:28:07 | INFO     | 
+2026-08-04 00:28:07 | INFO     |   DROVE prediction toward account_access:
+2026-08-04 00:28:07 | INFO     |     'login               ' ++++++++++++++++++++++++++++++ +0.6091
+2026-08-04 00:28:07 | INFO     |     'access              ' +++++++++++++++++++++++++++ +0.5457
+2026-08-04 00:28:07 | INFO     |     'subscription        ' +++++++++++++ +0.2717
+2026-08-04 00:28:07 | INFO     |     'not                 ' ++++++++++++ +0.2559
+2026-08-04 00:28:07 | INFO     |     'get                 ' ++++++++ +0.1740
+2026-08-04 00:28:07 | INFO     |   PULLED AWAY from account_access:
+2026-08-04 00:28:07 | INFO     |     'charged             ' ------ -0.1376
+2026-08-04 00:28:07 | INFO     |     'really              ' --- -0.0645
+2026-08-04 00:28:07 | INFO     | 
+2026-08-04 00:28:07 | INFO     |   Summary: Classified as account access (55% confidence). Key signals: "login", "access", "subscription". Competing signals toward other categories: "charged", "really".
+2026-08-04 00:28:07 | INFO     | 
+───────────────────────────────────────────────────────
+2026-08-04 00:28:07 | INFO     | Ticket DEMO-003: AMBIGUOUS — bug_report + performance signals mixed
+2026-08-04 00:28:07 | INFO     | Text: 'The export feature crashes every time I try to download more than 1000...'
+2026-08-04 00:28:07 | INFO     | 
+2026-08-04 00:28:07 | INFO     |   Predicted:  bug_report
+2026-08-04 00:28:07 | INFO     |   Confidence: 30.2%
+2026-08-04 00:28:07 | INFO     |   Base rate:  13.1% (avg across all tickets)
+2026-08-04 00:28:07 | INFO     | 
+2026-08-04 00:28:07 | INFO     |   DROVE prediction toward bug_report:
+2026-08-04 00:28:07 | INFO     |     'try                 ' ++++++++++++++++++ +0.3613
+2026-08-04 00:28:07 | INFO     |     'crash               ' +++++++++++ +0.2287
+2026-08-04 00:28:07 | INFO     |     'blocking            ' +++++ +0.1156
+2026-08-04 00:28:07 | INFO     |     'every               ' +++++ +0.1032
+2026-08-04 00:28:07 | INFO     |     'export              ' +++ +0.0670
+2026-08-04 00:28:07 | INFO     |   PULLED AWAY from bug_report:
+2026-08-04 00:28:07 | INFO     |     'download            ' ----------- -0.2219
+2026-08-04 00:28:07 | INFO     |     'row                 ' ---- -0.0987
+2026-08-04 00:28:07 | INFO     |     'reporting           ' -- -0.0446
+2026-08-04 00:28:07 | INFO     | 
+2026-08-04 00:28:07 | INFO     |   Summary: Classified as bug report (30% confidence). Key signals: "try", "crash", "blocking". Competing signals toward other categories: "download", "row".
+2026-08-04 00:28:07 | INFO     | 
+───────────────────────────────────────────────────────
+2026-08-04 00:28:07 | INFO     | Ticket DEMO-004: AMBIGUOUS — feature_request + performance signals mixed
+2026-08-04 00:28:07 | INFO     | Text: 'Would love a dark mode. Also the page loads really slowly on my machin...'
+2026-08-04 00:28:07 | INFO     | 
+2026-08-04 00:28:07 | INFO     |   Predicted:  feature_request
+2026-08-04 00:28:07 | INFO     |   Confidence: 74.7%
+2026-08-04 00:28:07 | INFO     |   Base rate:  13.5% (avg across all tickets)
+2026-08-04 00:28:07 | INFO     | 
+2026-08-04 00:28:07 | INFO     |   DROVE prediction toward feature_request:
+2026-08-04 00:28:07 | INFO     |     'would               ' ++++++++++++++++++++++++++++ +0.5611
+2026-08-04 00:28:07 | INFO     |     'love                ' +++++++++++++++++++++++ +0.4782
+2026-08-04 00:28:07 | INFO     |     'would love          ' +++++++++++++++++++++++ +0.4782
+2026-08-04 00:28:07 | INFO     |     'dark                ' ++++++++++++++ +0.2813
+2026-08-04 00:28:07 | INFO     |     'dark mode           ' ++++++++++++++ +0.2813
+2026-08-04 00:28:07 | INFO     |   PULLED AWAY from feature_request:
+2026-08-04 00:28:07 | INFO     |     'page                ' ------- -0.1451
+2026-08-04 00:28:07 | INFO     |     'load                ' ------- -0.1440
+2026-08-04 00:28:07 | INFO     |     'update              ' ------ -0.1303
+2026-08-04 00:28:07 | INFO     | 
+2026-08-04 00:28:07 | INFO     |   Summary: Classified as feature request (75% confidence). Key signals: "would", "love", "would love". Competing signals toward other categories: "page", "load".
+2026-08-04 00:28:07 | INFO     | 
+───────────────────────────────────────────────────────
+2026-08-04 00:28:07 | INFO     | Ticket DEMO-005: Clear bug — expect high confidence
+2026-08-04 00:28:07 | INFO     | Text: 'The app is completely broken. Nothing works. 500 errors everywhere. Th...'
+2026-08-04 00:28:07 | INFO     | 
+2026-08-04 00:28:07 | INFO     |   Predicted:  bug_report
+2026-08-04 00:28:07 | INFO     |   Confidence: 44.2%
+2026-08-04 00:28:07 | INFO     |   Base rate:  13.1% (avg across all tickets)
+2026-08-04 00:28:07 | INFO     | 
+2026-08-04 00:28:07 | INFO     |   DROVE prediction toward bug_report:
+2026-08-04 00:28:07 | INFO     |     'error               ' ++++++++++++++++++++++++++++++++++++++++ +0.8028
+2026-08-04 00:28:07 | INFO     |     'app                 ' ++++++++++ +0.2097
+2026-08-04 00:28:07 | INFO     |     'work                ' +++++++++ +0.1862
+2026-08-04 00:28:07 | INFO     |     'nothing             ' +++++++ +0.1496
+2026-08-04 00:28:07 | INFO     |     'completely          ' ++ +0.0402
+2026-08-04 00:28:07 | INFO     |   PULLED AWAY from bug_report:
+2026-08-04 00:28:07 | INFO     |     'broken              ' --------- -0.1801
+2026-08-04 00:28:07 | INFO     |     'hour                ' ------- -0.1441
+2026-08-04 00:28:07 | INFO     |     'ago                 ' ---- -0.0966
+2026-08-04 00:28:07 | INFO     |     'started             ' ---- -0.0943
+2026-08-04 00:28:07 | INFO     | 
+2026-08-04 00:28:07 | INFO     |   Summary: Classified as bug report (44% confidence). Key signals: "error", "app", "work". Competing signals toward other categories: "broken", "hour".
+2026-08-04 00:28:07 | INFO     | 
+============================================================
+2026-08-04 00:28:07 | INFO     | WEEK 3 COMPLETE
+2026-08-04 00:28:07 | INFO     | ============================================================
+2026-08-04 00:28:07 | INFO     |   Explainer saved to: models/shap_explainer.joblib
+2026-08-04 00:28:07 | INFO     |   Test tickets explained: 191
+2026-08-04 00:28:07 | INFO     |   Strong explanations:    190 (99%)
+2026-08-04 00:28:07 | INFO     | 
+2026-08-04 00:28:07 | INFO     |   RESUME BULLET (add to Week 2 bullet):
+2026-08-04 00:28:07 | INFO     |   'Added SHAP explainability layer surfacing top-5 token
+2026-08-04 00:28:07 | INFO     |   contributions per prediction, enabling support managers
+2026-08-04 00:28:07 | INFO     |   to audit routing decisions and identify systematic errors.'
+2026-08-04 00:28:07 | INFO     | 
+2026-08-04 00:28:07 | INFO     |   NEXT STEPS:
+2026-08-04 00:28:07 | INFO     |   1. Commit to GitHub
+2026-08-04 00:28:07 | INFO     |   2. The explanation results feed directly into the
+2026-08-04 00:28:07 | INFO     |      Week 4 FastAPI — every /predict endpoint will
+2026-08-04 00:28:07 | INFO     |      return SHAP tokens alongside the prediction.
+2026-08-04 00:28:07 | INFO     | ============================================================
+2026-08-04 00:28:19 | INFO     | TicketExplainer initialized
+2026-08-04 00:28:19 | INFO     | Vocabulary size: 962 tokens
+2026-08-04 00:28:19 | INFO     | Categories: ['account_access', 'billing', 'bug_report', 'feature_request', 'general', 'performance']
+2026-08-04 00:28:19 | INFO     | TicketExplainer initialized
+2026-08-04 00:28:19 | INFO     | Vocabulary size: 962 tokens
+2026-08-04 00:28:19 | INFO     | Categories: ['account_access', 'billing', 'bug_report', 'feature_request', 'general', 'performance']
+2026-08-04 00:28:19 | INFO     | Fitting SHAP explainer on 6 background samples...
+2026-08-04 00:28:19 | INFO     | SHAP explainer fitted successfully
+2026-08-04 00:28:19 | INFO     | Base values per category: {'account_access': 0.093, 'billing': 0.226, 'bug_report': 0.385, 'feature_request': 0.133, 'general': 0.108, 'performance': 0.055}
+2026-08-04 00:28:19 | INFO     | TicketExplainer initialized
+2026-08-04 00:28:19 | INFO     | Vocabulary size: 962 tokens
+2026-08-04 00:28:19 | INFO     | Categories: ['account_access', 'billing', 'bug_report', 'feature_request', 'general', 'performance']
+2026-08-04 00:28:19 | INFO     | Fitting SHAP explainer on 1 background samples...
+2026-08-04 00:28:19 | INFO     | SHAP explainer fitted successfully
+2026-08-04 00:28:19 | INFO     | Base values per category: {'account_access': 0.037, 'billing': 0.795, 'bug_report': 0.024, 'feature_request': 0.035, 'general': 0.089, 'performance': 0.019}
+2026-08-04 00:28:19 | INFO     | Explainer saved to /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-0/test_save_and_load0/test_explainer.joblib
+2026-08-04 00:28:19 | INFO     | TicketExplainer initialized
+2026-08-04 00:28:19 | INFO     | Vocabulary size: 962 tokens
+2026-08-04 00:28:19 | INFO     | Categories: ['account_access', 'billing', 'bug_report', 'feature_request', 'general', 'performance']
+2026-08-04 00:28:19 | INFO     | Explainer loaded from /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-0/test_save_and_load0/test_explainer.joblib
+2026-08-04 00:47:08 | INFO     | TicketExplainer initialized
+2026-08-04 00:47:08 | INFO     | Vocabulary size: 962 tokens
+2026-08-04 00:47:08 | INFO     | Categories: ['account_access', 'billing', 'bug_report', 'feature_request', 'general', 'performance']
+2026-08-04 00:47:08 | INFO     | TicketExplainer initialized
+2026-08-04 00:47:08 | INFO     | Vocabulary size: 962 tokens
+2026-08-04 00:47:08 | INFO     | Categories: ['account_access', 'billing', 'bug_report', 'feature_request', 'general', 'performance']
+2026-08-04 00:47:08 | INFO     | Fitting SHAP explainer on 6 background samples...
+2026-08-04 00:47:08 | INFO     | SHAP explainer fitted successfully
+2026-08-04 00:47:08 | INFO     | Base values per category: {'account_access': 0.093, 'billing': 0.226, 'bug_report': 0.385, 'feature_request': 0.133, 'general': 0.108, 'performance': 0.055}
+2026-08-04 00:47:08 | INFO     | TicketExplainer initialized
+2026-08-04 00:47:08 | INFO     | Vocabulary size: 962 tokens
+2026-08-04 00:47:08 | INFO     | Categories: ['account_access', 'billing', 'bug_report', 'feature_request', 'general', 'performance']
+2026-08-04 00:47:08 | INFO     | Fitting SHAP explainer on 1 background samples...
+2026-08-04 00:47:08 | INFO     | SHAP explainer fitted successfully
+2026-08-04 00:47:08 | INFO     | Base values per category: {'account_access': 0.037, 'billing': 0.795, 'bug_report': 0.024, 'feature_request': 0.035, 'general': 0.089, 'performance': 0.019}
+2026-08-04 00:47:08 | INFO     | Explainer saved to /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-1/test_save_and_load0/test_explainer.joblib
+2026-08-04 00:47:08 | INFO     | TicketExplainer initialized
+2026-08-04 00:47:08 | INFO     | Vocabulary size: 962 tokens
+2026-08-04 00:47:08 | INFO     | Categories: ['account_access', 'billing', 'bug_report', 'feature_request', 'general', 'performance']
+2026-08-04 00:47:08 | INFO     | Explainer loaded from /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-1/test_save_and_load0/test_explainer.joblib
+2026-08-04 00:47:30 | INFO     | TicketExplainer initialized
+2026-08-04 00:47:30 | INFO     | Vocabulary size: 962 tokens
+2026-08-04 00:47:30 | INFO     | Categories: ['account_access', 'billing', 'bug_report', 'feature_request', 'general', 'performance']
+2026-08-04 00:47:30 | INFO     | TicketExplainer initialized
+2026-08-04 00:47:30 | INFO     | Vocabulary size: 962 tokens
+2026-08-04 00:47:30 | INFO     | Categories: ['account_access', 'billing', 'bug_report', 'feature_request', 'general', 'performance']
+2026-08-04 00:47:30 | INFO     | Fitting SHAP explainer on 6 background samples...
+2026-08-04 00:47:30 | INFO     | SHAP explainer fitted successfully
+2026-08-04 00:47:30 | INFO     | Base values per category: {'account_access': 0.093, 'billing': 0.226, 'bug_report': 0.385, 'feature_request': 0.133, 'general': 0.108, 'performance': 0.055}
+2026-08-04 00:47:30 | INFO     | TicketExplainer initialized
+2026-08-04 00:47:30 | INFO     | Vocabulary size: 962 tokens
+2026-08-04 00:47:30 | INFO     | Categories: ['account_access', 'billing', 'bug_report', 'feature_request', 'general', 'performance']
+2026-08-04 00:47:30 | INFO     | Fitting SHAP explainer on 1 background samples...
+2026-08-04 00:47:30 | INFO     | SHAP explainer fitted successfully
+2026-08-04 00:47:30 | INFO     | Base values per category: {'account_access': 0.037, 'billing': 0.795, 'bug_report': 0.024, 'feature_request': 0.035, 'general': 0.089, 'performance': 0.019}
+2026-08-04 00:47:30 | INFO     | Explainer saved to /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-2/test_save_and_load0/test_explainer.joblib
+2026-08-04 00:47:30 | INFO     | TicketExplainer initialized
+2026-08-04 00:47:30 | INFO     | Vocabulary size: 962 tokens
+2026-08-04 00:47:30 | INFO     | Categories: ['account_access', 'billing', 'bug_report', 'feature_request', 'general', 'performance']
+2026-08-04 00:47:30 | INFO     | Explainer loaded from /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-2/test_save_and_load0/test_explainer.joblib

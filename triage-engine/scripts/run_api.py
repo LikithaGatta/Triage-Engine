@@ -1,27 +1,4 @@
-"""
-scripts/run_api.py
-==================
-Starts the FastAPI development server.
 
-HOW TO RUN:
-    source venv/bin/activate
-    python scripts/run_api.py
-
-Then open:
-    http://localhost:8000/docs     ← Interactive API docs (Swagger UI)
-    http://localhost:8000/redoc    ← Alternative docs (ReDoc)
-    http://localhost:8000/api/v1/health  ← Health check
-
-WHAT YOU WILL SEE:
-    - Models loading on startup
-    - Server ready message
-    - Each request logged with ticket ID, category, confidence, routing
-
-TESTING THE API:
-    The /docs page lets you test every endpoint interactively
-    in your browser — no Postman or curl needed.
-    Click an endpoint, click "Try it out", fill in the body, Execute.
-"""
 
 import sys
 from pathlib import Path

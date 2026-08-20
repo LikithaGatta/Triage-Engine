@@ -1,1 +1,11 @@
-.env
+venv/
+.venv/
+env/
+frontend/node_modules/
+models/
+mlruns/
+data/raw/
+data/processed/
+*.joblib
+*.dylib
+*.so

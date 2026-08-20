@@ -1869,3 +1869,753 @@ DEMO: Live ticket predictions
 2026-08-16 17:08:27 | INFO     | TicketPreprocessor ready
 2026-08-16 17:08:27 | INFO     | All models loaded and ready
 2026-08-16 17:08:27 | INFO     | API ready to accept requests
+2026-08-19 13:44:46 | INFO     | Created feedback store at /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-3/test_store_creates_file_on_ini0/corrections.csv
+2026-08-19 13:44:46 | INFO     | Created feedback store at /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-3/test_created_file_has_headers0/corrections.csv
+2026-08-19 13:44:46 | INFO     | Created feedback store at /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-3/test_save_correction_increment0/test_corrections.csv
+2026-08-19 13:44:46 | INFO     | Correction saved: ticket T001 account_access → billing by agent_test
+2026-08-19 13:44:46 | INFO     | Created feedback store at /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-3/test_save_multiple_corrections0/test_corrections.csv
+2026-08-19 13:44:46 | INFO     | Correction saved: ticket T000 general → billing by agent_test
+2026-08-19 13:44:46 | INFO     | Correction saved: ticket T001 general → billing by agent_test
+2026-08-19 13:44:46 | INFO     | Correction saved: ticket T002 general → billing by agent_test
+2026-08-19 13:44:46 | INFO     | Correction saved: ticket T003 general → billing by agent_test
+2026-08-19 13:44:46 | INFO     | Correction saved: ticket T004 general → billing by agent_test
+2026-08-19 13:44:46 | INFO     | Created feedback store at /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-3/test_invalid_category_raises_e0/test_corrections.csv
+2026-08-19 13:44:46 | INFO     | Created feedback store at /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-3/test_load_corrections_returns_0/test_corrections.csv
+2026-08-19 13:44:46 | INFO     | Correction saved: ticket T001 bug_report → account_access by agent_test
+2026-08-19 13:44:46 | INFO     | Loaded 1 corrections from /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-3/test_load_corrections_returns_0/test_corrections.csv
+2026-08-19 13:44:46 | INFO     | Category distribution of corrections:
+corrected_category
+account_access    1
+2026-08-19 13:44:46 | INFO     | Most common corrections:
+original_category corrected_category  count
+       bug_report     account_access      1
+2026-08-19 13:44:46 | INFO     | Created feedback store at /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-3/test_load_empty_store_returns_0/test_corrections.csv
+2026-08-19 13:44:46 | INFO     | No corrections found in feedback store
+2026-08-19 13:44:46 | INFO     | Created feedback store at /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-3/test_saved_data_is_correct0/test_corrections.csv
+2026-08-19 13:44:46 | INFO     | Correction saved: ticket T001 account_access → billing by agent_sarah
+2026-08-19 13:44:46 | INFO     | Loaded 1 corrections from /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-3/test_saved_data_is_correct0/test_corrections.csv
+2026-08-19 13:44:46 | INFO     | Category distribution of corrections:
+corrected_category
+billing    1
+2026-08-19 13:44:46 | INFO     | Most common corrections:
+original_category corrected_category  count
+   account_access            billing      1
+2026-08-19 13:44:46 | INFO     | Created feedback store at /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-3/test_get_as_training_data_form0/test_corrections.csv
+2026-08-19 13:44:46 | INFO     | Correction saved: ticket T001 account_access → billing by agent_test
+2026-08-19 13:44:46 | INFO     | Loaded 1 corrections from /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-3/test_get_as_training_data_form0/test_corrections.csv
+2026-08-19 13:44:46 | INFO     | Category distribution of corrections:
+corrected_category
+billing    1
+2026-08-19 13:44:46 | INFO     | Most common corrections:
+original_category corrected_category  count
+   account_access            billing      1
+2026-08-19 13:44:46 | INFO     | Created feedback store at /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-3/test_clear_resets_count_to_zer0/test_corrections.csv
+2026-08-19 13:44:46 | INFO     | Correction saved: ticket T001 general → billing by agent_test
+2026-08-19 13:44:46 | INFO     | Feedback store cleared
+2026-08-19 13:44:46 | INFO     | Created feedback store at /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-3/test_corrections_persist_acros0/shared_corrections.csv
+2026-08-19 13:44:46 | INFO     | Correction saved: ticket T001 general → billing by agent_test
+2026-08-19 13:44:46 | INFO     | Loaded 1 corrections from /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-3/test_corrections_persist_acros0/shared_corrections.csv
+2026-08-19 13:44:46 | INFO     | Category distribution of corrections:
+corrected_category
+billing    1
+2026-08-19 13:44:46 | INFO     | Most common corrections:
+original_category corrected_category  count
+          general            billing      1
+2026-08-19 13:44:59 | INFO     | ============================================================
+2026-08-19 13:44:59 | INFO     | SIMULATING 50 AGENT CORRECTIONS
+2026-08-19 13:44:59 | INFO     | ============================================================
+2026-08-19 13:44:59 | INFO     | Created feedback store at data/processed/agent_corrections.csv
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-001 account_access → billing by agent_sarah
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-002 account_access → billing by agent_sarah
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-003 performance → bug_report by agent_mike
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-004 performance → bug_report by agent_mike
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-005 general → feature_request by agent_priya
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-006 general → feature_request by agent_priya
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-007 bug_report → account_access by agent_sarah
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-008 bug_report → account_access by agent_sarah
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-009 bug_report → performance by agent_mike
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-010 bug_report → performance by agent_mike
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-011 account_access → billing by agent_sarah
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-012 bug_report → billing by agent_sarah
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-013 general → billing by agent_priya
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-014 account_access → billing by agent_sarah
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-015 performance → bug_report by agent_mike
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-016 performance → bug_report by agent_mike
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-017 performance → bug_report by agent_mike
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-018 bug_report → account_access by agent_sarah
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-019 general → account_access by agent_priya
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-020 bug_report → account_access by agent_sarah
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-021 bug_report → performance by agent_mike
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-022 bug_report → performance by agent_mike
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-023 general → feature_request by agent_priya
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-024 general → feature_request by agent_priya
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-025 general → feature_request by agent_priya
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-026 billing → general by agent_sarah
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-027 feature_request → general by agent_priya
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-028 feature_request → general by agent_priya
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-029 account_access → billing by agent_sarah
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-030 account_access → billing by agent_sarah
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-031 general → billing by agent_priya
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-032 bug_report → billing by agent_sarah
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-033 performance → bug_report by agent_mike
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-034 feature_request → bug_report by agent_mike
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-035 performance → bug_report by agent_mike
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-036 bug_report → account_access by agent_sarah
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-037 bug_report → account_access by agent_sarah
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-038 general → feature_request by agent_priya
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-039 general → feature_request by agent_priya
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-040 bug_report → performance by agent_mike
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-041 performance → bug_report by agent_mike
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-042 billing → general by agent_priya
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-043 billing → general by agent_priya
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-044 general → feature_request by agent_priya
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-045 account_access → billing by agent_sarah
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-046 performance → bug_report by agent_mike
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-047 performance → bug_report by agent_mike
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-048 bug_report → account_access by agent_sarah
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-049 bug_report → account_access by agent_sarah
+2026-08-19 13:44:59 | INFO     | Correction saved: ticket SIM-050 general → feature_request by agent_priya
+2026-08-19 13:44:59 | INFO     | 
+Saved 50 corrections to data/processed/agent_corrections.csv
+2026-08-19 13:44:59 | INFO     | Total corrections now: 50
+2026-08-19 13:44:59 | INFO     | Loaded 50 corrections from data/processed/agent_corrections.csv
+2026-08-19 13:44:59 | INFO     | Category distribution of corrections:
+corrected_category
+billing            11
+bug_report         11
+feature_request     9
+account_access      9
+performance         5
+general             5
+2026-08-19 13:44:59 | INFO     | Most common corrections:
+original_category corrected_category  count
+      performance         bug_report     10
+          general    feature_request      9
+       bug_report     account_access      8
+   account_access            billing      7
+       bug_report        performance      5
+2026-08-19 13:44:59 | INFO     | 
+Correction category distribution:
+2026-08-19 13:44:59 | INFO     | corrected_category
+billing            11
+bug_report         11
+feature_request     9
+account_access      9
+performance         5
+general             5
+2026-08-19 13:44:59 | INFO     | 
+Top correction patterns (model wrong → agent corrected to):
+2026-08-19 13:44:59 | INFO     | original_category corrected_category  count
+      performance         bug_report     10
+          general    feature_request      9
+       bug_report     account_access      8
+   account_access            billing      7
+       bug_report        performance      5
+          billing            general      3
+       bug_report            billing      2
+  feature_request            general      2
+2026-08-19 13:44:59 | INFO     | 
+Run scripts/retrain_from_feedback.py to retrain the model
+2026-08-19 13:56:48 | INFO     | ============================================================
+2026-08-19 13:56:48 | INFO     | WEEK 6: RETRAINING FROM AGENT FEEDBACK
+2026-08-19 13:56:48 | INFO     | ============================================================
+2026-08-19 13:56:48 | INFO     | 
+[Step 1] Checking feedback store...
+2026-08-19 13:56:48 | INFO     |   Corrections available: 50
+2026-08-19 13:56:48 | INFO     |   Minimum required:      20
+2026-08-19 13:56:48 | INFO     |   ✓ Sufficient corrections — proceeding with retraining
+2026-08-19 13:56:48 | INFO     | 
+[Step 2] Loading original training data...
+2026-08-19 13:56:48 | INFO     |   Original training set: 764 tickets
+2026-08-19 13:56:48 | INFO     |   Test set:              191 tickets
+2026-08-19 13:56:48 | INFO     | 
+[Step 3] Loading and preprocessing corrections...
+2026-08-19 13:56:48 | INFO     | TicketPreprocessor ready
+2026-08-19 13:56:48 | INFO     | Loaded 50 corrections from data/processed/agent_corrections.csv
+2026-08-19 13:56:48 | INFO     | Category distribution of corrections:
+corrected_category
+billing            11
+bug_report         11
+feature_request     9
+account_access      9
+performance         5
+general             5
+2026-08-19 13:56:48 | INFO     | Most common corrections:
+original_category corrected_category  count
+      performance         bug_report     10
+          general    feature_request      9
+       bug_report     account_access      8
+   account_access            billing      7
+       bug_report        performance      5
+2026-08-19 13:56:48 | INFO     |   Corrections loaded: 50
+2026-08-19 13:56:48 | INFO     | Preprocessing 50 tickets...
+2026-08-19 13:56:49 | INFO     | Preprocessing complete
+2026-08-19 13:56:49 | INFO     |   After preprocessing: 50 corrections
+2026-08-19 13:56:49 | INFO     |   Correction categories:
+category
+billing            11
+bug_report         11
+feature_request     9
+account_access      9
+performance         5
+general             5
+2026-08-19 13:56:49 | INFO     | 
+[Step 4] Combining original data with corrections...
+2026-08-19 13:56:49 | INFO     |   Original training:     764
+2026-08-19 13:56:49 | INFO     |   Weighted corrections:  150 (50 × 3)
+2026-08-19 13:56:49 | INFO     |   Combined total:        914
+2026-08-19 13:56:49 | INFO     | 
+[Step 5] Evaluating current model on test set...
+2026-08-19 13:56:49 | ERROR    | No trained model found. Run scripts/train_baseline.py first.
+2026-08-19 17:43:23 | INFO     | Created feedback store at /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-4/test_store_creates_file_on_ini0/corrections.csv
+2026-08-19 17:43:23 | INFO     | Created feedback store at /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-4/test_created_file_has_headers0/corrections.csv
+2026-08-19 17:43:23 | INFO     | Created feedback store at /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-4/test_save_correction_increment0/test_corrections.csv
+2026-08-19 17:43:23 | INFO     | Correction saved: ticket T001 account_access → billing by agent_test
+2026-08-19 17:43:23 | INFO     | Created feedback store at /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-4/test_save_multiple_corrections0/test_corrections.csv
+2026-08-19 17:43:23 | INFO     | Correction saved: ticket T000 general → billing by agent_test
+2026-08-19 17:43:23 | INFO     | Correction saved: ticket T001 general → billing by agent_test
+2026-08-19 17:43:23 | INFO     | Correction saved: ticket T002 general → billing by agent_test
+2026-08-19 17:43:23 | INFO     | Correction saved: ticket T003 general → billing by agent_test
+2026-08-19 17:43:23 | INFO     | Correction saved: ticket T004 general → billing by agent_test
+2026-08-19 17:43:23 | INFO     | Created feedback store at /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-4/test_invalid_category_raises_e0/test_corrections.csv
+2026-08-19 17:43:23 | INFO     | Created feedback store at /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-4/test_load_corrections_returns_0/test_corrections.csv
+2026-08-19 17:43:23 | INFO     | Correction saved: ticket T001 bug_report → account_access by agent_test
+2026-08-19 17:43:23 | INFO     | Loaded 1 corrections from /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-4/test_load_corrections_returns_0/test_corrections.csv
+2026-08-19 17:43:23 | INFO     | Category distribution of corrections:
+corrected_category
+account_access    1
+2026-08-19 17:43:23 | INFO     | Most common corrections:
+original_category corrected_category  count
+       bug_report     account_access      1
+2026-08-19 17:43:23 | INFO     | Created feedback store at /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-4/test_load_empty_store_returns_0/test_corrections.csv
+2026-08-19 17:43:23 | INFO     | No corrections found in feedback store
+2026-08-19 17:43:23 | INFO     | Created feedback store at /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-4/test_saved_data_is_correct0/test_corrections.csv
+2026-08-19 17:43:23 | INFO     | Correction saved: ticket T001 account_access → billing by agent_sarah
+2026-08-19 17:43:23 | INFO     | Loaded 1 corrections from /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-4/test_saved_data_is_correct0/test_corrections.csv
+2026-08-19 17:43:23 | INFO     | Category distribution of corrections:
+corrected_category
+billing    1
+2026-08-19 17:43:23 | INFO     | Most common corrections:
+original_category corrected_category  count
+   account_access            billing      1
+2026-08-19 17:43:23 | INFO     | Created feedback store at /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-4/test_get_as_training_data_form0/test_corrections.csv
+2026-08-19 17:43:23 | INFO     | Correction saved: ticket T001 account_access → billing by agent_test
+2026-08-19 17:43:23 | INFO     | Loaded 1 corrections from /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-4/test_get_as_training_data_form0/test_corrections.csv
+2026-08-19 17:43:23 | INFO     | Category distribution of corrections:
+corrected_category
+billing    1
+2026-08-19 17:43:23 | INFO     | Most common corrections:
+original_category corrected_category  count
+   account_access            billing      1
+2026-08-19 17:43:23 | INFO     | Created feedback store at /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-4/test_clear_resets_count_to_zer0/test_corrections.csv
+2026-08-19 17:43:23 | INFO     | Correction saved: ticket T001 general → billing by agent_test
+2026-08-19 17:43:23 | INFO     | Feedback store cleared
+2026-08-19 17:43:23 | INFO     | Created feedback store at /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-4/test_corrections_persist_acros0/shared_corrections.csv
+2026-08-19 17:43:23 | INFO     | Correction saved: ticket T001 general → billing by agent_test
+2026-08-19 17:43:23 | INFO     | Loaded 1 corrections from /private/var/folders/r8/0fc8l7551qb259mczmszsl4m0000gn/T/pytest-of-likithagatta/pytest-4/test_corrections_persist_acros0/shared_corrections.csv
+2026-08-19 17:43:23 | INFO     | Category distribution of corrections:
+corrected_category
+billing    1
+2026-08-19 17:43:23 | INFO     | Most common corrections:
+original_category corrected_category  count
+          general            billing      1
+2026-08-19 17:43:29 | INFO     | ============================================================
+2026-08-19 17:43:29 | INFO     | SIMULATING 50 AGENT CORRECTIONS
+2026-08-19 17:43:29 | INFO     | ============================================================
+2026-08-19 17:43:29 | INFO     | Found 50 existing corrections. Adding to them.
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-001 account_access → billing by agent_sarah
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-002 account_access → billing by agent_sarah
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-003 performance → bug_report by agent_mike
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-004 performance → bug_report by agent_mike
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-005 general → feature_request by agent_priya
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-006 general → feature_request by agent_priya
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-007 bug_report → account_access by agent_sarah
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-008 bug_report → account_access by agent_sarah
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-009 bug_report → performance by agent_mike
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-010 bug_report → performance by agent_mike
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-011 account_access → billing by agent_sarah
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-012 bug_report → billing by agent_sarah
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-013 general → billing by agent_priya
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-014 account_access → billing by agent_sarah
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-015 performance → bug_report by agent_mike
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-016 performance → bug_report by agent_mike
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-017 performance → bug_report by agent_mike
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-018 bug_report → account_access by agent_sarah
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-019 general → account_access by agent_priya
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-020 bug_report → account_access by agent_sarah
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-021 bug_report → performance by agent_mike
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-022 bug_report → performance by agent_mike
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-023 general → feature_request by agent_priya
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-024 general → feature_request by agent_priya
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-025 general → feature_request by agent_priya
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-026 billing → general by agent_sarah
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-027 feature_request → general by agent_priya
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-028 feature_request → general by agent_priya
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-029 account_access → billing by agent_sarah
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-030 account_access → billing by agent_sarah
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-031 general → billing by agent_priya
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-032 bug_report → billing by agent_sarah
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-033 performance → bug_report by agent_mike
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-034 feature_request → bug_report by agent_mike
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-035 performance → bug_report by agent_mike
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-036 bug_report → account_access by agent_sarah
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-037 bug_report → account_access by agent_sarah
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-038 general → feature_request by agent_priya
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-039 general → feature_request by agent_priya
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-040 bug_report → performance by agent_mike
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-041 performance → bug_report by agent_mike
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-042 billing → general by agent_priya
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-043 billing → general by agent_priya
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-044 general → feature_request by agent_priya
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-045 account_access → billing by agent_sarah
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-046 performance → bug_report by agent_mike
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-047 performance → bug_report by agent_mike
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-048 bug_report → account_access by agent_sarah
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-049 bug_report → account_access by agent_sarah
+2026-08-19 17:43:29 | INFO     | Correction saved: ticket SIM-050 general → feature_request by agent_priya
+2026-08-19 17:43:29 | INFO     | 
+Saved 50 corrections to data/processed/agent_corrections.csv
+2026-08-19 17:43:29 | INFO     | Total corrections now: 100
+2026-08-19 17:43:29 | INFO     | Loaded 100 corrections from data/processed/agent_corrections.csv
+2026-08-19 17:43:29 | INFO     | Category distribution of corrections:
+corrected_category
+billing            22
+bug_report         22
+feature_request    18
+account_access     18
+performance        10
+general            10
+2026-08-19 17:43:29 | INFO     | Most common corrections:
+original_category corrected_category  count
+      performance         bug_report     20
+          general    feature_request     18
+       bug_report     account_access     16
+   account_access            billing     14
+       bug_report        performance     10
+2026-08-19 17:43:29 | INFO     | 
+Correction category distribution:
+2026-08-19 17:43:29 | INFO     | corrected_category
+billing            22
+bug_report         22
+feature_request    18
+account_access     18
+performance        10
+general            10
+2026-08-19 17:43:29 | INFO     | 
+Top correction patterns (model wrong → agent corrected to):
+2026-08-19 17:43:29 | INFO     | original_category corrected_category  count
+      performance         bug_report     20
+          general    feature_request     18
+       bug_report     account_access     16
+   account_access            billing     14
+       bug_report        performance     10
+          billing            general      6
+       bug_report            billing      4
+  feature_request            general      4
+2026-08-19 17:43:29 | INFO     | 
+Run scripts/retrain_from_feedback.py to retrain the model
+2026-08-19 17:43:39 | INFO     | ============================================================
+2026-08-19 17:43:39 | INFO     | WEEK 6: RETRAINING FROM AGENT FEEDBACK
+2026-08-19 17:43:39 | INFO     | ============================================================
+2026-08-19 17:43:39 | INFO     | 
+[Step 1] Checking feedback store...
+2026-08-19 17:43:39 | INFO     |   Corrections available: 100
+2026-08-19 17:43:39 | INFO     |   Minimum required:      20
+2026-08-19 17:43:39 | INFO     |   ✓ Sufficient corrections — proceeding with retraining
+2026-08-19 17:43:39 | INFO     | 
+[Step 2] Loading original training data...
+2026-08-19 17:43:39 | INFO     |   Original training set: 764 tickets
+2026-08-19 17:43:39 | INFO     |   Test set:              191 tickets
+2026-08-19 17:43:39 | INFO     | 
+[Step 3] Loading and preprocessing corrections...
+2026-08-19 17:43:39 | INFO     | TicketPreprocessor ready
+2026-08-19 17:43:39 | INFO     | Loaded 100 corrections from data/processed/agent_corrections.csv
+2026-08-19 17:43:39 | INFO     | Category distribution of corrections:
+corrected_category
+billing            22
+bug_report         22
+feature_request    18
+account_access     18
+performance        10
+general            10
+2026-08-19 17:43:39 | INFO     | Most common corrections:
+original_category corrected_category  count
+      performance         bug_report     20
+          general    feature_request     18
+       bug_report     account_access     16
+   account_access            billing     14
+       bug_report        performance     10
+2026-08-19 17:43:39 | INFO     |   Corrections loaded: 100
+2026-08-19 17:43:39 | INFO     | Preprocessing 100 tickets...
+2026-08-19 17:43:40 | INFO     | Preprocessing complete
+2026-08-19 17:43:40 | INFO     |   After preprocessing: 100 corrections
+2026-08-19 17:43:40 | INFO     |   Correction categories:
+category
+billing            22
+bug_report         22
+feature_request    18
+account_access     18
+performance        10
+general            10
+2026-08-19 17:43:40 | INFO     | 
+[Step 4] Combining original data with corrections...
+2026-08-19 17:43:40 | INFO     |   Original training:     764
+2026-08-19 17:43:40 | INFO     |   Weighted corrections:  300 (100 × 3)
+2026-08-19 17:43:40 | INFO     |   Combined total:        1,064
+2026-08-19 17:43:40 | INFO     | 
+[Step 5] Evaluating current model on test set...
+2026-08-19 17:43:40 | ERROR    | No trained model found. Run scripts/train_baseline.py first.
+2026-08-19 17:45:05 | INFO     | ============================================================
+2026-08-19 17:45:05 | INFO     | WEEK 1: BASELINE CLASSIFIER TRAINING
+2026-08-19 17:45:05 | INFO     | Settings: 150 tickets/category, 20% test set, model v1.0.0
+2026-08-19 17:45:05 | INFO     | ============================================================
+2026-08-19 17:45:05 | INFO     | 
+[Step 1 of 4] Loading data...
+2026-08-19 17:45:05 | INFO     | Loading existing dataset from data/processed/full_dataset.csv
+2026-08-19 17:45:05 | INFO     | Loaded 955 tickets
+2026-08-19 17:45:05 | INFO     | Dataset loaded: 955 tickets, 6 columns
+2026-08-19 17:45:05 | INFO     | 
+Category counts:
+category
+billing            160
+bug_report         160
+feature_request    159
+account_access     159
+general            159
+performance        158
+2026-08-19 17:45:05 | INFO     | 
+Urgency counts:
+urgency
+normal      532
+high        303
+critical    120
+2026-08-19 17:45:05 | INFO     | 
+[Step 2 of 4] Preprocessing text...
+2026-08-19 17:45:05 | INFO     | TicketPreprocessor ready
+2026-08-19 17:45:05 | INFO     | Preprocessing 955 tickets...
+2026-08-19 17:45:06 | INFO     | Preprocessing complete
+2026-08-19 17:45:06 | INFO     | 
+PREPROCESSING EXAMPLE:
+2026-08-19 17:45:06 | INFO     |   Category:  account_access
+2026-08-19 17:45:06 | INFO     |   Raw body:  Lost my authenticator app. Cannot get past 2FA. Have backup codes but they are not being accepted. T...
+2026-08-19 17:45:06 | INFO     |   Processed: nan lost authenticator app not get past 2fa backup code not accepted urgent...
+2026-08-19 17:45:06 | INFO     |   Words kept: 13
+2026-08-19 17:45:06 | INFO     | Tickets remaining: 955
+2026-08-19 17:45:06 | INFO     | 
+[Step 3 of 4] Splitting into train and test sets...
+2026-08-19 17:45:06 | INFO     | Train: 764 tickets | Test: 191 tickets
+2026-08-19 17:45:06 | INFO     | Test category distribution:
+category
+feature_request    32
+general            32
+billing            32
+bug_report         32
+account_access     32
+performance        31
+2026-08-19 17:45:06 | INFO     | Train: 764 tickets saved to data/processed/train.csv
+2026-08-19 17:45:06 | INFO     | Test:  191 tickets saved to data/processed/test.csv
+2026-08-19 17:45:06 | INFO     | 
+[Step 4 of 4] Training and evaluating...
+2026-08-19 17:45:06 | INFO     | Training model on training set...
+2026-08-19 17:45:06 | INFO     | Training on 764 tickets...
+2026-08-19 17:45:06 | INFO     | Fitting TF-IDF + Logistic Regression pipeline...
+2026-08-19 17:45:06 | INFO     | Train accuracy: 100.0% (not the real metric — see test accuracy)
+2026-08-19 17:45:06 | INFO     | Model saved to models/baseline_v1.0.0.joblib
+2026-08-19 17:45:06 | INFO     | Training accuracy: 100.0%
+2026-08-19 17:45:06 | INFO     | Evaluating on held-out test set...
+2026-08-19 17:45:06 | INFO     | Evaluating on 191 test tickets...
+2026-08-19 17:45:06 | INFO     | 
+==================================================
+CLASSIFICATION REPORT
+==================================================
+                 precision    recall  f1-score   support
+
+ account_access       0.97      0.94      0.95        32
+        billing       0.97      1.00      0.98        32
+     bug_report       0.94      0.97      0.95        32
+feature_request       0.97      0.97      0.97        32
+        general       0.97      0.97      0.97        32
+    performance       1.00      0.97      0.98        31
+
+       accuracy                           0.97       191
+      macro avg       0.97      0.97      0.97       191
+   weighted avg       0.97      0.97      0.97       191
+
+2026-08-19 17:45:06 | INFO     | Overall accuracy: 96.9%
+2026-08-19 17:45:06 | INFO     | Macro F1 score:   96.9%
+2026-08-19 17:45:06 | INFO     | Avg confidence:   92.3%
+2026-08-19 17:45:06 | INFO     | Auto-route rate:  94.8% of tickets have confidence >= 75%
+2026-08-19 17:45:06 | INFO     | Classification report saved to models/classification_report.txt
+2026-08-19 17:45:06 | INFO     | 
+============================================================
+2026-08-19 17:45:06 | INFO     | WEEK 1 RESULTS SUMMARY
+2026-08-19 17:45:06 | INFO     | ============================================================
+2026-08-19 17:45:06 | INFO     |   Total tickets:      955
+2026-08-19 17:45:06 | INFO     |   Training set:       764
+2026-08-19 17:45:06 | INFO     |   Test set:           191
+2026-08-19 17:45:06 | INFO     | 
+2026-08-19 17:45:06 | INFO     |   Test accuracy:      96.9%
+2026-08-19 17:45:06 | INFO     |   Macro F1 score:     96.9%
+2026-08-19 17:45:06 | INFO     |   Avg confidence:     92.3%
+2026-08-19 17:45:06 | INFO     |   Auto-route rate:    94.8%
+2026-08-19 17:45:06 | INFO     |   (tickets where model confidence >= 75%)
+2026-08-19 17:45:06 | INFO     | 
+2026-08-19 17:45:06 | INFO     |   Write down your test accuracy.
+2026-08-19 17:45:06 | INFO     |   Week 2 DistilBERT will beat it by ~25-30 points.
+2026-08-19 17:45:06 | INFO     |   That improvement is your resume headline metric.
+2026-08-19 17:45:06 | INFO     | ============================================================
+2026-08-19 17:45:06 | INFO     | 
+DEMO: Predicting a single example ticket
+2026-08-19 17:45:06 | INFO     | ----------------------------------------
+2026-08-19 17:45:06 | INFO     |   Ticket:    'I was charged twice this month for my Pro subscription. I see two char...'
+2026-08-19 17:45:06 | INFO     |   Predicted: billing
+2026-08-19 17:45:06 | INFO     |   Confidence:93.3%
+2026-08-19 17:45:06 | INFO     |   Auto-routed: True
+2026-08-19 17:45:06 | INFO     |   All category probabilities:
+2026-08-19 17:45:06 | INFO     |     billing                93.3%  [==================]
+2026-08-19 17:45:06 | INFO     |     general                1.8%  []
+2026-08-19 17:45:06 | INFO     |     bug_report             1.5%  []
+2026-08-19 17:45:06 | INFO     |     feature_request        1.3%  []
+2026-08-19 17:45:06 | INFO     |     account_access         1.2%  []
+2026-08-19 17:45:06 | INFO     |     performance            0.8%  []
+2026-08-19 17:45:06 | INFO     | 
+============================================================
+2026-08-19 17:45:06 | INFO     | NEXT STEPS
+2026-08-19 17:45:06 | INFO     | ============================================================
+2026-08-19 17:45:06 | INFO     |   1. View your MLflow experiment dashboard:
+2026-08-19 17:45:06 | INFO     |        mlflow ui
+2026-08-19 17:45:06 | INFO     |        Open: http://localhost:5000
+2026-08-19 17:45:06 | INFO     | 
+2026-08-19 17:45:06 | INFO     |   2. Open the Jupyter notebook:
+2026-08-19 17:45:06 | INFO     |        jupyter notebook notebooks/week1_eda.ipynb
+2026-08-19 17:45:06 | INFO     | 
+2026-08-19 17:45:06 | INFO     |   3. Run the test suite:
+2026-08-19 17:45:06 | INFO     |        pytest tests/ -v
+2026-08-19 17:45:06 | INFO     | 
+2026-08-19 17:45:06 | INFO     |   4. Commit your work to GitHub:
+2026-08-19 17:45:06 | INFO     |        git add .
+2026-08-19 17:45:06 | INFO     |        git commit -m "Week 1: baseline classifier complete"
+2026-08-19 17:45:06 | INFO     |        git push
+2026-08-19 17:45:06 | INFO     | ============================================================
+2026-08-19 17:45:16 | INFO     | ============================================================
+2026-08-19 17:45:16 | INFO     | WEEK 6: RETRAINING FROM AGENT FEEDBACK
+2026-08-19 17:45:16 | INFO     | ============================================================
+2026-08-19 17:45:16 | INFO     | 
+[Step 1] Checking feedback store...
+2026-08-19 17:45:16 | INFO     |   Corrections available: 100
+2026-08-19 17:45:16 | INFO     |   Minimum required:      20
+2026-08-19 17:45:16 | INFO     |   ✓ Sufficient corrections — proceeding with retraining
+2026-08-19 17:45:16 | INFO     | 
+[Step 2] Loading original training data...
+2026-08-19 17:45:16 | INFO     |   Original training set: 764 tickets
+2026-08-19 17:45:16 | INFO     |   Test set:              191 tickets
+2026-08-19 17:45:16 | INFO     | 
+[Step 3] Loading and preprocessing corrections...
+2026-08-19 17:45:16 | INFO     | TicketPreprocessor ready
+2026-08-19 17:45:16 | INFO     | Loaded 100 corrections from data/processed/agent_corrections.csv
+2026-08-19 17:45:16 | INFO     | Category distribution of corrections:
+corrected_category
+billing            22
+bug_report         22
+feature_request    18
+account_access     18
+performance        10
+general            10
+2026-08-19 17:45:16 | INFO     | Most common corrections:
+original_category corrected_category  count
+      performance         bug_report     20
+          general    feature_request     18
+       bug_report     account_access     16
+   account_access            billing     14
+       bug_report        performance     10
+2026-08-19 17:45:16 | INFO     |   Corrections loaded: 100
+2026-08-19 17:45:16 | INFO     | Preprocessing 100 tickets...
+2026-08-19 17:45:16 | INFO     | Preprocessing complete
+2026-08-19 17:45:16 | INFO     |   After preprocessing: 100 corrections
+2026-08-19 17:45:16 | INFO     |   Correction categories:
+category
+billing            22
+bug_report         22
+feature_request    18
+account_access     18
+performance        10
+general            10
+2026-08-19 17:45:16 | INFO     | 
+[Step 4] Combining original data with corrections...
+2026-08-19 17:45:16 | INFO     |   Original training:     764
+2026-08-19 17:45:16 | INFO     |   Weighted corrections:  300 (100 × 3)
+2026-08-19 17:45:16 | INFO     |   Combined total:        1,064
+2026-08-19 17:45:16 | INFO     | 
+[Step 5] Evaluating current model on test set...
+2026-08-19 17:45:16 | INFO     |   Current model accuracy: 96.9%
+2026-08-19 17:45:16 | INFO     |   Current model F1:       96.9%
+2026-08-19 17:45:16 | INFO     | 
+[Step 6] Training new model on combined dataset...
+2026-08-19 17:45:16 | INFO     | Training on 1,064 tickets...
+2026-08-19 17:45:17 | INFO     | Fitting TF-IDF + Logistic Regression pipeline...
+2026-08-19 17:45:17 | INFO     | Train accuracy: 100.0% (not the real metric — see test accuracy)
+2026-08-19 17:45:17 | INFO     | Model saved to models/baseline_v1.1.0.joblib
+2026-08-19 17:45:17 | INFO     |   New model version: 1.1.0
+2026-08-19 17:45:17 | INFO     | 
+[Step 7] Evaluating new model on test set...
+2026-08-19 17:45:17 | INFO     |   New model accuracy:  99.0%
+2026-08-19 17:45:17 | INFO     |   New model F1:        99.0%
+2026-08-19 17:45:17 | INFO     |   Improvement:         +2.1% (+2.09 points)
+2026-08-19 17:45:17 | INFO     | 
+[Step 8] Promotion decision...
+2026-08-19 17:45:17 | INFO     |   ✓ New model PROMOTED to production
+2026-08-19 17:45:17 | INFO     |   Saved to: models/baseline_v1.1.0.joblib
+2026-08-19 17:45:17 | INFO     |   API model updated: models/baseline_v1.0.0.joblib
+2026-08-19 17:45:17 | INFO     | 
+============================================================
+2026-08-19 17:45:17 | INFO     | WEEK 6 RETRAINING RESULTS
+2026-08-19 17:45:17 | INFO     | ============================================================
+2026-08-19 17:45:17 | INFO     |   Corrections used:    100
+2026-08-19 17:45:17 | INFO     |   Combined train size: 1,064
+2026-08-19 17:45:17 | INFO     | 
+2026-08-19 17:45:17 | INFO     |   Old model accuracy:  96.9%
+2026-08-19 17:45:17 | INFO     |   New model accuracy:  99.0%
+2026-08-19 17:45:17 | INFO     |   Improvement:         +2.1%
+2026-08-19 17:45:17 | INFO     |   Promoted:            YES
+2026-08-19 17:45:17 | INFO     | 
+2026-08-19 17:45:17 | INFO     |   RESUME BULLET:
+2026-08-19 17:45:17 | INFO     |   'Implemented human-in-the-loop retraining pipeline.
+2026-08-19 17:45:17 | INFO     |   After 100 agent corrections, model accuracy
+2026-08-19 17:45:17 | INFO     |   improved by +2.1 percentage points.
+2026-08-19 17:45:17 | INFO     |   New model v1.1.0 promoted to production.'
+2026-08-19 17:45:17 | INFO     | 
+2026-08-19 17:45:17 | INFO     |   NEXT: Restart the API to load the new model:
+2026-08-19 17:45:17 | INFO     |     Ctrl+C to stop, then: python scripts/run_api.py
+2026-08-19 17:45:17 | INFO     | ============================================================
+2026-08-20 13:20:23 | INFO     | ============================================================
+2026-08-20 13:20:23 | INFO     | WEEK 1: BASELINE CLASSIFIER TRAINING
+2026-08-20 13:20:23 | INFO     | Settings: 150 tickets/category, 20% test set, model v1.0.0
+2026-08-20 13:20:23 | INFO     | ============================================================
+2026-08-20 13:20:23 | INFO     | 
+[Step 1 of 4] Loading data...
+2026-08-20 13:20:23 | INFO     | Loading existing dataset from data/processed/full_dataset.csv
+2026-08-20 13:20:23 | INFO     | Loaded 955 tickets
+2026-08-20 13:20:23 | INFO     | Dataset loaded: 955 tickets, 6 columns
+2026-08-20 13:20:23 | INFO     | 
+Category counts:
+category
+billing            160
+bug_report         160
+feature_request    159
+account_access     159
+general            159
+performance        158
+2026-08-20 13:20:23 | INFO     | 
+Urgency counts:
+urgency
+normal      532
+high        303
+critical    120
+2026-08-20 13:20:23 | INFO     | 
+[Step 2 of 4] Preprocessing text...
+2026-08-20 13:20:23 | INFO     | TicketPreprocessor ready
+2026-08-20 13:20:23 | INFO     | Preprocessing 955 tickets...
+2026-08-20 13:20:24 | INFO     | Preprocessing complete
+2026-08-20 13:20:24 | INFO     | 
+PREPROCESSING EXAMPLE:
+2026-08-20 13:20:24 | INFO     |   Category:  account_access
+2026-08-20 13:20:24 | INFO     |   Raw body:  Lost my authenticator app. Cannot get past 2FA. Have backup codes but they are not being accepted. T...
+2026-08-20 13:20:24 | INFO     |   Processed: nan lost authenticator app not get past 2fa backup code not accepted urgent...
+2026-08-20 13:20:24 | INFO     |   Words kept: 13
+2026-08-20 13:20:24 | INFO     | Tickets remaining: 955
+2026-08-20 13:20:24 | INFO     | 
+[Step 3 of 4] Splitting into train and test sets...
+2026-08-20 13:20:24 | INFO     | Train: 764 tickets | Test: 191 tickets
+2026-08-20 13:20:24 | INFO     | Test category distribution:
+category
+feature_request    32
+general            32
+billing            32
+bug_report         32
+account_access     32
+performance        31
+2026-08-20 13:20:24 | INFO     | Train: 764 tickets saved to data/processed/train.csv
+2026-08-20 13:20:24 | INFO     | Test:  191 tickets saved to data/processed/test.csv
+2026-08-20 13:20:24 | INFO     | 
+[Step 4 of 4] Training and evaluating...
+2026-08-20 13:20:24 | INFO     | Training model on training set...
+2026-08-20 13:20:24 | INFO     | Training on 764 tickets...
+2026-08-20 13:20:24 | INFO     | Fitting TF-IDF + Logistic Regression pipeline...
+2026-08-20 13:20:24 | INFO     | Train accuracy: 100.0% (not the real metric — see test accuracy)
+2026-08-20 13:20:24 | INFO     | Model saved to models/baseline_v1.0.0.joblib
+2026-08-20 13:20:24 | INFO     | Training accuracy: 100.0%
+2026-08-20 13:20:24 | INFO     | Evaluating on held-out test set...
+2026-08-20 13:20:24 | INFO     | Evaluating on 191 test tickets...
+2026-08-20 13:20:24 | INFO     | 
+==================================================
+CLASSIFICATION REPORT
+==================================================
+                 precision    recall  f1-score   support
+
+ account_access       0.97      0.94      0.95        32
+        billing       0.97      1.00      0.98        32
+     bug_report       0.94      0.97      0.95        32
+feature_request       0.97      0.97      0.97        32
+        general       0.97      0.97      0.97        32
+    performance       1.00      0.97      0.98        31
+
+       accuracy                           0.97       191
+      macro avg       0.97      0.97      0.97       191
+   weighted avg       0.97      0.97      0.97       191
+
+2026-08-20 13:20:24 | INFO     | Overall accuracy: 96.9%
+2026-08-20 13:20:24 | INFO     | Macro F1 score:   96.9%
+2026-08-20 13:20:24 | INFO     | Avg confidence:   92.3%
+2026-08-20 13:20:24 | INFO     | Auto-route rate:  94.8% of tickets have confidence >= 75%
+2026-08-20 13:20:24 | INFO     | Classification report saved to models/classification_report.txt
+2026-08-20 13:20:24 | INFO     | 
+============================================================
+2026-08-20 13:20:24 | INFO     | WEEK 1 RESULTS SUMMARY
+2026-08-20 13:20:24 | INFO     | ============================================================
+2026-08-20 13:20:24 | INFO     |   Total tickets:      955
+2026-08-20 13:20:24 | INFO     |   Training set:       764
+2026-08-20 13:20:24 | INFO     |   Test set:           191
+2026-08-20 13:20:24 | INFO     | 
+2026-08-20 13:20:24 | INFO     |   Test accuracy:      96.9%
+2026-08-20 13:20:24 | INFO     |   Macro F1 score:     96.9%
+2026-08-20 13:20:24 | INFO     |   Avg confidence:     92.3%
+2026-08-20 13:20:24 | INFO     |   Auto-route rate:    94.8%
+2026-08-20 13:20:24 | INFO     |   (tickets where model confidence >= 75%)
+2026-08-20 13:20:24 | INFO     | 
+2026-08-20 13:20:24 | INFO     |   Write down your test accuracy.
+2026-08-20 13:20:24 | INFO     |   Week 2 DistilBERT will beat it by ~25-30 points.
+2026-08-20 13:20:24 | INFO     |   That improvement is your resume headline metric.
+2026-08-20 13:20:24 | INFO     | ============================================================
+2026-08-20 13:20:24 | INFO     | 
+DEMO: Predicting a single example ticket
+2026-08-20 13:20:24 | INFO     | ----------------------------------------
+2026-08-20 13:20:24 | INFO     |   Ticket:    'I was charged twice this month for my Pro subscription. I see two char...'
+2026-08-20 13:20:24 | INFO     |   Predicted: billing
+2026-08-20 13:20:24 | INFO     |   Confidence:93.3%
+2026-08-20 13:20:24 | INFO     |   Auto-routed: True
+2026-08-20 13:20:24 | INFO     |   All category probabilities:
+2026-08-20 13:20:24 | INFO     |     billing                93.3%  [==================]
+2026-08-20 13:20:24 | INFO     |     general                1.8%  []
+2026-08-20 13:20:24 | INFO     |     bug_report             1.5%  []
+2026-08-20 13:20:24 | INFO     |     feature_request        1.3%  []
+2026-08-20 13:20:24 | INFO     |     account_access         1.2%  []
+2026-08-20 13:20:24 | INFO     |     performance            0.8%  []
+2026-08-20 13:20:24 | INFO     | 
+============================================================
+2026-08-20 13:20:24 | INFO     | NEXT STEPS
+2026-08-20 13:20:24 | INFO     | ============================================================
+2026-08-20 13:20:24 | INFO     |   1. View your MLflow experiment dashboard:
+2026-08-20 13:20:24 | INFO     |        mlflow ui
+2026-08-20 13:20:24 | INFO     |        Open: http://localhost:5000
+2026-08-20 13:20:24 | INFO     | 
+2026-08-20 13:20:24 | INFO     |   2. Open the Jupyter notebook:
+2026-08-20 13:20:24 | INFO     |        jupyter notebook notebooks/week1_eda.ipynb
+2026-08-20 13:20:24 | INFO     | 
+2026-08-20 13:20:24 | INFO     |   3. Run the test suite:
+2026-08-20 13:20:24 | INFO     |        pytest tests/ -v
+2026-08-20 13:20:24 | INFO     | 
+2026-08-20 13:20:24 | INFO     |   4. Commit your work to GitHub:
+2026-08-20 13:20:24 | INFO     |        git add .
+2026-08-20 13:20:24 | INFO     |        git commit -m "Week 1: baseline classifier complete"
+2026-08-20 13:20:24 | INFO     |        git push
+2026-08-20 13:20:24 | INFO     | ============================================================

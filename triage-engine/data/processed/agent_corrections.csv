@@ -1,0 +1,101 @@
+ticket_id,body,subject,original_category,original_confidence,corrected_category,corrected_urgency,agent_id,correction_note,corrected_at,source
+SIM-001,I can't get into my account and I'm worried about being charged while locked out. My subscription renews in 3 days.,Cannot access my account,account_access,0.61,billing,normal,agent_sarah,"Primary concern is the upcoming charge, not the login itself",2026-08-19T13:44:59.597496,agent_correction
+SIM-002,I've been charged $99 but I literally cannot login to use anything I paid for. This is unacceptable.,Charged but can't login,account_access,0.58,billing,normal,agent_sarah,Billing dispute is the core issue here,2026-08-19T13:44:59.597719,agent_correction
+SIM-003,Every time I try to export my contacts list it just spins forever and never completes. This started after the update yesterday.,Export never finishes,performance,0.54,bug_report,normal,agent_mike,"This is a bug introduced by the update, not a performance issue",2026-08-19T13:44:59.597881,agent_correction
+SIM-004,The search is really slow AND it returns completely wrong results. Searching for 'John Smith' shows random contacts.,Search returns wrong results,performance,0.51,bug_report,normal,agent_mike,Wrong results = bug. Slowness is secondary.,2026-08-19T13:44:59.598028,agent_correction
+SIM-005,"Hi, I was wondering if there's any way to export all my data at once? I've been doing it one page at a time which is very tedious.",Is there a way to bulk export?,general,0.55,feature_request,normal,agent_priya,They want a feature that doesn't exist yet,2026-08-19T13:44:59.598173,agent_correction
+SIM-006,I keep missing updates because I have to check the dashboard manually. Is there any email notification option?,Can I get notified by email?,general,0.57,feature_request,normal,agent_priya,Requesting a notification feature that doesn't exist,2026-08-19T13:44:59.598310,agent_correction
+SIM-007,2FA is completely broken for me. The code says invalid every time even though I'm using the right app. Started today.,Two factor auth broken,bug_report,0.62,account_access,normal,agent_sarah,2FA access issue — route to account team not engineering,2026-08-19T13:44:59.598442,agent_correction
+SIM-008,Our company SSO stopped working this morning. Nobody on our team can log in. Error says authentication failed.,SSO login not working,bug_report,0.59,account_access,normal,agent_sarah,SSO configuration issue — account team handles this,2026-08-19T13:44:59.598587,agent_correction
+SIM-009,The main dashboard now takes over 2 minutes to load. Everything else seems fine. Just the dashboard page.,Dashboard incredibly slow,bug_report,0.52,performance,normal,agent_mike,"This is purely a performance regression, no bug",2026-08-19T13:44:59.598833,agent_correction
+SIM-010,Running any report with more than 500 rows times out. This used to work fine last month.,Reports timing out,bug_report,0.48,performance,normal,agent_mike,Timeout on large datasets = performance issue,2026-08-19T13:44:59.599081,agent_correction
+SIM-011,I was overcharged this month and need it corrected,Billing issue,account_access,0.53,billing,normal,agent_sarah,,2026-08-19T13:44:59.599259,agent_correction
+SIM-012,The payment page crashes when I try to add my card,Can't pay,bug_report,0.67,billing,normal,agent_sarah,,2026-08-19T13:44:59.599412,agent_correction
+SIM-013,My invoice shows the wrong company name. Need a corrected one for accounting,Invoice wrong,general,0.59,billing,normal,agent_priya,,2026-08-19T13:44:59.599555,agent_correction
+SIM-014,I cancelled within the trial period but was still charged. Please refund,Refund needed,account_access,0.54,billing,normal,agent_sarah,,2026-08-19T13:44:59.599693,agent_correction
+SIM-015,The analytics page shows all zeros even though we have data,Page broken,performance,0.56,bug_report,normal,agent_mike,,2026-08-19T13:44:59.599824,agent_correction
+SIM-016,App crashes immediately when I open the reports section on iOS,App crashes,performance,0.51,bug_report,normal,agent_mike,,2026-08-19T13:44:59.600026,agent_correction
+SIM-017,All my contacts from last week disappeared. They were there yesterday,Data missing,performance,0.49,bug_report,normal,agent_mike,,2026-08-19T13:44:59.600217,agent_correction
+SIM-018,I reset my password three times and still cannot login,Login issue,bug_report,0.61,account_access,normal,agent_sarah,,2026-08-19T13:44:59.600407,agent_correction
+SIM-019,How do I give my colleague admin access to our account?,Team access,general,0.58,account_access,normal,agent_priya,,2026-08-19T13:44:59.600554,agent_correction
+SIM-020,My account seems to be locked. Too many failed login attempts,Locked out,bug_report,0.55,account_access,normal,agent_sarah,,2026-08-19T13:44:59.600698,agent_correction
+SIM-021,Search takes 30+ seconds to return results. Was instant before,Slow search,bug_report,0.52,performance,normal,agent_mike,,2026-08-19T13:44:59.600831,agent_correction
+SIM-022,Your API response times have gotten much worse this week. 10+ seconds per call,API slow,bug_report,0.5,performance,normal,agent_mike,,2026-08-19T13:44:59.600965,agent_correction
+SIM-023,Any plans to add a dark mode? Would really help with eye strain,Dark mode?,general,0.61,feature_request,normal,agent_priya,,2026-08-19T13:44:59.601095,agent_correction
+SIM-024,Do you have a Zapier integration? We really need this for our workflow,Zapier integration,general,0.59,feature_request,normal,agent_priya,,2026-08-19T13:44:59.601222,agent_correction
+SIM-025,Is there a mobile app planned? Would love to check things on my phone,Mobile app,general,0.57,feature_request,normal,agent_priya,,2026-08-19T13:44:59.601349,agent_correction
+SIM-026,What happens to my data if I downgrade to the free plan?,Pricing question,billing,0.54,general,normal,agent_sarah,,2026-08-19T13:44:59.601474,agent_correction
+SIM-027,What file formats can I export data to?,How to export,feature_request,0.56,general,normal,agent_priya,,2026-08-19T13:44:59.601602,agent_correction
+SIM-028,Is your platform SOC 2 compliant? We need this for our enterprise deal,Compliance question,feature_request,0.53,general,normal,agent_priya,,2026-08-19T13:44:59.601727,agent_correction
+SIM-029,Two charges appeared on my card this month. Need one refunded urgently,Double billed,account_access,0.58,billing,normal,agent_sarah,,2026-08-19T13:44:59.601854,agent_correction
+SIM-030,My credit card expired. How do I update my payment info?,Card update,account_access,0.55,billing,normal,agent_sarah,,2026-08-19T13:44:59.601979,agent_correction
+SIM-031,Can you send me a receipt for my last three payments for tax purposes?,Receipt needed,general,0.57,billing,normal,agent_priya,,2026-08-19T13:44:59.602113,agent_correction
+SIM-032,The upgrade button on the pricing page is not working at all,Upgrade broken,bug_report,0.63,billing,normal,agent_sarah,,2026-08-19T13:44:59.602237,agent_correction
+SIM-033,Every time I try to import a CSV file it says invalid format even though the file is correct,CSV import fails,performance,0.54,bug_report,normal,agent_mike,,2026-08-19T13:44:59.602361,agent_correction
+SIM-034,I stopped receiving email notifications two weeks ago. Settings look correct,Notifications broken,feature_request,0.51,bug_report,normal,agent_mike,,2026-08-19T13:44:59.602484,agent_correction
+SIM-035,My data stopped syncing between devices three days ago,Data not syncing,performance,0.53,bug_report,normal,agent_mike,,2026-08-19T13:44:59.602609,agent_correction
+SIM-036,Lost my phone and now locked out of MFA. Have backup codes but they expired,MFA locked,bug_report,0.6,account_access,normal,agent_sarah,,2026-08-19T13:44:59.602731,agent_correction
+SIM-037,Need to change the email address on my account. Old one is no longer mine,Change email,bug_report,0.52,account_access,normal,agent_sarah,,2026-08-19T13:44:59.602853,agent_correction
+SIM-038,Is there a way to delete multiple records at once instead of one by one?,Bulk delete,general,0.58,feature_request,normal,agent_priya,,2026-08-19T13:44:59.602975,agent_correction
+SIM-039,We need API access to pull data into our own systems. Is this available?,API access,general,0.56,feature_request,normal,agent_priya,,2026-08-19T13:44:59.603097,agent_correction
+SIM-040,Generating any report now takes 5+ minutes. Used to be under 30 seconds,Slow reports,bug_report,0.54,performance,normal,agent_mike,,2026-08-19T13:44:59.603249,agent_correction
+SIM-041,The charts on the analytics page never load. Just a spinner forever,Charts not loading,performance,0.57,bug_report,normal,agent_mike,,2026-08-19T13:44:59.603375,agent_correction
+SIM-042,What is the difference between Pro and Business in terms of API limits?,Plan comparison,billing,0.55,general,normal,agent_priya,,2026-08-19T13:44:59.603500,agent_correction
+SIM-043,How do I cancel my subscription? I cannot find the option in settings,Cancel subscription,billing,0.53,general,normal,agent_priya,,2026-08-19T13:44:59.603627,agent_correction
+SIM-044,I hit the export limit but I need more data. Is there a way to increase it?,Data export limit,general,0.54,feature_request,normal,agent_priya,,2026-08-19T13:44:59.603773,agent_correction
+SIM-045,I was charged the enterprise rate but I am on the Pro plan,Wrong charge amount,account_access,0.56,billing,normal,agent_sarah,,2026-08-19T13:44:59.604038,agent_correction
+SIM-046,The mobile app freezes completely after about 10 minutes of use,App freezes,performance,0.55,bug_report,normal,agent_mike,,2026-08-19T13:44:59.604230,agent_correction
+SIM-047,CSV import has been stuck at 50% for two hours. Is it broken?,Import stuck,performance,0.52,bug_report,normal,agent_mike,,2026-08-19T13:44:59.604382,agent_correction
+SIM-048,Need to add a new billing admin to our account,Team member access,bug_report,0.54,account_access,normal,agent_sarah,,2026-08-19T13:44:59.604521,agent_correction
+SIM-049,Reset password link expired before I could use it,Password help,bug_report,0.58,account_access,normal,agent_sarah,,2026-08-19T13:44:59.604656,agent_correction
+SIM-050,Would love keyboard shortcuts for common actions. Would save so much time,Keyboard shortcuts,general,0.6,feature_request,normal,agent_priya,,2026-08-19T13:44:59.604891,agent_correction
+SIM-001,I can't get into my account and I'm worried about being charged while locked out. My subscription renews in 3 days.,Cannot access my account,account_access,0.61,billing,normal,agent_sarah,"Primary concern is the upcoming charge, not the login itself",2026-08-19T17:43:29.625907,agent_correction
+SIM-002,I've been charged $99 but I literally cannot login to use anything I paid for. This is unacceptable.,Charged but can't login,account_access,0.58,billing,normal,agent_sarah,Billing dispute is the core issue here,2026-08-19T17:43:29.626343,agent_correction
+SIM-003,Every time I try to export my contacts list it just spins forever and never completes. This started after the update yesterday.,Export never finishes,performance,0.54,bug_report,normal,agent_mike,"This is a bug introduced by the update, not a performance issue",2026-08-19T17:43:29.626567,agent_correction
+SIM-004,The search is really slow AND it returns completely wrong results. Searching for 'John Smith' shows random contacts.,Search returns wrong results,performance,0.51,bug_report,normal,agent_mike,Wrong results = bug. Slowness is secondary.,2026-08-19T17:43:29.626752,agent_correction
+SIM-005,"Hi, I was wondering if there's any way to export all my data at once? I've been doing it one page at a time which is very tedious.",Is there a way to bulk export?,general,0.55,feature_request,normal,agent_priya,They want a feature that doesn't exist yet,2026-08-19T17:43:29.626924,agent_correction
+SIM-006,I keep missing updates because I have to check the dashboard manually. Is there any email notification option?,Can I get notified by email?,general,0.57,feature_request,normal,agent_priya,Requesting a notification feature that doesn't exist,2026-08-19T17:43:29.627078,agent_correction
+SIM-007,2FA is completely broken for me. The code says invalid every time even though I'm using the right app. Started today.,Two factor auth broken,bug_report,0.62,account_access,normal,agent_sarah,2FA access issue — route to account team not engineering,2026-08-19T17:43:29.627227,agent_correction
+SIM-008,Our company SSO stopped working this morning. Nobody on our team can log in. Error says authentication failed.,SSO login not working,bug_report,0.59,account_access,normal,agent_sarah,SSO configuration issue — account team handles this,2026-08-19T17:43:29.627470,agent_correction
+SIM-009,The main dashboard now takes over 2 minutes to load. Everything else seems fine. Just the dashboard page.,Dashboard incredibly slow,bug_report,0.52,performance,normal,agent_mike,"This is purely a performance regression, no bug",2026-08-19T17:43:29.627642,agent_correction
+SIM-010,Running any report with more than 500 rows times out. This used to work fine last month.,Reports timing out,bug_report,0.48,performance,normal,agent_mike,Timeout on large datasets = performance issue,2026-08-19T17:43:29.627792,agent_correction
+SIM-011,I was overcharged this month and need it corrected,Billing issue,account_access,0.53,billing,normal,agent_sarah,,2026-08-19T17:43:29.627935,agent_correction
+SIM-012,The payment page crashes when I try to add my card,Can't pay,bug_report,0.67,billing,normal,agent_sarah,,2026-08-19T17:43:29.628077,agent_correction
+SIM-013,My invoice shows the wrong company name. Need a corrected one for accounting,Invoice wrong,general,0.59,billing,normal,agent_priya,,2026-08-19T17:43:29.628220,agent_correction
+SIM-014,I cancelled within the trial period but was still charged. Please refund,Refund needed,account_access,0.54,billing,normal,agent_sarah,,2026-08-19T17:43:29.628364,agent_correction
+SIM-015,The analytics page shows all zeros even though we have data,Page broken,performance,0.56,bug_report,normal,agent_mike,,2026-08-19T17:43:29.628506,agent_correction
+SIM-016,App crashes immediately when I open the reports section on iOS,App crashes,performance,0.51,bug_report,normal,agent_mike,,2026-08-19T17:43:29.628642,agent_correction
+SIM-017,All my contacts from last week disappeared. They were there yesterday,Data missing,performance,0.49,bug_report,normal,agent_mike,,2026-08-19T17:43:29.628868,agent_correction
+SIM-018,I reset my password three times and still cannot login,Login issue,bug_report,0.61,account_access,normal,agent_sarah,,2026-08-19T17:43:29.629081,agent_correction
+SIM-019,How do I give my colleague admin access to our account?,Team access,general,0.58,account_access,normal,agent_priya,,2026-08-19T17:43:29.629257,agent_correction
+SIM-020,My account seems to be locked. Too many failed login attempts,Locked out,bug_report,0.55,account_access,normal,agent_sarah,,2026-08-19T17:43:29.629415,agent_correction
+SIM-021,Search takes 30+ seconds to return results. Was instant before,Slow search,bug_report,0.52,performance,normal,agent_mike,,2026-08-19T17:43:29.629564,agent_correction
+SIM-022,Your API response times have gotten much worse this week. 10+ seconds per call,API slow,bug_report,0.5,performance,normal,agent_mike,,2026-08-19T17:43:29.629712,agent_correction
+SIM-023,Any plans to add a dark mode? Would really help with eye strain,Dark mode?,general,0.61,feature_request,normal,agent_priya,,2026-08-19T17:43:29.629855,agent_correction
+SIM-024,Do you have a Zapier integration? We really need this for our workflow,Zapier integration,general,0.59,feature_request,normal,agent_priya,,2026-08-19T17:43:29.629997,agent_correction
+SIM-025,Is there a mobile app planned? Would love to check things on my phone,Mobile app,general,0.57,feature_request,normal,agent_priya,,2026-08-19T17:43:29.630136,agent_correction
+SIM-026,What happens to my data if I downgrade to the free plan?,Pricing question,billing,0.54,general,normal,agent_sarah,,2026-08-19T17:43:29.630278,agent_correction
+SIM-027,What file formats can I export data to?,How to export,feature_request,0.56,general,normal,agent_priya,,2026-08-19T17:43:29.630417,agent_correction
+SIM-028,Is your platform SOC 2 compliant? We need this for our enterprise deal,Compliance question,feature_request,0.53,general,normal,agent_priya,,2026-08-19T17:43:29.630553,agent_correction
+SIM-029,Two charges appeared on my card this month. Need one refunded urgently,Double billed,account_access,0.58,billing,normal,agent_sarah,,2026-08-19T17:43:29.630694,agent_correction
+SIM-030,My credit card expired. How do I update my payment info?,Card update,account_access,0.55,billing,normal,agent_sarah,,2026-08-19T17:43:29.630914,agent_correction
+SIM-031,Can you send me a receipt for my last three payments for tax purposes?,Receipt needed,general,0.57,billing,normal,agent_priya,,2026-08-19T17:43:29.631182,agent_correction
+SIM-032,The upgrade button on the pricing page is not working at all,Upgrade broken,bug_report,0.63,billing,normal,agent_sarah,,2026-08-19T17:43:29.631319,agent_correction
+SIM-033,Every time I try to import a CSV file it says invalid format even though the file is correct,CSV import fails,performance,0.54,bug_report,normal,agent_mike,,2026-08-19T17:43:29.631447,agent_correction
+SIM-034,I stopped receiving email notifications two weeks ago. Settings look correct,Notifications broken,feature_request,0.51,bug_report,normal,agent_mike,,2026-08-19T17:43:29.631597,agent_correction
+SIM-035,My data stopped syncing between devices three days ago,Data not syncing,performance,0.53,bug_report,normal,agent_mike,,2026-08-19T17:43:29.631725,agent_correction
+SIM-036,Lost my phone and now locked out of MFA. Have backup codes but they expired,MFA locked,bug_report,0.6,account_access,normal,agent_sarah,,2026-08-19T17:43:29.631848,agent_correction
+SIM-037,Need to change the email address on my account. Old one is no longer mine,Change email,bug_report,0.52,account_access,normal,agent_sarah,,2026-08-19T17:43:29.631970,agent_correction
+SIM-038,Is there a way to delete multiple records at once instead of one by one?,Bulk delete,general,0.58,feature_request,normal,agent_priya,,2026-08-19T17:43:29.632091,agent_correction
+SIM-039,We need API access to pull data into our own systems. Is this available?,API access,general,0.56,feature_request,normal,agent_priya,,2026-08-19T17:43:29.632215,agent_correction
+SIM-040,Generating any report now takes 5+ minutes. Used to be under 30 seconds,Slow reports,bug_report,0.54,performance,normal,agent_mike,,2026-08-19T17:43:29.632342,agent_correction
+SIM-041,The charts on the analytics page never load. Just a spinner forever,Charts not loading,performance,0.57,bug_report,normal,agent_mike,,2026-08-19T17:43:29.632470,agent_correction
+SIM-042,What is the difference between Pro and Business in terms of API limits?,Plan comparison,billing,0.55,general,normal,agent_priya,,2026-08-19T17:43:29.632598,agent_correction
+SIM-043,How do I cancel my subscription? I cannot find the option in settings,Cancel subscription,billing,0.53,general,normal,agent_priya,,2026-08-19T17:43:29.632723,agent_correction
+SIM-044,I hit the export limit but I need more data. Is there a way to increase it?,Data export limit,general,0.54,feature_request,normal,agent_priya,,2026-08-19T17:43:29.632850,agent_correction
+SIM-045,I was charged the enterprise rate but I am on the Pro plan,Wrong charge amount,account_access,0.56,billing,normal,agent_sarah,,2026-08-19T17:43:29.632976,agent_correction
+SIM-046,The mobile app freezes completely after about 10 minutes of use,App freezes,performance,0.55,bug_report,normal,agent_mike,,2026-08-19T17:43:29.633097,agent_correction
+SIM-047,CSV import has been stuck at 50% for two hours. Is it broken?,Import stuck,performance,0.52,bug_report,normal,agent_mike,,2026-08-19T17:43:29.633220,agent_correction
+SIM-048,Need to add a new billing admin to our account,Team member access,bug_report,0.54,account_access,normal,agent_sarah,,2026-08-19T17:43:29.633346,agent_correction
+SIM-049,Reset password link expired before I could use it,Password help,bug_report,0.58,account_access,normal,agent_sarah,,2026-08-19T17:43:29.633468,agent_correction
+SIM-050,Would love keyboard shortcuts for common actions. Would save so much time,Keyboard shortcuts,general,0.6,feature_request,normal,agent_priya,,2026-08-19T17:43:29.633591,agent_correction

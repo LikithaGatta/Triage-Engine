@@ -1,0 +1,15 @@
+artifact_uri: /Users/likithagatta/Developer/Personal Projects/Triage-Engine/triage-engine/mlruns/192445491375770604/4806577d7e094b72b47e0e447bf40e0d/artifacts
+end_time: 1787179517118
+entry_point_name: ''
+experiment_id: '192445491375770604'
+lifecycle_stage: active
+run_id: 4806577d7e094b72b47e0e447bf40e0d
+run_name: retrain_v1.1.0
+run_uuid: 4806577d7e094b72b47e0e447bf40e0d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1787179517108
+status: 3
+tags: []
+user_id: likithagatta

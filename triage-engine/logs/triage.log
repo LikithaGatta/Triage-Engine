@@ -2619,3 +2619,459 @@ DEMO: Predicting a single example ticket
 2026-08-20 13:20:24 | INFO     |        git commit -m "Week 1: baseline classifier complete"
 2026-08-20 13:20:24 | INFO     |        git push
 2026-08-20 13:20:24 | INFO     | ============================================================
+2026-08-24 13:29:58 | INFO     | Starting Triage Engine API...
+2026-08-24 13:29:58 | INFO     | Loading models on startup...
+2026-08-24 13:29:58 | INFO     | Loading classifier from models/baseline_v1.0.0.joblib...
+2026-08-24 13:29:58 | INFO     | Classifier loaded
+2026-08-24 13:30:36 | INFO     | ============================================================
+2026-08-24 13:30:36 | INFO     | WEEK 7: COMPREHENSIVE BENCHMARKING
+2026-08-24 13:30:36 | INFO     | ============================================================
+2026-08-24 13:30:36 | INFO     | 
+Checking API health...
+2026-08-24 13:30:41 | ERROR    | API is not running. Start it first:
+  python scripts/run_api.py
+2026-08-24 13:30:41 | INFO     | 
+Skipping load test and edge cases. Running accuracy evaluation only...
+2026-08-24 13:30:41 | INFO     | Running accuracy evaluation on test set...
+2026-08-24 13:32:56 | INFO     | ============================================================
+2026-08-24 13:32:56 | INFO     | WEEK 1: BASELINE CLASSIFIER TRAINING
+2026-08-24 13:32:56 | INFO     | Settings: 150 tickets/category, 20% test set, model v1.0.0
+2026-08-24 13:32:56 | INFO     | ============================================================
+2026-08-24 13:32:56 | INFO     | 
+[Step 1 of 4] Loading data...
+2026-08-24 13:32:56 | INFO     | Loading existing dataset from data/processed/full_dataset.csv
+2026-08-24 13:32:56 | INFO     | Loaded 955 tickets
+2026-08-24 13:32:56 | INFO     | Dataset loaded: 955 tickets, 6 columns
+2026-08-24 13:32:56 | INFO     | 
+Category counts:
+category
+billing            160
+bug_report         160
+feature_request    159
+account_access     159
+general            159
+performance        158
+2026-08-24 13:32:56 | INFO     | 
+Urgency counts:
+urgency
+normal      532
+high        303
+critical    120
+2026-08-24 13:32:56 | INFO     | 
+[Step 2 of 4] Preprocessing text...
+2026-08-24 13:32:56 | INFO     | TicketPreprocessor ready
+2026-08-24 13:32:56 | INFO     | Preprocessing 955 tickets...
+2026-08-24 13:32:56 | INFO     | Preprocessing complete
+2026-08-24 13:32:56 | INFO     | 
+PREPROCESSING EXAMPLE:
+2026-08-24 13:32:56 | INFO     |   Category:  account_access
+2026-08-24 13:32:56 | INFO     |   Raw body:  Lost my authenticator app. Cannot get past 2FA. Have backup codes but they are not being accepted. T...
+2026-08-24 13:32:56 | INFO     |   Processed: nan lost authenticator app not get past 2fa backup code not accepted urgent...
+2026-08-24 13:32:56 | INFO     |   Words kept: 13
+2026-08-24 13:32:56 | INFO     | Tickets remaining: 955
+2026-08-24 13:32:56 | INFO     | 
+[Step 3 of 4] Splitting into train and test sets...
+2026-08-24 13:32:57 | INFO     | Train: 764 tickets | Test: 191 tickets
+2026-08-24 13:32:57 | INFO     | Test category distribution:
+category
+feature_request    32
+general            32
+billing            32
+bug_report         32
+account_access     32
+performance        31
+2026-08-24 13:32:57 | INFO     | Train: 764 tickets saved to data/processed/train.csv
+2026-08-24 13:32:57 | INFO     | Test:  191 tickets saved to data/processed/test.csv
+2026-08-24 13:32:57 | INFO     | 
+[Step 4 of 4] Training and evaluating...
+2026-08-24 13:32:57 | INFO     | Training model on training set...
+2026-08-24 13:32:57 | INFO     | Training on 764 tickets...
+2026-08-24 13:32:57 | INFO     | Fitting TF-IDF + Logistic Regression pipeline...
+2026-08-24 13:32:57 | INFO     | Train accuracy: 100.0% (not the real metric — see test accuracy)
+2026-08-24 13:32:57 | INFO     | Model saved to models/baseline_v1.0.0.joblib
+2026-08-24 13:32:57 | INFO     | Training accuracy: 100.0%
+2026-08-24 13:32:57 | INFO     | Evaluating on held-out test set...
+2026-08-24 13:32:57 | INFO     | Evaluating on 191 test tickets...
+2026-08-24 13:32:57 | INFO     | 
+==================================================
+CLASSIFICATION REPORT
+==================================================
+                 precision    recall  f1-score   support
+
+ account_access       0.97      0.94      0.95        32
+        billing       0.97      1.00      0.98        32
+     bug_report       0.94      0.97      0.95        32
+feature_request       0.97      0.97      0.97        32
+        general       0.97      0.97      0.97        32
+    performance       1.00      0.97      0.98        31
+
+       accuracy                           0.97       191
+      macro avg       0.97      0.97      0.97       191
+   weighted avg       0.97      0.97      0.97       191
+
+2026-08-24 13:32:57 | INFO     | Overall accuracy: 96.9%
+2026-08-24 13:32:57 | INFO     | Macro F1 score:   96.9%
+2026-08-24 13:32:57 | INFO     | Avg confidence:   92.3%
+2026-08-24 13:32:57 | INFO     | Auto-route rate:  94.8% of tickets have confidence >= 75%
+2026-08-24 13:32:57 | INFO     | Classification report saved to models/classification_report.txt
+2026-08-24 13:32:57 | INFO     | 
+============================================================
+2026-08-24 13:32:57 | INFO     | WEEK 1 RESULTS SUMMARY
+2026-08-24 13:32:57 | INFO     | ============================================================
+2026-08-24 13:32:57 | INFO     |   Total tickets:      955
+2026-08-24 13:32:57 | INFO     |   Training set:       764
+2026-08-24 13:32:57 | INFO     |   Test set:           191
+2026-08-24 13:32:57 | INFO     | 
+2026-08-24 13:32:57 | INFO     |   Test accuracy:      96.9%
+2026-08-24 13:32:57 | INFO     |   Macro F1 score:     96.9%
+2026-08-24 13:32:57 | INFO     |   Avg confidence:     92.3%
+2026-08-24 13:32:57 | INFO     |   Auto-route rate:    94.8%
+2026-08-24 13:32:57 | INFO     |   (tickets where model confidence >= 75%)
+2026-08-24 13:32:57 | INFO     | 
+2026-08-24 13:32:57 | INFO     |   Write down your test accuracy.
+2026-08-24 13:32:57 | INFO     |   Week 2 DistilBERT will beat it by ~25-30 points.
+2026-08-24 13:32:57 | INFO     |   That improvement is your resume headline metric.
+2026-08-24 13:32:57 | INFO     | ============================================================
+2026-08-24 13:32:57 | INFO     | 
+DEMO: Predicting a single example ticket
+2026-08-24 13:32:57 | INFO     | ----------------------------------------
+2026-08-24 13:32:57 | INFO     |   Ticket:    'I was charged twice this month for my Pro subscription. I see two char...'
+2026-08-24 13:32:57 | INFO     |   Predicted: billing
+2026-08-24 13:32:57 | INFO     |   Confidence:93.3%
+2026-08-24 13:32:57 | INFO     |   Auto-routed: True
+2026-08-24 13:32:57 | INFO     |   All category probabilities:
+2026-08-24 13:32:57 | INFO     |     billing                93.3%  [==================]
+2026-08-24 13:32:57 | INFO     |     general                1.8%  []
+2026-08-24 13:32:57 | INFO     |     bug_report             1.5%  []
+2026-08-24 13:32:57 | INFO     |     feature_request        1.3%  []
+2026-08-24 13:32:57 | INFO     |     account_access         1.2%  []
+2026-08-24 13:32:57 | INFO     |     performance            0.8%  []
+2026-08-24 13:32:57 | INFO     | 
+============================================================
+2026-08-24 13:32:57 | INFO     | NEXT STEPS
+2026-08-24 13:32:57 | INFO     | ============================================================
+2026-08-24 13:32:57 | INFO     |   1. View your MLflow experiment dashboard:
+2026-08-24 13:32:57 | INFO     |        mlflow ui
+2026-08-24 13:32:57 | INFO     |        Open: http://localhost:5000
+2026-08-24 13:32:57 | INFO     | 
+2026-08-24 13:32:57 | INFO     |   2. Open the Jupyter notebook:
+2026-08-24 13:32:57 | INFO     |        jupyter notebook notebooks/week1_eda.ipynb
+2026-08-24 13:32:57 | INFO     | 
+2026-08-24 13:32:57 | INFO     |   3. Run the test suite:
+2026-08-24 13:32:57 | INFO     |        pytest tests/ -v
+2026-08-24 13:32:57 | INFO     | 
+2026-08-24 13:32:57 | INFO     |   4. Commit your work to GitHub:
+2026-08-24 13:32:57 | INFO     |        git add .
+2026-08-24 13:32:57 | INFO     |        git commit -m "Week 1: baseline classifier complete"
+2026-08-24 13:32:57 | INFO     |        git push
+2026-08-24 13:32:57 | INFO     | ============================================================
+2026-08-24 13:33:01 | INFO     | ============================================================
+2026-08-24 13:33:01 | INFO     | WEEK 3: SHAP EXPLAINABILITY LAYER
+2026-08-24 13:33:01 | INFO     | ============================================================
+2026-08-24 13:33:01 | INFO     | 
+[Step 1 of 4] Loading trained model and data...
+2026-08-24 13:33:01 | INFO     | Loaded model from models/baseline_v1.0.0.joblib
+2026-08-24 13:33:01 | INFO     | Loaded 764 train, 191 test tickets
+2026-08-24 13:33:01 | INFO     | Categories: ['account_access', 'billing', 'bug_report', 'feature_request', 'general', 'performance']
+2026-08-24 13:33:01 | INFO     | 
+[Step 2 of 4] Fitting SHAP explainer...
+2026-08-24 13:33:01 | INFO     | TicketExplainer initialized
+2026-08-24 13:33:01 | INFO     | Vocabulary size: 955 tokens
+2026-08-24 13:33:01 | INFO     | Categories: ['account_access', 'billing', 'bug_report', 'feature_request', 'general', 'performance']
+2026-08-24 13:33:01 | INFO     | Fitting SHAP explainer on 100 background samples...
+2026-08-24 13:33:01 | INFO     | SHAP explainer fitted successfully
+2026-08-24 13:33:01 | INFO     | Base values per category: {'account_access': 0.115, 'billing': 0.179, 'bug_report': 0.185, 'feature_request': 0.154, 'general': 0.206, 'performance': 0.162}
+2026-08-24 13:33:01 | INFO     | Explainer saved to models/shap_explainer.joblib
+2026-08-24 13:33:01 | INFO     | 
+[Step 3 of 4] Global feature importance per category...
+2026-08-24 13:33:01 | INFO     | These are the words most associated with each category:
+2026-08-24 13:33:01 | INFO     | (From Logistic Regression coefficients — not SHAP values)
+2026-08-24 13:33:01 | INFO     | --------------------------------------------------
+2026-08-24 13:33:01 | INFO     | 
+  ACCOUNT ACCESS
+2026-08-24 13:33:01 | INFO     |     Toward:  "account" (+2.83), "locked" (+2.44), "not" (+1.87), "access" (+1.70), "nan need" (+1.58)
+2026-08-24 13:33:01 | INFO     | 
+  BILLING
+2026-08-24 13:33:01 | INFO     |     Toward:  "invoice" (+2.57), "payment" (+2.52), "charged" (+1.93), "card" (+1.65), "charge" (+1.56)
+2026-08-24 13:33:01 | INFO     | 
+  BUG REPORT
+2026-08-24 13:33:01 | INFO     |     Toward:  "error" (+3.12), "message" (+2.07), "go" (+2.04), "tried" (+1.69), "timeout" (+1.65)
+2026-08-24 13:33:01 | INFO     | 
+  FEATURE REQUEST
+2026-08-24 13:33:01 | INFO     |     Toward:  "one" (+2.44), "add" (+2.31), "would" (+2.18), "report" (+1.86), "nan please" (+1.83)
+2026-08-24 13:33:01 | INFO     | 
+  GENERAL
+2026-08-24 13:33:01 | INFO     |     Toward:  "clear" (+2.03), "nan platform" (+1.86), "enterprise" (+1.78), "documentation not" (+1.67), "not clear" (+1.67)
+2026-08-24 13:33:01 | INFO     | 
+  PERFORMANCE
+2026-08-24 13:33:01 | INFO     |     Toward:  "load" (+2.45), "take" (+2.27), "slower" (+2.11), "take second" (+2.03), "page take" (+1.79)
+2026-08-24 13:33:01 | INFO     | 
+[Step 4 of 4] Explaining test set predictions...
+2026-08-24 13:33:01 | INFO     | Explained 191 test tickets
+2026-08-24 13:33:01 | INFO     | Strong explanations (>=2 clear signals): 190 (99%)
+2026-08-24 13:33:01 | INFO     | 
+============================================================
+2026-08-24 13:33:01 | INFO     | DEMO: Detailed explanations on real-sounding tickets
+2026-08-24 13:33:01 | INFO     | ============================================================
+2026-08-24 13:33:01 | INFO     | TicketPreprocessor ready
+2026-08-24 13:33:02 | INFO     | 
+───────────────────────────────────────────────────────
+2026-08-24 13:33:02 | INFO     | Ticket DEMO-001: Clear billing — expect high confidence and strong signals
+2026-08-24 13:33:02 | INFO     | Text: 'I was charged twice this month for my Pro subscription. Please refund ...'
+2026-08-24 13:33:02 | INFO     | 
+2026-08-24 13:33:02 | INFO     |   Predicted:  billing
+2026-08-24 13:33:02 | INFO     |   Confidence: 90.1%
+2026-08-24 13:33:02 | INFO     |   Base rate:  17.9% (avg across all tickets)
+2026-08-24 13:33:02 | INFO     | 
+2026-08-24 13:33:02 | INFO     |   DROVE prediction toward billing:
+2026-08-24 13:33:02 | INFO     |     'charged             ' ++++++++++++++++++++++++ +0.4854
+2026-08-24 13:33:02 | INFO     |     'refund              ' ++++++++++++++++++ +0.3794
+2026-08-24 13:33:02 | INFO     |     'charge              ' ++++++++++++++++++ +0.3778
+2026-08-24 13:33:02 | INFO     |     'immediately         ' +++++++++++++++ +0.3004
+2026-08-24 13:33:02 | INFO     |     'charged twice       ' ++++++++++++++ +0.2884
+2026-08-24 13:33:02 | INFO     |   PULLED AWAY from billing:
+2026-08-24 13:33:02 | INFO     |     'pro                 ' - -0.0039
+2026-08-24 13:33:02 | INFO     | 
+2026-08-24 13:33:02 | INFO     |   Summary: Classified as billing (90% confidence). Key signals: "charged", "refund", "charge". Competing signals toward other categories: "pro".
+2026-08-24 13:33:02 | INFO     | 
+───────────────────────────────────────────────────────
+2026-08-24 13:33:02 | INFO     | Ticket DEMO-002: AMBIGUOUS — billing + account_access signals mixed
+2026-08-24 13:33:02 | INFO     | Text: 'I cannot login and my subscription renews tomorrow. I really need acce...'
+2026-08-24 13:33:02 | INFO     | 
+2026-08-24 13:33:02 | INFO     |   Predicted:  account_access
+2026-08-24 13:33:02 | INFO     |   Confidence: 52.7%
+2026-08-24 13:33:02 | INFO     |   Base rate:  11.5% (avg across all tickets)
+2026-08-24 13:33:02 | INFO     | 
+2026-08-24 13:33:02 | INFO     |   DROVE prediction toward account_access:
+2026-08-24 13:33:02 | INFO     |     'login               ' ++++++++++++++++++++++++++++++ +0.6117
+2026-08-24 13:33:02 | INFO     |     'access              ' ++++++++++++++++++++++++++++ +0.5682
+2026-08-24 13:33:02 | INFO     |     'not                 ' ++++++++++++++ +0.2816
+2026-08-24 13:33:02 | INFO     |     'subscription        ' +++++++++++ +0.2395
+2026-08-24 13:33:02 | INFO     |     'get                 ' +++++++++ +0.1869
+2026-08-24 13:33:02 | INFO     |   PULLED AWAY from account_access:
+2026-08-24 13:33:02 | INFO     |     'charged             ' ------ -0.1280
+2026-08-24 13:33:02 | INFO     |     'really              ' --- -0.0627
+2026-08-24 13:33:02 | INFO     | 
+2026-08-24 13:33:02 | INFO     |   Summary: Classified as account access (53% confidence). Key signals: "login", "access", "not". Competing signals toward other categories: "charged", "really".
+2026-08-24 13:33:02 | INFO     | 
+───────────────────────────────────────────────────────
+2026-08-24 13:33:02 | INFO     | Ticket DEMO-003: AMBIGUOUS — bug_report + performance signals mixed
+2026-08-24 13:33:02 | INFO     | Text: 'The export feature crashes every time I try to download more than 1000...'
+2026-08-24 13:33:02 | INFO     | 
+2026-08-24 13:33:02 | INFO     |   Predicted:  performance
+2026-08-24 13:33:02 | INFO     |   Confidence: 29.8%
+2026-08-24 13:33:02 | INFO     |   Base rate:  16.2% (avg across all tickets)
+2026-08-24 13:33:02 | INFO     | 
+2026-08-24 13:33:02 | INFO     |   DROVE prediction toward performance:
+2026-08-24 13:33:02 | INFO     |     'row                 ' ++++++++++++++++++++++ +0.4554
+2026-08-24 13:33:02 | INFO     |     'time                ' ++++++++++++++++++ +0.3609
+2026-08-24 13:33:02 | INFO     |     'every               ' ++++++++++++++ +0.2838
+2026-08-24 13:33:02 | INFO     |     'crash               ' +++++ +0.1080
+2026-08-24 13:33:02 | INFO     |     'export              ' + +0.0182
+2026-08-24 13:33:02 | INFO     |   PULLED AWAY from performance:
+2026-08-24 13:33:02 | INFO     |     'download            ' ---- -0.0868
+2026-08-24 13:33:02 | INFO     |     'blocking            ' ---- -0.0808
+2026-08-24 13:33:02 | INFO     |     'try                 ' --- -0.0715
+2026-08-24 13:33:02 | INFO     |     'reporting           ' - -0.0396
+2026-08-24 13:33:02 | INFO     | 
+2026-08-24 13:33:02 | INFO     |   Summary: Classified as performance (30% confidence). Key signals: "row", "time", "every". Competing signals toward other categories: "download", "blocking".
+2026-08-24 13:33:02 | INFO     | 
+───────────────────────────────────────────────────────
+2026-08-24 13:33:02 | INFO     | Ticket DEMO-004: AMBIGUOUS — feature_request + performance signals mixed
+2026-08-24 13:33:02 | INFO     | Text: 'Would love a dark mode. Also the page loads really slowly on my machin...'
+2026-08-24 13:33:02 | INFO     | 
+2026-08-24 13:33:02 | INFO     |   Predicted:  feature_request
+2026-08-24 13:33:02 | INFO     |   Confidence: 74.5%
+2026-08-24 13:33:02 | INFO     |   Base rate:  15.4% (avg across all tickets)
+2026-08-24 13:33:02 | INFO     | 
+2026-08-24 13:33:02 | INFO     |   DROVE prediction toward feature_request:
+2026-08-24 13:33:02 | INFO     |     'would               ' +++++++++++++++++++++++++++ +0.5492
+2026-08-24 13:33:02 | INFO     |     'love                ' +++++++++++++++++++++++ +0.4606
+2026-08-24 13:33:02 | INFO     |     'would love          ' +++++++++++++++++++++++ +0.4606
+2026-08-24 13:33:02 | INFO     |     'dark                ' +++++++++++++ +0.2797
+2026-08-24 13:33:02 | INFO     |     'dark mode           ' +++++++++++++ +0.2797
+2026-08-24 13:33:02 | INFO     |   PULLED AWAY from feature_request:
+2026-08-24 13:33:02 | INFO     |     'load                ' ------- -0.1427
+2026-08-24 13:33:02 | INFO     |     'page                ' ------- -0.1404
+2026-08-24 13:33:02 | INFO     |     'update              ' ------ -0.1279
+2026-08-24 13:33:02 | INFO     | 
+2026-08-24 13:33:02 | INFO     |   Summary: Classified as feature request (75% confidence). Key signals: "would", "love", "would love". Competing signals toward other categories: "load", "page".
+2026-08-24 13:33:02 | INFO     | 
+───────────────────────────────────────────────────────
+2026-08-24 13:33:02 | INFO     | Ticket DEMO-005: Clear bug — expect high confidence
+2026-08-24 13:33:02 | INFO     | Text: 'The app is completely broken. Nothing works. 500 errors everywhere. Th...'
+2026-08-24 13:33:02 | INFO     | 
+2026-08-24 13:33:02 | INFO     |   Predicted:  bug_report
+2026-08-24 13:33:02 | INFO     |   Confidence: 42.4%
+2026-08-24 13:33:02 | INFO     |   Base rate:  18.5% (avg across all tickets)
+2026-08-24 13:33:02 | INFO     | 
+2026-08-24 13:33:02 | INFO     |   DROVE prediction toward bug_report:
+2026-08-24 13:33:02 | INFO     |     'error               ' ++++++++++++++++++++++++++++++++++++++++ +0.8041
+2026-08-24 13:33:02 | INFO     |     'work                ' ++++++++ +0.1781
+2026-08-24 13:33:02 | INFO     |     'app                 ' ++++++++ +0.1653
+2026-08-24 13:33:02 | INFO     |     'nothing             ' ++++++ +0.1340
+2026-08-24 13:33:02 | INFO     |     'completely          ' + +0.0397
+2026-08-24 13:33:02 | INFO     |   PULLED AWAY from bug_report:
+2026-08-24 13:33:02 | INFO     |     'broken              ' --------- -0.1808
+2026-08-24 13:33:02 | INFO     |     'hour                ' ------ -0.1387
+2026-08-24 13:33:02 | INFO     |     'ago                 ' ---- -0.0933
+2026-08-24 13:33:02 | INFO     |     'started             ' ---- -0.0909
+2026-08-24 13:33:02 | INFO     | 
+2026-08-24 13:33:02 | INFO     |   Summary: Classified as bug report (42% confidence). Key signals: "error", "work", "app". Competing signals toward other categories: "broken", "hour".
+2026-08-24 13:33:02 | INFO     | 
+============================================================
+2026-08-24 13:33:02 | INFO     | WEEK 3 COMPLETE
+2026-08-24 13:33:02 | INFO     | ============================================================
+2026-08-24 13:33:02 | INFO     |   Explainer saved to: models/shap_explainer.joblib
+2026-08-24 13:33:02 | INFO     |   Test tickets explained: 191
+2026-08-24 13:33:02 | INFO     |   Strong explanations:    190 (99%)
+2026-08-24 13:33:02 | INFO     | 
+2026-08-24 13:33:02 | INFO     |   RESUME BULLET (add to Week 2 bullet):
+2026-08-24 13:33:02 | INFO     |   'Added SHAP explainability layer surfacing top-5 token
+2026-08-24 13:33:02 | INFO     |   contributions per prediction, enabling support managers
+2026-08-24 13:33:02 | INFO     |   to audit routing decisions and identify systematic errors.'
+2026-08-24 13:33:02 | INFO     | 
+2026-08-24 13:33:02 | INFO     |   NEXT STEPS:
+2026-08-24 13:33:02 | INFO     |   1. Commit to GitHub
+2026-08-24 13:33:02 | INFO     |   2. The explanation results feed directly into the
+2026-08-24 13:33:02 | INFO     |      Week 4 FastAPI — every /predict endpoint will
+2026-08-24 13:33:02 | INFO     |      return SHAP tokens alongside the prediction.
+2026-08-24 13:33:02 | INFO     | ============================================================
+2026-08-24 13:33:17 | INFO     | Starting Triage Engine API...
+2026-08-24 13:33:17 | INFO     | Loading models on startup...
+2026-08-24 13:33:17 | INFO     | Loading classifier from models/baseline_v1.0.0.joblib...
+2026-08-24 13:33:17 | INFO     | Classifier loaded
+2026-08-24 13:33:17 | INFO     | Loading SHAP explainer from models/shap_explainer.joblib...
+2026-08-24 13:33:17 | INFO     | TicketExplainer initialized
+2026-08-24 13:33:17 | INFO     | Vocabulary size: 955 tokens
+2026-08-24 13:33:17 | INFO     | Categories: ['account_access', 'billing', 'bug_report', 'feature_request', 'general', 'performance']
+2026-08-24 13:33:17 | INFO     | SHAP explainer loaded
+2026-08-24 13:33:17 | INFO     | TicketPreprocessor ready
+2026-08-24 13:33:17 | INFO     | All models loaded and ready
+2026-08-24 13:33:17 | INFO     | API ready to accept requests
+2026-08-24 13:33:46 | INFO     | ============================================================
+2026-08-24 13:33:46 | INFO     | WEEK 7: COMPREHENSIVE BENCHMARKING
+2026-08-24 13:33:46 | INFO     | ============================================================
+2026-08-24 13:33:46 | INFO     | 
+Checking API health...
+2026-08-24 13:33:46 | INFO     | API is healthy — running full benchmark suite
+2026-08-24 13:33:46 | INFO     | 
+[1/3] Running load test...
+2026-08-24 13:33:46 | INFO     | Load test: 100 requests, 10 concurrent
+2026-08-24 13:33:53 | INFO     | Ticket TKT-000001: billing (88% conf) → Billing Team [7742.1ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000002: billing (91% conf) → Billing Team [7.9ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000003: performance (86% conf) → Engineering Team [95.5ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000004: billing (96% conf) → Billing Team [27.5ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000005: bug_report (50% conf) → Human Review Queue [110.8ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000006: general (94% conf) → General Support Queue [6.3ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000007: bug_report (50% conf) → Human Review Queue [9.0ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000008: bug_report (86% conf) → Engineering Team [3.2ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000009: feature_request (91% conf) → Product Team [6.0ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000010: performance (82% conf) → Engineering Team [9.3ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000011: billing (88% conf) → Billing Team [7.4ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000012: feature_request (87% conf) → Product Team [5.6ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000013: billing (96% conf) → Billing Team [16.9ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000014: account_access (89% conf) → Account Support Team [5.9ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000015: performance (86% conf) → Engineering Team [16.4ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000016: bug_report (50% conf) → Human Review Queue [6.9ms]
+2026-08-24 13:33:54 | INFO     |   Progress: 25/100 requests completed
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000017: bug_report (86% conf) → Engineering Team [15.1ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000018: performance (82% conf) → Engineering Team [9.4ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000019: feature_request (91% conf) → Product Team [12.9ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000020: general (94% conf) → General Support Queue [7.4ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000021: billing (91% conf) → Billing Team [7.5ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000022: bug_report (50% conf) → Human Review Queue [2.7ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000023: billing (88% conf) → Billing Team [11.1ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000024: feature_request (87% conf) → Product Team [13.5ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000025: account_access (89% conf) → Account Support Team [14.7ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000026: performance (86% conf) → Engineering Team [4.3ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000027: billing (91% conf) → Billing Team [8.9ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000028: bug_report (50% conf) → Human Review Queue [3.5ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000029: billing (96% conf) → Billing Team [3.4ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000030: feature_request (91% conf) → Product Team [3.4ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000031: bug_report (86% conf) → Engineering Team [5.9ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000032: general (94% conf) → General Support Queue [5.4ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000033: performance (82% conf) → Engineering Team [7.1ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000034: bug_report (50% conf) → Human Review Queue [8.6ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000035: billing (88% conf) → Billing Team [10.1ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000036: billing (96% conf) → Billing Team [5.3ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000037: account_access (89% conf) → Account Support Team [5.9ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000038: feature_request (87% conf) → Product Team [13.1ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000039: performance (86% conf) → Engineering Team [5.0ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000040: billing (91% conf) → Billing Team [2.7ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000041: bug_report (50% conf) → Human Review Queue [5.5ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000042: bug_report (86% conf) → Engineering Team [3.6ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000043: feature_request (91% conf) → Product Team [7.5ms]
+2026-08-24 13:33:54 | INFO     |   Progress: 50/100 requests completed
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000044: performance (82% conf) → Engineering Team [3.8ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000045: general (94% conf) → General Support Queue [4.7ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000046: bug_report (50% conf) → Human Review Queue [2.3ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000047: billing (88% conf) → Billing Team [9.5ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000048: account_access (89% conf) → Account Support Team [5.6ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000049: performance (86% conf) → Engineering Team [9.0ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000050: feature_request (87% conf) → Product Team [2.4ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000051: bug_report (50% conf) → Human Review Queue [4.9ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000052: billing (91% conf) → Billing Team [2.7ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000053: feature_request (91% conf) → Product Team [2.3ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000054: billing (96% conf) → Billing Team [8.3ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000055: general (94% conf) → General Support Queue [1.9ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000056: bug_report (86% conf) → Engineering Team [3.8ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000057: performance (82% conf) → Engineering Team [2.4ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000058: billing (88% conf) → Billing Team [7.8ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000059: feature_request (87% conf) → Product Team [3.4ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000060: account_access (89% conf) → Account Support Team [2.9ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000061: bug_report (50% conf) → Human Review Queue [5.8ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000062: billing (96% conf) → Billing Team [2.6ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000063: billing (91% conf) → Billing Team [2.1ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000064: performance (86% conf) → Engineering Team [10.3ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000065: bug_report (86% conf) → Engineering Team [5.4ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000066: bug_report (50% conf) → Human Review Queue [3.1ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000067: feature_request (91% conf) → Product Team [6.8ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000068: performance (82% conf) → Engineering Team [3.0ms]
+2026-08-24 13:33:54 | INFO     |   Progress: 75/100 requests completed
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000069: general (94% conf) → General Support Queue [3.3ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000070: billing (88% conf) → Billing Team [8.9ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000071: bug_report (50% conf) → Human Review Queue [3.5ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000072: feature_request (87% conf) → Product Team [5.0ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000073: account_access (89% conf) → Account Support Team [2.7ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000074: performance (86% conf) → Engineering Team [3.2ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000075: bug_report (50% conf) → Human Review Queue [5.0ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000076: billing (96% conf) → Billing Team [3.5ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000077: billing (91% conf) → Billing Team [4.5ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000078: bug_report (86% conf) → Engineering Team [3.2ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000079: feature_request (91% conf) → Product Team [12.2ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000080: performance (82% conf) → Engineering Team [4.0ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000081: general (94% conf) → General Support Queue [2.2ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000082: feature_request (87% conf) → Product Team [2.6ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000083: bug_report (50% conf) → Human Review Queue [11.1ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000084: billing (88% conf) → Billing Team [3.4ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000085: account_access (89% conf) → Account Support Team [3.7ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000086: billing (96% conf) → Billing Team [4.3ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000087: performance (86% conf) → Engineering Team [11.2ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000088: billing (91% conf) → Billing Team [10.8ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000089: bug_report (50% conf) → Human Review Queue [2.4ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000090: bug_report (86% conf) → Engineering Team [7.4ms]
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000091: feature_request (91% conf) → Product Team [5.1ms]
+2026-08-24 13:33:54 | INFO     |   Progress: 100/100 requests completed
+2026-08-24 13:33:54 | INFO     | 
+[2/3] Running accuracy evaluation...
+2026-08-24 13:33:54 | INFO     | Running accuracy evaluation on test set...
+2026-08-24 13:33:54 | INFO     | TicketExplainer initialized
+2026-08-24 13:33:54 | INFO     | Vocabulary size: 955 tokens
+2026-08-24 13:33:54 | INFO     | Categories: ['account_access', 'billing', 'bug_report', 'feature_request', 'general', 'performance']
+2026-08-24 13:33:54 | INFO     | 
+[3/3] Running edge case tests...
+2026-08-24 13:33:54 | INFO     | Running edge case tests...
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000092: feature_request (40% conf) → Human Review Queue [4.3ms]
+2026-08-24 13:33:54 | INFO     |   minimum_length: ✓ feature_request (40%)
+2026-08-24 13:33:54 | INFO     | Ticket TKT-000093: billing (39% conf) → Human Review Queue [9.8ms]
+2026-08-24 13:33:54 | INFO     |   very_long_ticket: ✓ billing (39%)
+2026-08-24 13:33:55 | INFO     | Ticket TKT-000094: bug_report (32% conf) → Human Review Queue [6.6ms]
+2026-08-24 13:33:55 | INFO     |   repeated_word: ✓ bug_report (32%)
+2026-08-24 13:33:55 | INFO     | Ticket TKT-000095: bug_report (37% conf) → Human Review Queue [2.2ms]
+2026-08-24 13:33:55 | INFO     |   mixed_signals: ✓ bug_report (37%)
+2026-08-24 13:33:55 | INFO     | Ticket TKT-000096: general (34% conf) → Human Review Queue [2.1ms]
+2026-08-24 13:33:55 | INFO     |   only_subject_no_body_context: ✓ general (34%)
+2026-08-24 13:33:55 | INFO     | Ticket TKT-000097: billing (77% conf) → Billing Team [6.0ms]
+2026-08-24 13:33:55 | INFO     |   numbers_only_context: ✓ billing (76%)
+2026-08-24 13:33:55 | INFO     | Full results saved to data/processed/benchmark_results.json

@@ -1,17 +1,24 @@
 """
 scripts/startup.py
 ==================
-Runs on Railway startup. Trains models if they don't exist.
-This handles the case where Railway deploys fresh without model files.
+Runs on Render startup. Downloads NLTK data and trains models if needed.
 """
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
+# Download NLTK data FIRST before any other imports that need it
+import nltk
+nltk.download('stopwords', quiet=True)
+nltk.download('punkt', quiet=True)
+nltk.download('punkt_tab', quiet=True)
+nltk.download('wordnet', quiet=True)
+nltk.download('averaged_perceptron_tagger', quiet=True)
+
 from src.utils.logger import logger
 
 def ensure_models_exist():
-    model_path    = Path("models/baseline_v1.0.0.joblib")
+    model_path     = Path("models/baseline_v1.0.0.joblib")
     explainer_path = Path("models/shap_explainer.joblib")
 
     if not model_path.exists():

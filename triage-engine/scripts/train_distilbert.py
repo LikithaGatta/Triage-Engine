@@ -1,23 +1,12 @@
 """
 scripts/train_distilbert.py
 ============================
-Main script for Week 2 — fine-tunes DistilBERT and compares
-results against the Week 1 TF-IDF baseline.
-
-HOW TO RUN:
+To Run:
     source venv/bin/activate
     python scripts/train_distilbert.py
 
-WHAT YOU WILL SEE:
-    - DistilBERT downloading from HuggingFace (first run only)
-    - 3 epoch progress bars with live accuracy
-    - Side-by-side comparison vs Week 1 baseline
-    - Your resume metrics printed at the end
-
-HOW LONG DOES THIS TAKE?
     Apple Silicon Mac (M1/M2/M3): 3-8 minutes
-    Intel Mac (CPU only):         15-30 minutes
-    With NVIDIA GPU:              2-5 minutes
+  
 """
 
 import sys
@@ -78,12 +67,6 @@ def load_existing_splits() -> tuple:
     """
     Load the train/test splits saved during Week 1 training.
 
-    We use the SAME splits as Week 1 so the comparison is fair.
-    If we used different splits, any accuracy difference might be
-    due to which tickets ended up in train vs test, not model quality.
-
-    Returns:
-        Tuple of (train_df, test_df) or (None, None) if not found
     """
     train_path = Path("data/processed/train.csv")
     test_path  = Path("data/processed/test.csv")
@@ -106,12 +89,8 @@ def main():
     logger.info("=" * 60)
 
 
-    # ============================================================
     # STEP 1: LOAD DATA
-    # We use the same train/test split from Week 1 for a fair comparison.
-    # If those files do not exist yet, we generate and split fresh data.
-    # ============================================================
-
+    
     logger.info("\n[Step 1 of 4] Loading data...")
 
     train_df, test_df = load_existing_splits()
@@ -128,11 +107,8 @@ def main():
     logger.info(f"Train: {len(train_df):,} tickets | Test: {len(test_df):,} tickets")
 
 
-    # ============================================================
     # STEP 2: LOAD WEEK 1 BASELINE RESULTS FOR COMPARISON
-    # We want to show the improvement number on the resume.
-    # Load the saved Week 1 model and get its test accuracy.
-    # ============================================================
+    
 
     logger.info("\n[Step 2 of 4] Loading Week 1 baseline for comparison...")
 
@@ -156,12 +132,8 @@ def main():
         logger.info("No baseline model found. Run train_baseline.py first for comparison.")
 
 
-    # ============================================================
     # STEP 3: FINE-TUNE DISTILBERT
-    # This is the main event. 3 epochs of fine-tuning.
-    # You will see live progress bars showing loss and accuracy.
-    # ============================================================
-
+    
     logger.info("\n[Step 3 of 4] Fine-tuning DistilBERT...")
     logger.info("First run will download DistilBERT (~250MB). Please wait...")
 
@@ -179,10 +151,8 @@ def main():
     )
 
 
-    # ============================================================
+    
     # STEP 4: RESULTS AND COMPARISON
-    # Print the numbers you will put on your resume.
-    # ============================================================
 
     logger.info("\n[Step 4 of 4] Results")
 
@@ -214,10 +184,6 @@ def main():
     logger.info("=" * 60)
 
 
-    # ============================================================
-    # DEMO: SHOW LIVE PREDICTIONS
-    # These are examples you can show to recruiters
-    # ============================================================
 
     logger.info("\nDEMO: Live ticket predictions")
     logger.info("-" * 40)
@@ -240,10 +206,7 @@ def main():
         logger.info("")
 
 
-    # ============================================================
-    # NEXT STEPS
-    # ============================================================
-
+  
     logger.info("=" * 60)
     logger.info("NEXT STEPS")
     logger.info("=" * 60)

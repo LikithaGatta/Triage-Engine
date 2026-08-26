@@ -3,11 +3,6 @@ tests/test_week2.py
 ====================
 Unit tests for the Week 2 DistilBERT classifier.
 
-WHY TEST THE MODEL?
-    ML models can fail silently — wrong output shape, NaN confidence,
-    category names that don't match our schema. These tests catch
-    those problems before they reach the API or dashboard.
-
 RUN TESTS:
     pytest tests/ -v
 """
@@ -28,9 +23,6 @@ from src.models.distilbert_classifier import (
 from src.utils.schemas import Category
 
 
-# ----------------------------------------------------------------
-# MAPPING TESTS — these run instantly, no model needed
-# ----------------------------------------------------------------
 
 class TestCategoryMappings:
     """Verify the integer ↔ category string mappings are correct."""
@@ -63,9 +55,6 @@ class TestCategoryMappings:
         )
 
 
-# ----------------------------------------------------------------
-# TOKENIZATION TESTS — loads tokenizer but not full model
-# ----------------------------------------------------------------
 
 class TestTokenization:
     """Test that text gets correctly converted to token IDs."""
@@ -129,9 +118,6 @@ class TestTokenization:
         assert len(dataset[0]["input_ids"]) == 32
 
 
-# ----------------------------------------------------------------
-# PREDICTION TESTS — requires trained model (skip if not available)
-# ----------------------------------------------------------------
 
 class TestPredictions:
     """

@@ -1,12 +1,6 @@
 """
 tests/test_week4.py
 ====================
-API endpoint tests using FastAPI's TestClient.
-
-TestClient lets us call API endpoints as HTTP requests without
-starting a real server. Tests run in milliseconds.
-
-We inject mock models so tests do not need real trained models.
 
 RUN:
     pytest tests/test_week4.py -v
@@ -24,12 +18,6 @@ from src.api.main import app
 from src.api.dependencies import get_models, get_store, InMemoryStore, ModelContainer
 from src.models.explainer import ExplanationResult, TokenContribution
 
-
-# ----------------------------------------------------------------
-# MOCK SETUP
-# We mock the ML models so tests do not need real trained files.
-# A MagicMock auto-creates attributes and methods as needed.
-# ----------------------------------------------------------------
 
 def make_mock_models():
     """Create a mock ModelContainer that behaves like the real one."""
@@ -76,9 +64,6 @@ def make_mock_models():
 
     return mock
 
-# ----------------------------------------------------------------
-# FIXTURES
-# ----------------------------------------------------------------
 
 @pytest.fixture
 def client():
@@ -108,9 +93,6 @@ def fresh_store():
     app.dependency_overrides.pop(get_store, None)
 
 
-# ----------------------------------------------------------------
-# HEALTH ENDPOINT TESTS
-# ----------------------------------------------------------------
 
 class TestHealthEndpoint:
 
@@ -135,9 +117,6 @@ class TestHealthEndpoint:
         assert response.json()["status"] == "healthy"
 
 
-# ----------------------------------------------------------------
-# SUBMIT TICKET TESTS
-# ----------------------------------------------------------------
 
 class TestSubmitTicket:
 
@@ -220,10 +199,6 @@ class TestSubmitTicket:
         assert r1.json()["ticket_id"] != r2.json()["ticket_id"]
 
 
-# ----------------------------------------------------------------
-# LIST TICKETS TESTS
-# ----------------------------------------------------------------
-
 class TestListTickets:
 
     def test_list_empty_returns_200(self, client, fresh_store):
@@ -247,10 +222,6 @@ class TestListTickets:
         assert len(response.json()) == 3
 
 
-# ----------------------------------------------------------------
-# GET TICKET TESTS
-# ----------------------------------------------------------------
-
 class TestGetTicket:
 
     def test_get_existing_ticket(self, client, fresh_store):
@@ -273,10 +244,6 @@ class TestGetTicket:
         response = client.get(f"/api/v1/tickets/{ticket_id}")
         assert response.json()["body"] == body_text
 
-
-# ----------------------------------------------------------------
-# OVERRIDE TESTS
-# ----------------------------------------------------------------
 
 class TestOverride:
 
@@ -310,10 +277,6 @@ class TestOverride:
         })
         assert response.status_code == 404
 
-
-# ----------------------------------------------------------------
-# METRICS TESTS
-# ----------------------------------------------------------------
 
 class TestMetrics:
 

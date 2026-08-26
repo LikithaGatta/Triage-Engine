@@ -14,8 +14,7 @@ import {
 } from "../types";
 
 // Base URL — points to your running FastAPI server
-const BASE_URL = "http://localhost:8000/api/v1";
-
+const BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:8000/api/v1";
 // Axios instance with default config
 // All requests automatically include base URL and JSON content type
 const api = axios.create({

@@ -3,13 +3,12 @@ scripts/retrain_from_feedback.py
 ==================================
 Retrains the classifier using original training data + agent corrections.
 
-This is the core of the human-in-the-loop pipeline.
-Every time this runs, the model gets smarter from agent feedback.
+Used to human-in-the-loop retraining of the model -> every run = smarter model feedback
 
-HOW TO RUN:
+TO RUN:
     python scripts/retrain_from_feedback.py
 
-WHAT IT DOES:
+Steps: 
     1. Loads original training data (data/processed/train.csv)
     2. Loads all agent corrections (data/processed/agent_corrections.csv)
     3. Preprocesses the corrections
@@ -18,11 +17,6 @@ WHAT IT DOES:
     6. Evaluates: new model vs old model on same test set
     7. If new model is better → saves as new version, updates API
     8. Logs everything to MLflow under the "retraining" experiment
-
-MINIMUM CORRECTIONS THRESHOLD:
-    We require at least MIN_CORRECTIONS corrections before retraining.
-    With too few corrections the signal is too weak and retraining
-    might actually hurt accuracy. 20 is a reasonable minimum.
 """
 
 import sys
@@ -60,10 +54,7 @@ def main():
     logger.info("=" * 60)
 
 
-    # ============================================================
-    # STEP 1: CHECK WE HAVE ENOUGH CORRECTIONS
-    # ============================================================
-
+    
     store = FeedbackStore()
     n_corrections = store.count()
 
@@ -81,10 +72,7 @@ def main():
     logger.info(f"  ✓ Sufficient corrections — proceeding with retraining")
 
 
-    # ============================================================
-    # STEP 2: LOAD ORIGINAL TRAINING DATA
-    # ============================================================
-
+    
     logger.info(f"\n[Step 2] Loading original training data...")
 
     train_path = Path("data/processed/train.csv")
@@ -101,9 +89,6 @@ def main():
     logger.info(f"  Test set:              {len(test_df):,} tickets")
 
 
-    # ============================================================
-    # STEP 3: LOAD AND PREPROCESS CORRECTIONS
-    # ============================================================
 
     logger.info(f"\n[Step 3] Loading and preprocessing corrections...")
 
@@ -120,10 +105,7 @@ def main():
     logger.info(f"  Correction categories:\n{corrections_processed['category'].value_counts().to_string()}")
 
 
-    # ============================================================
-    # STEP 4: COMBINE DATASETS
-    # ============================================================
-
+    
     logger.info(f"\n[Step 4] Combining original data with corrections...")
 
     # Repeat corrections CORRECTION_WEIGHT times to give them higher weight
@@ -145,10 +127,7 @@ def main():
     logger.info(f"  Combined total:        {len(combined_df):,}")
 
 
-    # ============================================================
-    # STEP 5: EVALUATE OLD MODEL BASELINE
-    # ============================================================
-
+    
     logger.info(f"\n[Step 5] Evaluating current model on test set...")
 
     old_model_path = Path("models/baseline_v1.0.0.joblib")
@@ -165,10 +144,7 @@ def main():
     logger.info(f"  Current model F1:       {old_f1:.1%}")
 
 
-    # ============================================================
-    # STEP 6: TRAIN NEW MODEL
-    # ============================================================
-
+    
     logger.info(f"\n[Step 6] Training new model on combined dataset...")
 
     # Build new version string: 1.0.0 → 1.1.0
@@ -188,10 +164,7 @@ def main():
     logger.info(f"  New model version: {new_version}")
 
 
-    # ============================================================
-    # STEP 7: EVALUATE NEW MODEL
-    # ============================================================
-
+    
     logger.info(f"\n[Step 7] Evaluating new model on test set...")
 
     new_preds    = new_classifier.pipeline.predict(test_df["processed_text"].fillna("").tolist())
@@ -205,10 +178,7 @@ def main():
     logger.info(f"  Improvement:         {improvement:+.1%} ({improvement*100:+.2f} points)")
 
 
-    # ============================================================
-    # STEP 8: PROMOTE IF BETTER
-    # ============================================================
-
+    
     logger.info(f"\n[Step 8] Promotion decision...")
 
     # Log comparison to MLflow

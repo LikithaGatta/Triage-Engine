@@ -1,11 +1,8 @@
 """
 scripts/download_real_data.py
 ==============================
-Downloads a real customer support dataset from a public source
+Download a real customer support dataset from a public source
 and saves it to data/raw/ for mixing with synthetic data.
-
-This gives us genuinely ambiguous, messy real-world tickets
-that make the classification problem actually challenging.
 """
 
 import sys

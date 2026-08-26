@@ -9,42 +9,24 @@ This is the MAIN script for Week 1. Run this file to:
   5. Save the trained model to disk
   6. Log everything to MLflow for tracking
 
-HOW TO RUN:
+TO RUN:
   Make sure your virtual environment is activated first:
     source venv/bin/activate
 
   Then from the triage-engine/ folder run:
     python scripts/train_baseline.py
 
-WHAT YOU WILL SEE:
-  Colored log messages showing each step as it runs.
-  At the end you will see your baseline accuracy number.
-  This is the number you will beat in Week 2 with DistilBERT.
 
-WHY THIS FILE EXISTS:
-  In professional ML projects, training code lives in scripts/
-  so it can be run from the command line, scheduled as a job,
-  or triggered by a CI/CD pipeline. Keeping it separate from
-  src/ (library code) is standard practice.
 """
 
-# ----------------------------------------------------------------
 # SYSTEM PATH SETUP
-# This must be the very first thing we do before any other imports.
-#
-# WHY:
-#   When Python runs this script it starts looking for modules
-#   from the scripts/ folder. But our code lives in src/ which
-#   is one level up. We need to tell Python "also look in the
-#   parent folder" so that "from src.data.loader import ..."
-#   actually finds the file.
 #
 # Path(__file__) = full path to this script file
 # .parent        = the scripts/ folder
 # .parent        = the triage-engine/ folder (one more level up)
 # str(...)       = convert to string because sys.path needs strings
 # sys.path.insert(0, ...) = add to the FRONT of the search path
-# ----------------------------------------------------------------
+
 import sys
 from pathlib import Path
 
@@ -52,26 +34,13 @@ from pathlib import Path
 project_root = str(Path(__file__).parent.parent)
 sys.path.insert(0, project_root)
 
-# ----------------------------------------------------------------
-# STANDARD LIBRARY IMPORTS
-# These come with Python — no installation needed
-# ----------------------------------------------------------------
 import argparse    # Lets us accept arguments from the command line
                    # e.g. python train_baseline.py --n-samples 200
 
 import os          # Operating system utilities
-
-# ----------------------------------------------------------------
-# THIRD PARTY IMPORTS
-# These were installed via pip install -r requirements.txt
-# ----------------------------------------------------------------
 import pandas as pd
 from dotenv import load_dotenv
 
-# ----------------------------------------------------------------
-# OUR OWN CODE IMPORTS
-# These are the files we wrote in the src/ folder
-# ----------------------------------------------------------------
 from src.data.loader import DatasetLoader
 from src.data.preprocessor import TicketPreprocessor
 from src.models.baseline_classifier import BaselineClassifier
@@ -81,16 +50,10 @@ from src.utils.logger import logger
 load_dotenv()
 
 
-# ================================================================
-# ARGUMENT PARSER
-# ================================================================
 
 def parse_args():
     """
     Define and parse command-line arguments.
-
-    argparse is Python's built-in tool for handling command-line flags.
-    Each add_argument() call defines one flag the user can pass in.
 
     Returns:
         Namespace object where args.n_samples, args.test_size, etc.
@@ -131,9 +94,7 @@ def parse_args():
     return parser.parse_args()
 
 
-# ================================================================
 # MAIN TRAINING FUNCTION
-# ================================================================
 
 def main():
     """
@@ -155,10 +116,7 @@ def main():
     logger.info("=" * 60)
 
 
-    # ============================================================
     # STEP 1: LOAD DATA
-    # Generate synthetic tickets or load from disk if already done.
-    # ============================================================
 
     logger.info("\n[Step 1 of 4] Loading data...")
 
@@ -177,7 +135,6 @@ def main():
     logger.info(f"\nUrgency counts:\n{df['urgency'].value_counts().to_string()}")
 
 
-    # ============================================================
     # STEP 2: PREPROCESS TEXT
     # Clean raw ticket text before feeding it to the ML model.
     #   - Lowercase everything
@@ -185,7 +142,6 @@ def main():
     #   - Remove common words like "the", "a", "is" (stopwords)
     #   - Lemmatize: "charged" becomes "charge", "crashes" becomes "crash"
     #   - Combine subject + body into one "processed_text" field
-    # ============================================================
 
     logger.info("\n[Step 2 of 4] Preprocessing text...")
 
@@ -219,7 +175,6 @@ def main():
     logger.info(f"Tickets remaining: {len(df):,}")
 
 
-    # ============================================================
     # STEP 3: TRAIN / TEST SPLIT
     # Divide data into two non-overlapping sets:
     #
@@ -228,11 +183,7 @@ def main():
     #
     #   TEST SET (20%):     Hidden from the model during training.
     #                       Used ONLY to measure real-world accuracy.
-    #
-    # If we tested on training data, the model could memorize answers
-    # and score 100% without learning anything real.
-    # ============================================================
-
+    
     logger.info("\n[Step 3 of 4] Splitting into train and test sets...")
 
     # Returns two DataFrames: train_df and test_df
@@ -250,11 +201,7 @@ def main():
     logger.info(f"Test:  {len(test_df):,} tickets saved to data/processed/test.csv")
 
 
-    # ============================================================
     # STEP 4: TRAIN AND EVALUATE
-    #
-    # OUR MODEL: TF-IDF + Logistic Regression (sklearn Pipeline)
-    #
     # TF-IDF converts text to numbers:
     #   "I was charged twice" becomes a vector like [0.0, 0.91, 0.0, ...]
     #   where each number represents how important a word is.
@@ -264,7 +211,6 @@ def main():
     #   High "crash" score + high "error" score   = predict "bug_report"
     #
     # Pipeline chains them: text → TF-IDF → numbers → classifier → label
-    # ============================================================
 
     logger.info("\n[Step 4 of 4] Training and evaluating...")
 
@@ -294,10 +240,8 @@ def main():
     )
 
 
-    # ============================================================
     # RESULTS SUMMARY
-    # These are the numbers you will put on your resume.
-    # ============================================================
+
 
     logger.info("\n" + "=" * 60)
     logger.info("WEEK 1 RESULTS SUMMARY")
@@ -317,11 +261,6 @@ def main():
     logger.info(f"  That improvement is your resume headline metric.")
     logger.info("=" * 60)
 
-
-    # ============================================================
-    # DEMO: SINGLE TICKET PREDICTION
-    # Show the trained model classifying one example ticket.
-    # ============================================================
 
     logger.info("\nDEMO: Predicting a single example ticket")
     logger.info("-" * 40)
@@ -359,10 +298,6 @@ def main():
         logger.info(f"    {category_name:<22} {probability:.1%}  [{bar}]")
 
 
-    # ============================================================
-    # NEXT STEPS
-    # ============================================================
-
     logger.info("\n" + "=" * 60)
     logger.info("NEXT STEPS")
     logger.info("=" * 60)
@@ -383,16 +318,5 @@ def main():
     logger.info("=" * 60)
 
 
-# ----------------------------------------------------------------
-# ENTRY POINT
-#
-# if __name__ == "__main__" is standard Python convention.
-# This block only runs when you execute this file directly:
-#   python scripts/train_baseline.py
-#
-# It does NOT run when another file imports from this file.
-# This protects against accidentally running training when
-# another script just wants to import a helper function.
-# ----------------------------------------------------------------
 if __name__ == "__main__":
     main()

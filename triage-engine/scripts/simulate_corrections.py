@@ -3,21 +3,10 @@ scripts/simulate_corrections.py
 =================================
 Simulates 50 realistic agent corrections to test the retraining pipeline.
 
-In a real deployment, corrections come from agents using the dashboard.
-For portfolio demonstration, we generate realistic corrections
-that target the model's actual weak spots — ambiguous tickets where
-multiple categories are plausible.
-
-WHY SIMULATE?
-  You cannot wait for real agents to use your demo app.
-  Simulating corrections lets you demonstrate the full pipeline
-  immediately. The simulation is honest — we create genuinely
-  ambiguous tickets and assign defensible correct labels.
-
-HOW TO RUN:
+TO RUN:
     python scripts/simulate_corrections.py
 
-WHAT IT DOES:
+Steps:
     1. Creates 50 ambiguous tickets with agent corrections
     2. Saves them to data/processed/agent_corrections.csv
     3. Prints a summary showing what was corrected and why

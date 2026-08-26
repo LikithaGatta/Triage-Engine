@@ -12,16 +12,13 @@ Produces:
   - SHAP explanation coverage
   - Auto-route rate at different confidence thresholds
 
-HOW TO RUN:
-  Make sure the API is running first:
+To Run: 
+  Check that API is running first:
     python scripts/run_api.py   (in a separate terminal)
 
-  Then run benchmarks:
+  Run benchmark:
     python scripts/benchmark.py
 
-OUTPUT:
-  Prints a full benchmark report to terminal.
-  Saves results to data/processed/benchmark_results.json
 """
 
 import sys
